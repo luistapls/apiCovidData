@@ -1,0 +1,35 @@
+{
+  "name": "coronavirus-api",
+  "version": "0.0.1",
+  "description": "api coronavirus",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "nodemon dist/src/server.js ",
+    "start": "tsc && pm2-runtime start ecosystem.config.js --env production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eusoumaxi/apiCovidData.git"
+  },
+  "author": "@eusoumaxi",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "helmet": "3.22.1",
+    "pm2": "^4.4.0"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "@types/node": "^14.0.13",
+    "@hapi/boom": "^9.1.0",
+    "@sentry/node": "5.17.0",
+    "@types/boom": "7.3.0",
+    "@types/cors": "2.8.6",
+    "@types/helmet": "0.0.47",
+    "tsc-node": "0.0.3",
+    "typescript": "^3.9.5"
+  }
+}

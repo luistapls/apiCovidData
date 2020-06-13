@@ -1,0 +1,35 @@
+{
+    "allRoute": {
+        "Name": "Get All Data",
+        "Description": "Returns all data in the system.",
+        "Path": "/all"
+    },
+    "countriesRoute": {
+        "Name": "Get List Of Countries",
+        "Description": "Returns all countries and associated provinces. The country_slug variable is used for country specific data",
+        "Path": "/countries"
+    },
+    "countryRoute": {
+        "Name": "Get data per country ",
+        "Description": "returns data from the country, state and city (in some cases)",
+        "Example": "url:/Colombia",
+        "Path": "/:country"
+    },
+    "countryRouteState": {
+        "Name": "Get data per country ",
+        "Description": "returns case data in the state",
+        "Example": "url:/Colombia/Amazonas",
+        "Path": "/:country/:state"
+    },
+    "countryRouteStateCity": {
+        "Name": "Get data per country ",
+        "Description": "returns case data to the city. Only valid for united states",
+        "Example": "url:/US/Florida/Miami",
+        "Path": "/:country/:state/:city"
+    },
+    "summaryRoute": {
+        "Name": "Summary of new and total cases per country",
+        "Description": "A summary of new and total cases per country",
+        "Path": "/summary"
+    }
+}
