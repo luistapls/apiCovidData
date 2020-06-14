@@ -6,8 +6,7 @@
 - [CronJOBS](README.md#CronJOBS)
 - [Data api](README.md#Data-api)
 
-
-
+<b>URL API:</b><br>[https://apicoviddata.azurewebsites.net/u](https://apicoviddata.azurewebsites.net/u)
 ## Installation
 
 Coronavirus Api requires [Node.js](https://nodejs.org/) v12+ to run.
@@ -72,12 +71,15 @@ List all the current routes available with detail on each.
 
  - GET Country
  Returns data from the country, state and city (in some cases).
+
+
 ```
- https://apicoviddata.azurewebsites.net/italy
-```
-or
-```
- https://apicoviddata.azurewebsites.net/it
+ //Country
+ https://apicoviddata.azurewebsites.net/Antigua%20and%20Barbuda
+ //Code ISO2
+ https://apicoviddata.azurewebsites.net/ag
+ //Slug
+ https://apicoviddata.azurewebsites.net/antigua-and-barbuda
 ```
 
  - GET State
@@ -89,6 +91,11 @@ https://apicoviddata.azurewebsites.net/us/florida
 Returns case data to the city. Only valid for united states. 
 ```
 https://apicoviddata.azurewebsites.net/us/florida/Miami-Dade
+```
+- GET ALL
+Returns all data in the system.
+```
+https://apicoviddata.azurewebsites.net/all
 ```
 ### Field description
 
@@ -110,7 +117,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 License
 ----
-
 MIT
 
 
