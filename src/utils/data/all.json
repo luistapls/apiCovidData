@@ -1,35 +1,56 @@
 {
+    "Documentation": "https://bit.ly/documentationcovid",
+    "SourceData": {
+        "Description": "Access data on COVID19 through an easy API for free. Build dashboards, mobile apps or integrate in to other applications. Data is sourced from Johns Hopkins CSSE",
+        "getData": "https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data"
+    },
     "allRoute": {
         "Name": "Get All Data",
         "Description": "Returns all data in the system.",
         "Path": "/all"
     },
     "countriesRoute": {
-        "Name": "Get List Of Countries",
+        "Name": "Get List Of Countries.",
         "Description": "Returns all countries and associated provinces. The country_slug variable is used for country specific data",
         "Path": "/countries"
     },
     "countryRoute": {
-        "Name": "Get data per country ",
-        "Description": "returns data from the country, state and city (in some cases)",
-        "Example": "url:/Colombia",
-        "Path": "/:country"
+        "Name": "Get data per country. ",
+        "Description": "Returns data from the country, state and city (in some cases).",
+        "Path": "/country/:country",
+        "Example": "https://apicoviddata.azurewebsites.net/country/italy"
     },
     "countryRouteState": {
-        "Name": "Get data per country ",
-        "Description": "returns case data in the state",
-        "Example": "url:/Colombia/Amazonas",
-        "Path": "/:country/:state"
+        "Name": "Get data per country and associated state. ",
+        "Description": "Returns state case data",
+        "Path": "/country/:country/:state",
+        "Example": "https://apicoviddata.azurewebsites.net/country/spain/andalusia"
     },
     "countryRouteStateCity": {
-        "Name": "Get data per country ",
-        "Description": "returns case data to the city. Only valid for united states",
-        "Example": "url:/US/Florida/Miami",
-        "Path": "/:country/:state/:city"
+        "Name": "Get data per city.",
+        "Description": "Returns case data to the city. Only valid for united states",
+        "Path": "/country/:country/:state/:city",
+        "Example": "https://apicoviddata.azurewebsites.net/country/us/california/Los%20Angeles"
+    },
+    "timeline": {
+        "Name": "Get the timeline of all countries.",
+        "Description": "Returns all data recorded in the country, state, and city timeline system.",
+        "Path": "/timeline",
+        "Example": "https://apicoviddata.azurewebsites.net/timeline"
+    },
+    "timelinePerCountry": {
+        "Name": "Get the timeline per country.",
+        "Description": "Returns the timeline by case type for a country.",
+        "Path": "/timeline/:country",
+        "Example": "https://apicoviddata.azurewebsites.net/timeline/united-states"
     },
     "summaryRoute": {
         "Name": "Summary of new and total cases per country",
         "Description": "A summary of new and total cases per country",
         "Path": "/summary"
+    },
+    "autor": {
+        "User": "@eusoumaxi",
+        "Link": "https://github.com/eusoumaxi"
     }
 }

@@ -3,8 +3,8 @@ module.exports = {
     {
       name: 'api-covid19',
       script: 'dist/src/server.js',
-      watch: true,
-      instances: 'max'
+      watch: false,
+      instances: 'max',
     },
     {
       name: 'CRON',

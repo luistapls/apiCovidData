@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { config } from '../config';
+import { Response } from 'express-serve-static-core';
 
-function cacheResponse(
-  res: { set: (arg0: string, arg1: string) => void },
-  seconds: number
-) {
+function cacheResponse(res: Response<unknown>, seconds: number) {
   if (!config.dev) {
-    res.set('Cache-Control', `public, max-age=${seconds}`);
+    return res.set('Cache-Control', `public, max-age=${seconds}`);
   }
 }
 export { cacheResponse };

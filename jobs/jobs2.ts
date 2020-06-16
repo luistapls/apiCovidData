@@ -1,110 +1,94 @@
-import { writeFile } from 'fs';
-import csvjson from './csvjson';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import axios from 'axios';
-import countries from './countries.json';
+import { writeFile } from 'fs';
+import moment from 'moment';
+import { logErrors } from '../src/utils/middleware/errorsHandlers';
+import countriesJson from './countries.json';
+import csvjson from './csvjson';
 
-class dataService {
+class DataService {
+  dayilyReports: (p: string) => string;
+  timeSeriesConfirmed: string;
+  timeSeriesDeaths: string;
+  timeSeriesRecovered: string;
+
   constructor() {
+    this.dayilyReports = (p: string) =>
+      `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${p}.csv`;
+
+    this.timeSeriesConfirmed = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv`;
+    this.timeSeriesDeaths = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv`;
+    this.timeSeriesRecovered = `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv`;
+
     // ...
   }
 
+  // Data CSV to Format JSON
+  dataCSVtoJSON = (dataCountries: any) =>
+    csvjson.toSchemaObject(dataCountries, {
+      delimiter: ',',
+      quote: '"',
+    });
+
+  // Function that create the json file
+  dataWrites = (ruta: string, data: string) => {
+    writeFile(ruta, data, (err) => err);
+  };
+
   getdata = async () => {
-    // function that create the json file
-    let dataWrites = (ruta: string, data: string) => {
-      writeFile(ruta, data, (err) => {
-        err ? console.error('Salio Mal') : console.error('Todo bien');
-      });
-    };
-
-    //------------ Helper Date
-    // Function that change date to MM-DD-YYYY in string
-    let dateToday = (date: Date) => {
-      let today = new Date(date);
-      let month =
-        today.getMonth() + 1 < 10
-          ? `0${today.getMonth() + 1}`
-          : today.getMonth() + 1;
-      let day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
-      return `${month}-${day}-${today.getFullYear()}`;
-    };
-    // If there is an error in the query, it will be returned the day before
-    let errorDate = (fecha: Date, dias: number) => {
-      fecha.setDate(fecha.getDate() + dias);
-      return dateToday(fecha);
-    };
-
+    /*** Helper */
     //  Function to find the country, iso, country in the countries.json
-    let countryFilter = (country: string, type: string) => {
+    const countryFilter = (country: string, type: string) => {
       try {
-        let filtered = countries.filter((i) => i.Country === country)[0][type];
+        const filtered = countriesJson.filter((i) => i.Country === country)[0][
+          type
+        ];
         return filtered;
       } catch (error) {
         return 'No Data';
       }
     };
-
+    // Reduce Summ, function to sum all the values ​​inside an array
+    const dataSUM = (f: any) => {
+      return f
+        .map((i: number) => Number(i))
+        .reduce((acc: string, val: string) => acc + val, 0);
+    };
     // Function to filter all repeated values
-    let UniqueValue = (f: any[]) =>
-      f.filter(
+    const uniqueValue = (f: any[]) => {
+      return f.filter(
         (value: string, index: number, self: any[]) =>
           self.indexOf(value) === index
       );
-
+    };
     // Function to filter data by country
-    let filterData = (p: string) =>
-      dataJSON.filter(
+    const filterData = (p: string) => {
+      return dataJSON.filter(
         (i: { Country_Region: string }) => i.Country_Region === p
       );
-
-    // Reduce Summ, function to sum all the values ​​inside an array
-    let dataSUM = (f: any) =>
-      f
-        .map((i: number) => Number(i))
-        .reduce((acc: string, val: string) => acc + val, 0);
-
+    };
     // summation of all data, p is value to search
-    let summaryFunctions = (p: string) =>
-      dataSUM(
-        UniqueValue(dataJSON.map((i) => i.Country_Region)).map((c) =>
-          dataSUM(filterData(c).map((i) => i[p]))
+    const summaryFunctionsData = (data: any[], typeData: string) => {
+      return dataSUM(
+        uniqueValue(data.map((i) => i.Country_Region)).map((c) =>
+          dataSUM(
+            data
+              .filter((i: { Country_Region: string }) => i.Country_Region === c)
+              .map((i) => i[typeData])
+          )
         )
       );
-    //------------Fin Helper
-
-    //axios get csv data in CSSEGISandData
-    let dataCountries = {};
-    try {
-      const responseCountries = await axios.get(
-        `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${dateToday(
-          new Date()
-        )}.csv`
-      );
-      dataCountries = await responseCountries.data;
-    } catch {
-      const responseCountries = await axios.get(
-        `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${errorDate(
-          new Date(),
-          -1
-        )}.csv`
-      );
-      dataCountries = await responseCountries.data;
-    }
-
-    // data CSV to Format JSON
-    let dataJSON = csvjson.toSchemaObject(dataCountries, {
-      delimiter: ',',
-      quote: '"',
-    });
-
+    };
     // Filtering whether there is a state or city
-    let StateOrCity = (p: string) =>
-      !UniqueValue(
+    const stateOrCity = (p: string) => {
+      return !uniqueValue(
         filterData(p).map(
           (i: { Province_State: string }) => i.Province_State === ''
         )
       )[0]
         ? {
-            State: UniqueValue(
+            State: uniqueValue(
               filterData(p).map(
                 (i: { Province_State: string }) => i.Province_State
               )
@@ -115,9 +99,62 @@ class dataService {
             })),
           }
         : [];
+    };
+    // Data Case Yesterday
+    const dataCountriesYesterdayData = (p: string, typo: string) => {
+      try {
+        return Object.values(
+          dataJSONYestarday
+            .map((i) => i.Country_Region)
+            .filter((value, index, self) => self.indexOf(value) === index)
+            .map((c) => ({
+              [c]: dataSUM(
+                dataJSONYestarday
+                  .filter(
+                    (i: { Country_Region: string }) => i.Country_Region === c
+                  )
+                  .map((i) => i[typo])
+              ),
+            }))
+            .filter((i) => i[p])[0]
+        )[0];
+      } catch {
+        return 0;
+      }
+    };
+    /** ------------Fin Helper  */
+
+    // Axios get csv data in CSSEGISandData
+    let dataCountries = {};
+    let dataCountriesYesterday = {};
+
+    try {
+      const responseCountries = await axios.get(
+        this.dayilyReports(moment().format('MM-DD-YYYY'))
+      );
+      dataCountries = await responseCountries.data;
+
+      const responseCountriesYesterday = await axios.get(
+        this.dayilyReports(moment().add(-1, 'day').format('MM-DD-YYYY'))
+      );
+      dataCountriesYesterday = await responseCountriesYesterday.data;
+    } catch {
+      const responseCountries = await axios.get(
+        this.dayilyReports(moment().add(-1, 'day').format('MM-DD-YYYY'))
+      );
+      dataCountries = await responseCountries.data;
+      const responseCountriesYesterday = await axios.get(
+        this.dayilyReports(moment().add(-2, 'day').format('MM-DD-YYYY'))
+      );
+      dataCountriesYesterday = await responseCountriesYesterday.data;
+    }
+
+    // data CSV to Format JSON
+    const dataJSON = this.dataCSVtoJSON(dataCountries);
+    const dataJSONYestarday = this.dataCSVtoJSON(dataCountriesYesterday);
 
     // Function to organize all countries correctly
-    let DataCountries: any = dataJSON
+    const dataCountry = dataJSON
       .map((i) => i.Country_Region)
       .filter((value, index, self) => self.indexOf(value) === index)
       .map((c) => ({
@@ -126,30 +163,106 @@ class dataService {
             Country_Region: countryFilter(c, 'Country'),
             Code: countryFilter(c, 'ISO2'),
             Slug: countryFilter(c, 'Slug'),
-            Last_Update: new Date(),
+            Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
             Confirmed: dataSUM(filterData(c).map((i) => i.Confirmed)),
             Deaths: dataSUM(filterData(c).map((i) => i.Deaths)),
             Recovered: dataSUM(filterData(c).map((i) => i.Recovered)),
+            NewConfirmed:
+              dataSUM(filterData(c).map((i) => i.Confirmed)) -
+              dataCountriesYesterdayData(c, 'Confirmed'),
+            NewDeaths:
+              dataSUM(filterData(c).map((i) => i.Deaths)) -
+              dataCountriesYesterdayData(c, 'Deaths'),
+            NewRecovered:
+              dataSUM(filterData(c).map((i) => i.Recovered)) -
+              dataCountriesYesterdayData(c, 'Recovered'),
             Active: dataSUM(filterData(c).map((i) => i.Active)),
+            Timeline: `https://apicoviddata.azurewebsites.net/timeline/${countryFilter(
+              c,
+              'Slug'
+            )}`,
           },
-          ...StateOrCity(c),
+          ...stateOrCity(c),
         },
       }));
 
     // Global data for summaries
-    let Global = {
-      Confirmed: summaryFunctions('Confirmed'),
-      Deaths: summaryFunctions('Deaths'),
-      Recovered: summaryFunctions('Recovered'),
-      Active: summaryFunctions('Active'),
+    const globalConfirmed: number = summaryFunctionsData(dataJSON, 'Confirmed');
+    const globalDeaths: number = summaryFunctionsData(dataJSON, 'Deaths');
+    const globalRecovered = summaryFunctionsData(dataJSON, 'Recovered');
+    const globalActive: number = summaryFunctionsData(dataJSON, 'Active');
+    const globalNewConfirmed =
+      globalConfirmed - summaryFunctionsData(dataJSONYestarday, 'Confirmed');
+    const globalNewDeaths =
+      globalDeaths - summaryFunctionsData(dataJSONYestarday, 'Deaths');
+    const globalNewRecovered =
+      globalRecovered - summaryFunctionsData(dataJSONYestarday, 'Recovered');
+
+    const globalData = {
+      Confirmed: globalConfirmed,
+      Deaths: globalDeaths,
+      Recovered: globalRecovered,
+      Active: globalActive,
+      NewConfirmed: globalNewConfirmed,
+      NewDeaths: globalNewDeaths,
+      NewRecovered: globalNewRecovered,
+      Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
     };
 
     // Last step, create a json with the country data
-    dataWrites(
-      __dirname + `/v10.json`,
-      JSON.stringify({ Global, DataCountries })
+    this.dataWrites(
+      `${__dirname}/v10.json`,
+      JSON.stringify({ globalData, dataCountry })
     );
+  };
+
+  getTime = async () => {
+    try {
+      const dataJSONConfirmed = this.dataCSVtoJSON(
+        (await axios.get(this.timeSeriesConfirmed)).data
+      );
+
+      const dataJSONDeaths = this.dataCSVtoJSON(
+        (await axios.get(this.timeSeriesDeaths)).data
+      );
+
+      const dataJSONRecovered = this.dataCSVtoJSON(
+        (await axios.get(this.timeSeriesRecovered)).data
+      );
+
+      const dataOrErrorRecovered = (i: string, x: string) => {
+        try {
+          return Number(dataJSONRecovered[i][x]);
+        } catch {
+          return 0;
+        }
+      };
+      const datosRecive = Object.keys(dataJSONConfirmed).map((i) =>
+        Object.keys(dataJSONConfirmed[i])
+          .map((x) => ({
+            Country: dataJSONConfirmed[i]['Country/Region'],
+            Province: dataJSONConfirmed[i]['Province/State'],
+            Date: moment(new Date(x)).format('MM-DD-YYYY'),
+            Long: dataJSONConfirmed[i].Long,
+            Lat: dataJSONConfirmed[i].Lat,
+            Confirmed: Number(dataJSONConfirmed[i][x]),
+            Deaths: Number(dataJSONDeaths[i][x]),
+            Recovered: dataOrErrorRecovered(i, x),
+          }))
+          .filter((i) => i.Confirmed != i.Lat)
+          .filter((i) => i.Confirmed != i.Long)
+          .filter((i) => i.Date != 'Invalid date')
+      );
+
+      return this.dataWrites(
+        `${__dirname}/v20.json`,
+        JSON.stringify(datosRecive)
+      );
+    } catch (err) {
+      err(logErrors);
+    }
   };
 }
 
-new dataService().getdata();
+new DataService().getdata();
+new DataService().getTime();

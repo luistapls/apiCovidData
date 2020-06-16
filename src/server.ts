@@ -2,11 +2,10 @@ import express, { Application } from 'express';
 import helmet from 'helmet';
 import { config } from './config';
 import api from './routes/api';
-
 import {
+  errorHandler,
   logErrors,
   notFoundHandler,
-  errorHandler,
   wrapErrors,
 } from './utils/middleware/errorsHandlers.js';
 

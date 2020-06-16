@@ -1,0 +1,5 @@
+ 
+build/**
+build/**/*.js
+config/*.js
+jobs/csvjson/*.js
