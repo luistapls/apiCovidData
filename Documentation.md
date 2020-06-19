@@ -30,7 +30,7 @@ List all the current routes available with detail on each.
   Returns all the available countries and provinces, as well as the country slug for per country requests.
 
 ```
- https://apicoviddata.azurewebsites.net/countries
+ https://apicoviddata.azurewebsites.net/country
 ```
 
  - GET Country

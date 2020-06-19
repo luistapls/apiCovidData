@@ -4,6 +4,10 @@
         "Description": "Access data on COVID19 through an easy API for free. Build dashboards, mobile apps or integrate in to other applications. Data is sourced from Johns Hopkins CSSE",
         "getData": "https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data"
     },
+    "GraphQL": {
+        "Name": "GraphQL",
+        "Path": "https://apicoviddata.azurewebsites.net/grpahql"
+    },
     "allRoute": {
         "Name": "Get All Data",
         "Description": "Returns all data in the system.",
@@ -12,7 +16,7 @@
     "countriesRoute": {
         "Name": "Get List Of Countries.",
         "Description": "Returns all countries and associated provinces. The country_slug variable is used for country specific data",
-        "Path": "/countries"
+        "Path": "/country"
     },
     "countryRoute": {
         "Name": "Get data per country. ",

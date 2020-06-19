@@ -40,17 +40,12 @@ $ cd coronavirus-api
 
 $ npm install
 
-$ touch .env
-
 $ npm run build
-
-$ node dist/jobs/jobs2
 
 $ npm run dev
 
 ```
-
-  
+ 
 
 For production environments...
 
@@ -63,20 +58,6 @@ $ npm install --production
 $ npm run build
 
 $ npm run start
-
-```
-
-  
-
-.env file...
-
-```env
-
-PORT =8080
-
-NODE_ENV = production or development
-
-SENTRY_URL=https://****@***.ingest.sentry.io/***
 
 ```
 
@@ -95,11 +76,11 @@ Refer to the [mainpage](https://github.com/CSSEGISandData/COVID-19).
 
   
 
-The script that runs the Cronsjob found in jobs/jobs2, cronjobs are run every 3 hours by pm2. Or just run it.
+The script that runs the Cronsjob found in jobs, cronjobs are run every 3 hours by pm2. Or just run it.
 
 ```sh
 
-$ node dist/jobs/jobs2
+$ node jobs/
 
 ```
 
@@ -127,3 +108,6 @@ MIT
   
 
 **Free Software, Hell Yeah!**
+
+## Updates
+Change ts to js

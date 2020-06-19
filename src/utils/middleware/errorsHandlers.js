@@ -1,38 +1,47 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { config } from '../../config';
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-expressions */
 const boom = require('@hapi/boom');
-const Sentry = require('@sentry/node');
+const isRequestAjaxOrApi = require('../../utils/isRequestAjaxOrApi');
+const { config } = require('../../config');
 
-Sentry.init({
-  dsn: `${config.sentryURL}`,
-});
-
-const withErrorStack = (error, stack) => {
-  config.dev && { ...error, stack };
-  error;
-};
-
-// LOG  SENTRY
+// LOG
 const logErrors = (err, _req, _res, next) => {
-  Sentry.captureException(err);
-  next(err);
+  // eslint-disable-next-line no-console
+  config.dev && console.log(next(err));
 };
+function withErrorStack(err, stack) {
+  if (config.dev) {
+    return { ...err, stack }; // Object.assign({}, err, stack)
+  }
+}
+function wrapErrors(err, _req, _res, next) {
+  if (!err.isBoom) {
+    next(boom.badImplementation(err));
+  }
 
-const wrapErrors = (err, _req, _res, next) => {
-  !err.isBoom && next(boom.badImplementation(err));
   next(err);
-};
-
-// MESSAGE ERROR CLIENT
-const errorHandler = (err, _req, res, _next) => {
+}
+function clientErrorHandler(err, req, res, next) {
   const {
     output: { statusCode, payload },
   } = err;
+
+  // catch errors for AJAX request or if an error ocurrs while streaming
+  if (isRequestAjaxOrApi(req) || res.headersSent) {
+    res.status(statusCode).json(withErrorStack(payload, err.stack));
+  } else {
+    next(err);
+  }
+}
+function errorHandler(err, _req, res, _next) {
+  const {
+    output: { statusCode, payload },
+  } = err;
+
   res.status(statusCode);
   res.json(withErrorStack(payload, err.stack));
-};
+}
+
 
 // ERROR 404
 const notFoundHandler = (_req, res) => {
@@ -43,4 +52,10 @@ const notFoundHandler = (_req, res) => {
   res.status(statusCode).json(payload);
 };
 
-export { logErrors, wrapErrors, errorHandler, notFoundHandler };
+module.exports = {
+  logErrors,
+  wrapErrors,
+  notFoundHandler,
+  errorHandler,
+  clientErrorHandler,
+};
