@@ -6,7 +6,7 @@
     },
     "GraphQL": {
         "Name": "GraphQL",
-        "Path": "https://apicoviddata.azurewebsites.net/grpahql"
+        "Path": "https://apicoviddata.azurewebsites.net/graphql"
     },
     "allRoute": {
         "Name": "Get All Data",

@@ -1,12 +1,12 @@
 {
   "name": "coronavirus-api",
-  "version": "v0.03",
+  "version": "0.0.3",
   "description": "api coronavirus",
   "main": "src/server.js",
   "scripts": {
-    "build": "node jobs ",
+    "build": "node jobs/getData && node jobs/getTimeline ",
     "dev": "nodemon src/server.js",
-    "start": "NODE_ENV=production pm2-runtime start ecosystem.config.js --env production",
+    "start": "NODE_ENV=production pm2-runtime start ecosystem.config.js ",
     "lint": "eslint"
   },
   "repository": {
