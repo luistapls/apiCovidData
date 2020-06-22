@@ -136,7 +136,7 @@ const getData = async () => {
             dataSUM(filterData(c).map((i) => i.Recovered))
             - dataCountriesYesterdayData(c, 'Recovered'),
           Active: dataSUM(filterData(c).map((i) => i.Active)),
-          Timeline: `https://apicoviddata.azurewebsites.net/timeline/${countryFilter(
+          Timeline: `https://api-corona.azurewebsites.net/timeline/${countryFilter(
             c,
             'Slug',
           )}`,

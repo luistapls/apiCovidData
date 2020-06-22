@@ -80,3 +80,4 @@ dist/
 
 .now
 .deployment
+.vscode
