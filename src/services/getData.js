@@ -1,18 +1,16 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable*/
 const countriesJson = require('../../jobs/helper/countries.json');
 const { dataCountry, globalData } = require('../../jobs/v10.json');
-const v20 = require('../../jobs/v20.json');
-const { notFoundHandler } = require('../utils/middleware/errorsHandlers');
+const timeline = require('../../jobs/timeline.json');
+const timelineCity = require('../../jobs/timelineCity.json');
 
 const {
   errorData,
-  error400,
   filterdata,
   getCountriesURL,
   getProperty,
   uppercaseFirstLetter,
 } = require('../utils/helper/servicesHelper');
-const { response } = require('express');
 
 class DataServices {
   async getDataCountries() {
@@ -53,14 +51,23 @@ class DataServices {
   }
 
   async getTimelineAll() {
-    return v20 || [];
+    return timeline || [];
   }
 
   async getTimeLine(countries) {
-    const data = v20.filter(
+    const data = timeline.filter(
       (i) => i[0].Country === getCountriesURL(countries)
     )[0];
     return data || errorData;
+  }
+
+  async getTimeLineCity(countries, City) {
+    const data = timelineCity
+      .map((d) =>
+        d.filter((a) => a.Country === 'Canada' && a.Province === 'Alberta')
+      )
+      .filter((notNull) => notNull.length > 0)[0];
+    return data|| errorData;
   }
 }
 module.exports = DataServices;

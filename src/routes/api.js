@@ -98,5 +98,15 @@ router.get('/timeline/:countries', async (req, res, next) => {
     next(err);
   }
 });
+router.get('/timeline/:countries/:statep', async (req, res, next) => {
+  cacheResponse(res, threeHour);
+  const { countries, statep } = req.params;
+  try {
+    const data = await dataService.getTimeLineCity(countries, statep);
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
