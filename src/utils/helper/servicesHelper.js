@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const countriesJson = require('../../../jobs/helper/countries.json');
-const { dataCountry } = require('../../../jobs/v10.json');
+const { dataCountry } = require('../../../jobs/db/dataCountry.json');
 
 const getProperty = (obj, key) => obj[key];
 
@@ -9,10 +9,10 @@ const filterdata = (country, typo) => dataCountry.filter((filter) => filter[coun
 const uppercaseFirstLetter = (word) => word[0].toUpperCase() + word.slice(1);
 
 const getCountriesURL = (strinp) => {
-  const country = countriesJson.find((c) => (
-    strinp.toLowerCase().replace(/ /g, '-') === c.Slug
-      || strinp.toUpperCase() === c.ISO2
-  ));
+  const country = countriesJson.find(
+    (c) => strinp.toLowerCase().replace(/ /g, '-') === c.Slug
+      || strinp.toUpperCase() === c.ISO2,
+  );
   return country ? country.Country : null;
 };
 
@@ -31,5 +31,5 @@ module.exports = {
   uppercaseFirstLetter,
   getCountriesURL,
   errorData,
-  error400
+  error400,
 };

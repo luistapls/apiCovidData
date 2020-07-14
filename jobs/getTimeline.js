@@ -1,6 +1,7 @@
 /* eslint-disable eqeqeq */
 const axios = require('axios').default;
 const moment = require('moment');
+const { config } = require('../src/config');
 const {
   dataCSVtoJSON,
   dataWrites,
@@ -71,7 +72,6 @@ const getTimeLine = async () => {
         .filter((value, index, self) => self.indexOf(value) === index))
       .map((i) => i[0])
       .filter((value, index, self) => self.indexOf(value) === index);
-
     const dataCitySum = (title) => {
       const dataSUM = (f) => f.map((i) => Number(i)).reduce((acc, val) => acc + val, 0);
 
@@ -97,9 +97,9 @@ const getTimeLine = async () => {
           Confirmed: suma(data, Number(d), 'Confirmed'),
           Deaths: suma(data, Number(d), 'Deaths'),
           Recovered: suma(data, Number(d), 'Recovered'),
-          TimeLineCity: `https://api-corona.azurewebsites.net/timeline/${
-            data[keyF][Number(d)].Country
-          }/info`,
+          TimeLineCity: `${config.url}/timeline/${removeAccents(
+            data[keyF][Number(d)].Country,
+          )}/info`,
         }))[0],
       ))[0];
     };
@@ -117,27 +117,33 @@ const getTimeLine = async () => {
           )
           .map((d) => ({
             Province: d[0].Province === '' ? d[0].Country : d[0].Province,
-            Slug: removeAccents(d[0].Province === '' ? d[0].Country : d[0].Province),
-            TimeLine: `http://localhost:8000/timeline/${removeAccents(
+            Slug: removeAccents(
+              d[0].Province === '' ? d[0].Country : d[0].Province,
+            ),
+            TimeLine: `${config.url}/${removeAccents(
               d[0].Country,
-            )}/${removeAccents(d[0].Province === '' ? d[0].Country : d[0].Province)}`,
+            )}/${removeAccents(
+              d[0].Province === '' ? d[0].Country : d[0].Province,
+            )}`,
           })),
       }));
     };
     const sumaCity = titleWithChild.map((title) => dataCitySum(title));
     const dataNoCity = datosRecive
-      .map((i) => i.filter((d) => d.Province === ''))
+      .map((i) => i.filter(
+        (country) => !mapFilterCountry.includes(country.Country),
+      ))
       .filter((val) => val.length > 1);
 
     /**
      * Create Json Data
      */
-    dataWrites(`${__dirname}/city.json`, JSON.stringify(cityJsonInfo()));
+    dataWrites(`${__dirname}/db/city.json`, JSON.stringify(cityJsonInfo()));
     dataWrites(
-      `${__dirname}/timeline.json`,
+      `${__dirname}/db/timeline.json`,
       JSON.stringify([...dataNoCity, ...sumaCity]),
     );
-    dataWrites(`${__dirname}/timelineCity.json`, JSON.stringify(mapFilter));
+    dataWrites(`${__dirname}/db/timelineCity.json`, JSON.stringify(mapFilter));
   } catch (error) {
     // console.log(error);
   }

@@ -81,5 +81,4 @@ dist/
 .now
 .deployment
 .vscode
-test2.js
-test2
+package-lock.json

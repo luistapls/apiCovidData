@@ -1,8 +1,8 @@
 /* eslint-disable*/
 const countriesJson = require('../../jobs/helper/countries.json');
-const { dataCountry, globalData } = require('../../jobs/v10.json');
-const timeline = require('../../jobs/timeline.json');
-const timelineCity = require('../../jobs/timelineCity.json');
+const { dataCountry, globalData } = require('../../jobs/db/dataCountry.json');
+const timeline = require('../../jobs/db/timeline.json');
+const timelineCity = require('../../jobs/db/timelineCity.json');
 
 const {
   errorData,
@@ -15,6 +15,9 @@ const {
 class DataServices {
   async getDataCountries() {
     return countriesJson || [];
+  }
+  async getDataAllCountryData() {
+    return { dataCountry, globalData } || [];
   }
 
   async getCountries(countries) {
@@ -64,10 +67,12 @@ class DataServices {
   async getTimeLineCity(countries, City) {
     const data = timelineCity
       .map((d) =>
-        d.filter((a) => a.Country === getCountriesURL(countries) && a.Province === City)
+        d.filter(
+          (a) => a.Country === getCountriesURL(countries) && a.Province === City
+        )
       )
       .filter((notNull) => notNull.length > 0)[0];
-    return data|| errorData;
+    return data || errorData;
   }
 }
 module.exports = DataServices;

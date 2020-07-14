@@ -2,6 +2,7 @@
 
 const axios = require('axios').default;
 const moment = require('moment');
+const { config } = require('../src/config');
 const { dataCSVtoJSON, dataWrites, countriesJson } = require('./helper');
 
 const dayilyReports = (dateToday) => `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${dateToday}.csv`;
@@ -136,7 +137,7 @@ const getData = async () => {
             dataSUM(filterData(c).map((i) => i.Recovered))
             - dataCountriesYesterdayData(c, 'Recovered'),
           Active: dataSUM(filterData(c).map((i) => i.Active)),
-          Timeline: `https://api-corona.azurewebsites.net/timeline/${countryFilter(
+          Timeline: `${config.url}/timeline/${countryFilter(
             c,
             'Slug',
           )}`,
@@ -167,10 +168,9 @@ const getData = async () => {
 
   // Last step, create a json with the country data
   dataWrites(
-    `${__dirname}/v10.json`,
+    `${__dirname}/db/dataCountry.json`,
     JSON.stringify({ globalData, dataCountry }),
   );
 };
 
-getData()
-
+getData();

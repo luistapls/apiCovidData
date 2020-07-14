@@ -1,6 +1,4 @@
 const { Router } = require('express');
-const v10Json = require('../../jobs/v10.json');
-const v20Json = require('../../jobs/v20.json');
 const allJson = require('../utils/data/all.json');
 const DataServices = require('../services/getData');
 const cacheResponse = require('../utils/cache');
@@ -12,9 +10,7 @@ const router = Router();
 router.get('/', async (_req, res, next) => {
   cacheResponse(res, threeHour);
   try {
-    res.status(200).json(
-      allJson,
-    );
+    res.status(200).json(allJson);
   } catch (err) {
     next(err);
   }
@@ -42,7 +38,9 @@ router.get('/country', async (_req, res, next) => {
 router.get('/all', async (_req, res, next) => {
   cacheResponse(res, threeHour);
   try {
-    res.status(200).json({ v10Json, v20Json });
+    const dataSevicesCountry = await dataService.getTimelineAll();
+    const dataSevicesTimeLine = await dataService.getTimelineAll();
+    res.status(200).json({ dataSevicesCountry, dataSevicesTimeLine });
   } catch (err) {
     next(err);
   }
@@ -50,7 +48,8 @@ router.get('/all', async (_req, res, next) => {
 router.get('/timeline', async (_req, res, next) => {
   cacheResponse(res, threeHour);
   try {
-    res.status(200).json(v20Json);
+    const dataSevices = await dataService.getTimelineAll();
+    res.status(200).json(dataSevices);
   } catch (err) {
     next(err);
   }
