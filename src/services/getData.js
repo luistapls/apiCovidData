@@ -64,7 +64,7 @@ class DataServices {
   async getTimeLineCity(countries, City) {
     const data = timelineCity
       .map((d) =>
-        d.filter((a) => a.Country === 'Canada' && a.Province === 'Alberta')
+        d.filter((a) => a.Country === getCountriesURL(countries) && a.Province === City)
       )
       .filter((notNull) => notNull.length > 0)[0];
     return data|| errorData;

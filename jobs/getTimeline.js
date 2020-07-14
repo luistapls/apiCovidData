@@ -1,7 +1,12 @@
-/* eslint-disable */
+/* eslint-disable eqeqeq */
 const axios = require('axios').default;
 const moment = require('moment');
-const { dataCSVtoJSON, dataWrites } = require('./helper');
+const {
+  dataCSVtoJSON,
+  dataWrites,
+  uniqueValue,
+  removeAccents,
+} = require('./helper');
 
 const timeSeriesConfirmed = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
 const timeSeriesDeaths = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv';
@@ -43,10 +48,23 @@ const getTimeLine = async () => {
       .filter((data) => data.Confirmed != i.Long)
       .filter((data) => data.Date != 'Invalid date'));
 
-    const mapFilter = datosRecive
-      .map((i) => i.filter((d) => d.Province.length > 1))
-      .filter((val) => val.length > 1);
+    const mapFilterCountry = uniqueValue(
+      datosRecive
+        .map((i) => i.filter((d) => d.Province.length > 1))
+        .filter((val) => val.length > 1)
+        .map((d) => d[0].Country),
+    );
 
+    const mapFilter = mapFilterCountry
+      .map((title) => datosRecive
+        .map((i) => i.filter((d) => d.Country === title))
+        .filter((val) => val.length > 1))
+      .flat();
+
+    /**
+     *
+     * Data city Sum
+     */
     const titleWithChild = mapFilter
       .map((i) => i
         .map((d) => d.Country)
@@ -56,6 +74,7 @@ const getTimeLine = async () => {
 
     const dataCitySum = (title) => {
       const dataSUM = (f) => f.map((i) => Number(i)).reduce((acc, val) => acc + val, 0);
+
       const data = datosRecive
         .map((i) => i.filter((d) => d.Country === title))
         .filter((val) => val.length > 1)
@@ -78,14 +97,42 @@ const getTimeLine = async () => {
           Confirmed: suma(data, Number(d), 'Confirmed'),
           Deaths: suma(data, Number(d), 'Deaths'),
           Recovered: suma(data, Number(d), 'Recovered'),
+          TimeLineCity: `https://api-corona.azurewebsites.net/timeline/${
+            data[keyF][Number(d)].Country
+          }/info`,
         }))[0],
       ))[0];
+    };
+    /**
+     * City Json
+     */
+    const cityJsonInfo = () => {
+      const countryTitle = uniqueValue(
+        mapFilter.map((d) => d.map((q) => q.Country)[0]),
+      );
+      return countryTitle.map((title) => ({
+        [title]: mapFilter
+          .filter(
+            (i) => i.filter((titleFilter) => titleFilter.Country === title)[0],
+          )
+          .map((d) => ({
+            Province: d[0].Province === '' ? d[0].Country : d[0].Province,
+            Slug: removeAccents(d[0].Province === '' ? d[0].Country : d[0].Province),
+            TimeLine: `http://localhost:8000/timeline/${removeAccents(
+              d[0].Country,
+            )}/${removeAccents(d[0].Province === '' ? d[0].Country : d[0].Province)}`,
+          })),
+      }));
     };
     const sumaCity = titleWithChild.map((title) => dataCitySum(title));
     const dataNoCity = datosRecive
       .map((i) => i.filter((d) => d.Province === ''))
       .filter((val) => val.length > 1);
 
+    /**
+     * Create Json Data
+     */
+    dataWrites(`${__dirname}/city.json`, JSON.stringify(cityJsonInfo()));
     dataWrites(
       `${__dirname}/timeline.json`,
       JSON.stringify([...dataNoCity, ...sumaCity]),
