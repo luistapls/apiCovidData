@@ -97,7 +97,17 @@ router.get('/timeline/:countries', async (req, res, next) => {
     next(err);
   }
 });
-router.get('/timeline/:countries/:statep', async (req, res, next) => {
+router.get('/timeline/:countries/provinces', async (req, res, next) => {
+  cacheResponse(res, threeHour);
+  const { countries, statep } = req.params;
+  try {
+    const data = await dataService.getTimeLineInfo(countries, statep);
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
+router.get('/timeline/:countries/:statep/', async (req, res, next) => {
   cacheResponse(res, threeHour);
   const { countries, statep } = req.params;
   try {

@@ -3,6 +3,7 @@ const countriesJson = require('../../jobs/helper/countries.json');
 const { dataCountry, globalData } = require('../../jobs/db/dataCountry.json');
 const timeline = require('../../jobs/db/timeline.json');
 const timelineCity = require('../../jobs/db/timelineCity.json');
+const provinceInfo = require('../../jobs/db/city.json');
 
 const {
   errorData,
@@ -64,15 +65,31 @@ class DataServices {
     return data || errorData;
   }
 
+  async getTimeLineInfo(countries) {
+    const data = provinceInfo.filter(
+      (value) => value[getCountriesURL(countries)]
+    )[0][getCountriesURL(countries)];
+    return data || [];
+  }
+
   async getTimeLineCity(countries, City) {
+    const country = getCountriesURL(countries)
+    const provinceFilter = provinceInfo
+      .filter((value) => value[country])[0]
+      [getCountriesURL(countries)].find(
+        (value) => value.Province === City || value.Slug === City
+      )['Province'];
+
     const data = timelineCity
       .map((d) =>
         d.filter(
-          (a) => a.Country === getCountriesURL(countries) && a.Province === City
+          (a) =>
+            a.Country === country &&
+            a.Province === provinceFilter
         )
       )
       .filter((notNull) => notNull.length > 0)[0];
-    return data || errorData;
+    return data || [];
   }
 }
 module.exports = DataServices;

@@ -99,7 +99,7 @@ const getTimeLine = async () => {
           Recovered: suma(data, Number(d), 'Recovered'),
           TimeLineCity: `${config.url}/timeline/${removeAccents(
             data[keyF][Number(d)].Country,
-          )}/info`,
+          )}/provinces`,
         }))[0],
       ))[0];
     };
@@ -116,11 +116,12 @@ const getTimeLine = async () => {
             (i) => i.filter((titleFilter) => titleFilter.Country === title)[0],
           )
           .map((d) => ({
+            Country: d[0].Country,
             Province: d[0].Province === '' ? d[0].Country : d[0].Province,
             Slug: removeAccents(
               d[0].Province === '' ? d[0].Country : d[0].Province,
             ),
-            TimeLine: `${config.url}/${removeAccents(
+            TimeLine: `${config.url}/timeline/${removeAccents(
               d[0].Country,
             )}/${removeAccents(
               d[0].Province === '' ? d[0].Country : d[0].Province,
