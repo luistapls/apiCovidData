@@ -1,19 +1,19 @@
 /* eslint-disable max-len */
+const { config } = require('../../config');
+
 const countriesJson = require('../../../jobs/helper/countries.json');
 const { dataCountry } = require('../../../jobs/db/dataCountry.json');
 
 const getProperty = (obj, key) => obj[key];
 
-const filterdata = (country, typo) =>
-  dataCountry.filter((filter) => filter[country])[0][country][typo];
+const filterdata = (country, typo) => dataCountry.filter((filter) => filter[country])[0][country][typo];
 
 const uppercaseFirstLetter = (word) => word[0].toUpperCase() + word.slice(1);
 
 const getCountriesURL = (strinp) => {
   const country = countriesJson.find(
-    (c) =>
-      strinp.toLowerCase().replace(/ /g, '-') === c.Slug ||
-      strinp.toUpperCase() === c.ISO2
+    (c) => strinp.toLowerCase().replace(/ /g, '-') === c.Slug
+      || strinp.toUpperCase() === c.ISO2,
   );
   return country ? country.Country : null;
 };
@@ -36,17 +36,16 @@ const dataFilterHelp = {
   exampleOne: {
     date: '01-22-2020',
     country: 'canada',
-    urlExample:
-      'https://api-corona.azurewebsites.net/filters?date=01-22-2020&country=canada',
+    urlExample: `${config.url}/filters?date=01-22-2020&country=canada`,
   },
   exampleSecond: {
     date: '06-22-2020',
     endDate: '06-25-2020',
     country: 'co',
     urlExample:
-      'https://api-corona.azurewebsites.net/filters?date=06-22-2020&endDate=06-25-2020&country=co',
+      `${config.url}/filters?date=06-22-2020&endDate=06-25-2020&country=co`,
   },
-  listOfCountries: 'http://localhost:8000/country',
+  listOfCountries: `${config.url}/country`,
 };
 
 module.exports = {
