@@ -1,10 +1,10 @@
+/* eslint-disable no-unused-expressions */
 const { Router } = require('express');
-const v10Json = require('../../jobs/v10.json');
-const v20Json = require('../../jobs/v20.json');
-const allJson = require('../utils/data/all.json');
+const allJson = require('../utils/data/all');
 const DataServices = require('../services/getData');
 const cacheResponse = require('../utils/cache');
 const { threeHour } = require('../utils/time');
+const { dataFilterHelp } = require('../utils/helper/servicesHelper');
 
 const dataService = new DataServices();
 const router = Router();
@@ -12,9 +12,7 @@ const router = Router();
 router.get('/', async (_req, res, next) => {
   cacheResponse(res, threeHour);
   try {
-    res.status(200).json(
-      allJson,
-    );
+    res.status(200).json(allJson);
   } catch (err) {
     next(err);
   }
@@ -42,7 +40,9 @@ router.get('/country', async (_req, res, next) => {
 router.get('/all', async (_req, res, next) => {
   cacheResponse(res, threeHour);
   try {
-    res.status(200).json({ v10Json, v20Json });
+    const dataSevicesCountry = await dataService.getTimelineAll();
+    const dataSevicesTimeLine = await dataService.getTimelineAll();
+    res.status(200).json({ dataSevicesCountry, dataSevicesTimeLine });
   } catch (err) {
     next(err);
   }
@@ -50,7 +50,8 @@ router.get('/all', async (_req, res, next) => {
 router.get('/timeline', async (_req, res, next) => {
   cacheResponse(res, threeHour);
   try {
-    res.status(200).json(v20Json);
+    const dataSevices = await dataService.getTimelineAll();
+    res.status(200).json(dataSevices);
   } catch (err) {
     next(err);
   }
@@ -94,6 +95,52 @@ router.get('/timeline/:countries', async (req, res, next) => {
   try {
     const data = await dataService.getTimeLine(countries);
     res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
+router.get('/timeline/:countries/provinces', async (req, res, next) => {
+  cacheResponse(res, threeHour);
+  const { countries, statep } = req.params;
+  try {
+    const data = await dataService.getTimeLineInfo(countries, statep);
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
+router.get('/timeline/:countries/:statep/', async (req, res, next) => {
+  cacheResponse(res, threeHour);
+  const { countries, statep } = req.params;
+  try {
+    const data = await dataService.getTimeLineCity(countries, statep);
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
+router.get('/filters', async (req, res, next) => {
+  const { date, endDate, country } = req.query;
+  !country && res.status(200).json(dataFilterHelp);
+  try {
+    if (!country || !Date.parse(date)) {
+      if (endDate) {
+        if (!Date.parse(endDate)) {
+          res.status(400).json([
+            {
+              message: 'There was an error, check the data',
+              country: country || 'country is required',
+              date: date || 'date is required',
+              endDate,
+            },
+            dataFilterHelp,
+          ]);
+        }
+      }
+    } else {
+      const data = await dataService.filters(country, date, endDate);
+      res.status(200).json(data);
+    }
   } catch (err) {
     next(err);
   }

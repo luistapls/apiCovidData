@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const helmet = require('helmet');

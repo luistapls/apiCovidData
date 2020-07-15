@@ -1,22 +1,25 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable*/
 const countriesJson = require('../../jobs/helper/countries.json');
-const { dataCountry, globalData } = require('../../jobs/v10.json');
-const v20 = require('../../jobs/v20.json');
-const { notFoundHandler } = require('../utils/middleware/errorsHandlers');
+const { dataCountry, globalData } = require('../../jobs/db/dataCountry.json');
+const timeline = require('../../jobs/db/timeline.json');
+const timelineCity = require('../../jobs/db/timelineCity.json');
+const provinceInfo = require('../../jobs/db/city.json');
 
 const {
   errorData,
-  error400,
   filterdata,
   getCountriesURL,
   getProperty,
   uppercaseFirstLetter,
+  dataFilterHelp,
 } = require('../utils/helper/servicesHelper');
-const { response } = require('express');
 
 class DataServices {
   async getDataCountries() {
     return countriesJson || [];
+  }
+  async getDataAllCountryData() {
+    return { dataCountry, globalData } || [];
   }
 
   async getCountries(countries) {
@@ -53,14 +56,45 @@ class DataServices {
   }
 
   async getTimelineAll() {
-    return v20 || [];
+    return timeline || [];
   }
 
   async getTimeLine(countries) {
-    const data = v20.filter(
+    const data = timeline.filter(
       (i) => i[0].Country === getCountriesURL(countries)
     )[0];
     return data || errorData;
+  }
+
+  async getTimeLineInfo(countries) {
+    const data = provinceInfo.filter(
+      (value) => value[getCountriesURL(countries)]
+    )[0][getCountriesURL(countries)];
+    return data || [];
+  }
+
+  async getTimeLineCity(countries, City) {
+    const country = getCountriesURL(countries);
+    const provinceFilter = provinceInfo
+      .filter((value) => value[country])[0]
+      [getCountriesURL(countries)].find(
+        (value) => value.Province === City || value.Slug === City
+      )['Province'];
+
+    const data = timelineCity
+      .map((d) =>
+        d.filter((a) => a.Country === country && a.Province === provinceFilter)
+      )
+      .filter((notNull) => notNull.length > 0)[0];
+    return data || [];
+  }
+  async filters(country, date, endDate) {
+    const geTimeLineCountry = await this.getTimeLine(country);
+    return endDate
+      ? geTimeLineCountry.filter(
+          (value) => value.Date >= date && value.Date <= endDate
+        )
+      : geTimeLineCountry.filter((value) => value.Date === date);
   }
 }
 module.exports = DataServices;

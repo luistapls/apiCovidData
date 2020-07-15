@@ -80,3 +80,6 @@ dist/
 
 .now
 .deployment
+.vscode
+package-lock.json
+./jobs/db/*

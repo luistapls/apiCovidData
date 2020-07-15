@@ -1,6 +1,6 @@
   
 
-# [Coronavirus COVID19 API](https://apicoviddata.azurewebsites.net/)
+# [Coronavirus COVID19 API](https://api-corona.azurewebsites.net/)
 
 ### Content
 
@@ -22,7 +22,7 @@
 
   
 
-<b>URL API:</b><br>[https://apicoviddata.azurewebsites.net/](https://apicoviddata.azurewebsites.net/)
+<b>URL API:</b><br>[https://api-corona.azurewebsites.net/](https://api-corona.azurewebsites.net/)
 
 ## Installation
 

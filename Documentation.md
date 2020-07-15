@@ -1,5 +1,5 @@
 
-# [Coronavirus COVID19 API](https://apicoviddata.azurewebsites.net/)
+# [Coronavirus COVID19 API](https://api-corona.azurewebsites.net/)
 ### Content
 
 - [GET Default](Documentation.md#Documentation-api#GET-Default)
@@ -18,19 +18,19 @@
  - GET Default
 List all the current routes available with detail on each.
 ```
- https://apicoviddata.azurewebsites.net/
+ https://api-corona.azurewebsites.net/
 ```
  - GET Summary
  A summary of  total cases per country updated daily.
 ```
- https://apicoviddata.azurewebsites.net/summary
+ https://api-corona.azurewebsites.net/summary
 ```
 
  - GET Countries
   Returns all the available countries and provinces, as well as the country slug for per country requests.
 
 ```
- https://apicoviddata.azurewebsites.net/country
+ https://api-corona.azurewebsites.net/country
 ```
 
  - GET Country
@@ -39,37 +39,37 @@ List all the current routes available with detail on each.
 
 ```
  //Country
- https://apicoviddata.azurewebsites.net/country/Antigua%20and%20Barbuda
+ https://api-corona.azurewebsites.net/country/Antigua%20and%20Barbuda
  //Code ISO2
- https://apicoviddata.azurewebsites.net/country/ag
+ https://api-corona.azurewebsites.net/country/ag
  //Slug
- https://apicoviddata.azurewebsites.net/country/antigua-and-barbuda
+ https://api-corona.azurewebsites.net/country/antigua-and-barbuda
 ```
 
  - GET State
 Returns all cases of the state and its cities
 ```
-https://apicoviddata.azurewebsites.net/country//us/florida
+https://api-corona.azurewebsites.net/country//us/florida
 ```
  - GET City
 Returns case data to the city. Only valid for united states. 
 ```
-https://apicoviddata.azurewebsites.net/country//us/florida/Miami-Dade
+https://api-corona.azurewebsites.net/country//us/florida/Miami-Dade
 ```
  - GET ALL
 Returns all data in the system.
 ```
-https://apicoviddata.azurewebsites.net/all
+https://api-corona.azurewebsites.net/all
 ```
  - GET Timeline
 Returns all data recorded in the country, state, and city timeline system.
 ```
-https://apicoviddata.azurewebsites.net/timeline
+https://api-corona.azurewebsites.net/timeline
 ```
  - GET Timeline per country
 Returns the timeline by case type for a country.
  ```
-https://apicoviddata.azurewebsites.net/timeline/united-states
+https://api-corona.azurewebsites.net/timeline/united-states
 ```
 
 ### Field description
