@@ -121,22 +121,23 @@ router.get('/timeline/:countries/:statep/', async (req, res, next) => {
 });
 router.get('/filters', async (req, res, next) => {
   const { date, endDate, country } = req.query;
-  !country && res.status(200).json(dataFilterHelp);
+
+  const errorData = [
+    {
+      message: 'There was an error, check the data',
+      country: country || 'country is required',
+      date: date || 'date is required',
+      endDate: endDate
+    },
+    dataFilterHelp,
+  ];
   try {
-    if (!country || !Date.parse(date)) {
-      if (endDate) {
-        if (!Date.parse(endDate)) {
-          res.status(400).json([
-            {
-              message: 'There was an error, check the data',
-              country: country || 'country is required',
-              date: date || 'date is required',
-              endDate,
-            },
-            dataFilterHelp,
-          ]);
-        }
-      }
+    if (!country) {
+      res.status(400).json(errorData);
+    } else if (!Date.parse(date)) {
+      res.status(400).json(errorData);
+    } else if (endDate && !Date.parse(endDate)) {
+      res.status(400).json(errorData);
     } else {
       const data = await dataService.filters(country, date, endDate);
       res.status(200).json(data);
