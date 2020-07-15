@@ -11,7 +11,7 @@ module.exports = {
       script: 'jobs/getData.js',
       instances: 1,
       exec_mode: 'fork',
-      cron_restart: '*/360 * * * *',
+      cron_restart: '*/720 * * * *',
       watch: false,
       autorestart: false,
     },

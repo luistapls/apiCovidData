@@ -82,4 +82,5 @@ dist/
 .deployment
 .vscode
 package-lock.json
-./jobs/db/*
+jobs/db/
+./jobs/db/

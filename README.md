@@ -12,13 +12,13 @@
 
 -  [Data api](README.md#Data-api)
 
--  [Documentation](Documentation.md#Documentation-api)
+-  [Documentation](https://bit.ly/api-corona)
 
 
 
 
 **Documentation:**
-[https://github.com/eusoumaxi/apiCovidData/blob/master/Documentation.md](https://github.com/eusoumaxi/apiCovidData/blob/master/Documentation.md)
+[https://bit.ly/api-corona](https://bit.ly/api-corona)
 
   
 
