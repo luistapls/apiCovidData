@@ -97,6 +97,8 @@ const typeDefs = gql`
     countryStateCity(country: ID!, state: ID!, city: ID!): SateInfo
     "Get the timeline per country"
     timelineCountry(country: ID!): [TimeLineInfo]
+    "Returns data filtered by dates, and if you add another endDate it returns the date range, fields: {date: MM-DD-YYY, endDate: inal date, Optional!!, country: Country   }"
+    filters(country: ID!, date: ID!, endDate: ID): [TimeLineInfo]
     "Get Summary"
     summary: Summary
   }

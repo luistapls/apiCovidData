@@ -80,6 +80,7 @@ const getTimeLine = async () => {
         .filter((val) => val.length > 1)
         .map((d) => d.map((h) => ({
           Country: h.Country,
+          Province: '',
           Date: h.Date,
           Confirmed: h.Confirmed,
           Deaths: h.Deaths,

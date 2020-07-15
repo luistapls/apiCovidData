@@ -55,6 +55,20 @@ const resolvers = {
         );
       }
     },
+    filters: async (_root, args) => {
+      try {
+        const data = await dataService.filters(
+          args.country,
+          args.date,
+          args.endDate,
+        );
+        return data;
+      } catch (error) {
+        throw new Error(
+          `The country: " ${args.country} " not found in the database`,
+        );
+      }
+    },
     summary: async () => {
       const data = await dataService.getSummaries();
       return data;
@@ -62,3 +76,7 @@ const resolvers = {
   },
 };
 module.exports = resolvers;
+
+// country: args.country, || 'country is required',
+// date:  args.date || 'date is required',
+// endData: args.endDate,

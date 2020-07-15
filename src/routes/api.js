@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-expressions */
 const { Router } = require('express');
 const allJson = require('../utils/data/all.json');
 const DataServices = require('../services/getData');
 const cacheResponse = require('../utils/cache');
 const { threeHour } = require('../utils/time');
+const { dataFilterHelp } = require('../utils/helper/servicesHelper');
 
 const dataService = new DataServices();
 const router = Router();
@@ -118,9 +120,27 @@ router.get('/timeline/:countries/:statep/', async (req, res, next) => {
   }
 });
 router.get('/filters', async (req, res, next) => {
-  const data = await dataService.filter(req.query);
+  const { date, endDate, country } = req.query;
+  !country && res.status(200).json(dataFilterHelp);
   try {
-    res.status(200).json(data);
+    if (!country || !Date.parse(date)) {
+      if (endDate) {
+        if (!Date.parse(endDate)) {
+          res.status(400).json([
+            {
+              message: 'There was an error, check the data',
+              country: country || 'country is required',
+              date: date || 'date is required',
+              endDate,
+            },
+            dataFilterHelp,
+          ]);
+        }
+      }
+    } else {
+      const data = await dataService.filters(country, date, endDate);
+      res.status(200).json(data);
+    }
   } catch (err) {
     next(err);
   }

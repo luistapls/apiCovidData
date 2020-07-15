@@ -88,42 +88,13 @@ class DataServices {
       .filter((notNull) => notNull.length > 0)[0];
     return data || [];
   }
-  async filter(request) {
-    const { date, endDate, country } = request;
-
-    try {
-      if (!country) {
-        throw new err();
-      }
-
-      const geTimeLineCountry = await this.getTimeLine(country);
-
-      if (!geTimeLineCountry.length > 1 || !Date.parse(date)) {
-        throw new err();
-      }
-
-      if (endDate) {
-        if (!Date.parse(endDate)) {
-          throw new err();
-        }
-      }
-
-      return endDate
-        ? geTimeLineCountry.filter(
-            (value) => value.Date >= date && value.Date <= endDate
-          )
-        : geTimeLineCountry.filter((value) => value.Date === date);
-    } catch (error) {
-      return [
-        {
-          message: 'There was an error, check the data',
-          country: country ? country : 'country is required',
-          date: date ? date : 'date is required',
-          endDate: endDate,
-        },
-        dataFilterHelp,
-      ];
-    }
+  async filters(country, date, endDate) {
+    const geTimeLineCountry = await this.getTimeLine(country);
+    return endDate
+      ? geTimeLineCountry.filter(
+          (value) => value.Date >= date && value.Date <= endDate
+        )
+      : geTimeLineCountry.filter((value) => value.Date === date);
   }
 }
 module.exports = DataServices;
