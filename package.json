@@ -7,7 +7,7 @@
     "dev:build": "node jobs/getData && node jobs/getTimeline",
     "dev": "nodemon src/server.js",
     "build": "NODE_ENV=production node jobs/getData && node jobs/getTimeline ",
-    "start": "NODE_ENV=production pm2-runtime start ecosystem.config.js ",
+    "start": "npm run build && pm2-runtime start ecosystem.config.js ",
     "lint": "eslint",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"

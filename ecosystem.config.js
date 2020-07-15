@@ -5,6 +5,9 @@ module.exports = {
       script: 'src/server.js',
       watch: true,
       instances: 'max',
+      env: {
+        "NODE_ENV": "production",
+      }
     },
     {
       name: 'CRON DataIndex',
@@ -14,6 +17,9 @@ module.exports = {
       cron_restart: '*/720 * * * *',
       watch: false,
       autorestart: false,
+      env: {
+        "NODE_ENV": "production",
+      }
     },
     {
       name: 'CRON Timeline',
@@ -23,6 +29,9 @@ module.exports = {
       cron_restart: '*/720 * * * *',
       watch: false,
       autorestart: false,
+      env: {
+        "NODE_ENV": "production",
+      }
     },
   ],
 };
