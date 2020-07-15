@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 const { Router } = require('express');
-const allJson = require('../utils/data/all.json');
+const allJson = require('../utils/data/all');
 const DataServices = require('../services/getData');
 const cacheResponse = require('../utils/cache');
 const { threeHour } = require('../utils/time');
