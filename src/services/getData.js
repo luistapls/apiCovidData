@@ -11,6 +11,7 @@ const {
   getCountriesURL,
   getProperty,
   uppercaseFirstLetter,
+  dataFilterHelp,
 } = require('../utils/helper/servicesHelper');
 
 class DataServices {
@@ -73,7 +74,7 @@ class DataServices {
   }
 
   async getTimeLineCity(countries, City) {
-    const country = getCountriesURL(countries)
+    const country = getCountriesURL(countries);
     const provinceFilter = provinceInfo
       .filter((value) => value[country])[0]
       [getCountriesURL(countries)].find(
@@ -82,14 +83,47 @@ class DataServices {
 
     const data = timelineCity
       .map((d) =>
-        d.filter(
-          (a) =>
-            a.Country === country &&
-            a.Province === provinceFilter
-        )
+        d.filter((a) => a.Country === country && a.Province === provinceFilter)
       )
       .filter((notNull) => notNull.length > 0)[0];
     return data || [];
+  }
+  async filter(request) {
+    const { date, endDate, country } = request;
+
+    try {
+      if (!country) {
+        throw new err();
+      }
+
+      const geTimeLineCountry = await this.getTimeLine(country);
+
+      if (!geTimeLineCountry.length > 1 || !Date.parse(date)) {
+        throw new err();
+      }
+
+      if (endDate) {
+        if (!Date.parse(endDate)) {
+          throw new err();
+        }
+      }
+
+      return endDate
+        ? geTimeLineCountry.filter(
+            (value) => value.Date >= date && value.Date <= endDate
+          )
+        : geTimeLineCountry.filter((value) => value.Date === date);
+    } catch (error) {
+      return [
+        {
+          message: 'There was an error, check the data',
+          country: country ? country : 'country is required',
+          date: date ? date : 'date is required',
+          endDate: endDate,
+        },
+        dataFilterHelp,
+      ];
+    }
   }
 }
 module.exports = DataServices;

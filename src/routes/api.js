@@ -117,5 +117,13 @@ router.get('/timeline/:countries/:statep/', async (req, res, next) => {
     next(err);
   }
 });
+router.get('/filters', async (req, res, next) => {
+  const data = await dataService.filter(req.query);
+  try {
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
