@@ -2,6 +2,8 @@ const { config } = require('../../config');
 
 module.exports = {
   documentation: 'https://bit.ly/api-corona',
+  note: "150 calls / minute for every 30 seconds. Need more call? email: d99maxi@gmail.com",
+  bug: "If you have any error, please contact email d99maxi@gmail.com",
   sourceData: {
     description:
       'Access data on COVID19 through an easy API for free. Build dashboards, mobile apps or integrate in to other applications. Data is sourced from Johns Hopkins CSSE',
