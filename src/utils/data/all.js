@@ -39,44 +39,44 @@ module.exports = {
     name: 'Get data per country. ',
     description:
       'Returns data from the country, state and city (in some cases).',
-    Path: '/country/:country',
-    Example: `${config.url}/country/italy`,
+    path: '/country/:country',
+    dexample: `${config.url}/country/italy`,
   },
   countryRouteState: {
     name: 'Get data per country and associated state. ',
     description: 'Returns state case data',
-    Path: '/country/:country/:state',
-    Example: `${config.url}/country/spain/andalusia`,
+    path: '/country/:country/:state',
+    dexample: `${config.url}/country/spain/andalusia`,
   },
   countryRouteStateCity: {
     name: 'Get data per city.',
     description: 'Returns case data to the city. Only valid for united states',
-    Path: '/country/:country/:state/:city',
-    Example: `${config.url}/country/us/california/Los%20Angeles`,
+    path: '/country/:country/:state/:city',
+    dexample: `${config.url}/country/us/california/Los%20Angeles`,
   },
   timeline: {
     name: 'Get the timeline of all countries.',
     description:
       'Returns all data recorded in the country, state, and city timeline system.',
-    Path: `${config.url}/timeline`,
+    path: `${config.url}/timeline`,
   },
   timelinePerCountry: {
     name: 'Get the timeline per country.',
     description: 'Returns the timeline by case type for a country.',
-    Path: '/timeline/:country',
-    Example: `${config.url}/timeline/united-states`,
+    path: '/timeline/:country',
+    dexample: `${config.url}/timeline/united-states`,
   },
   filters: {
     name:
       'Returns data filtered by dates, and if you add another endDate it returns the date range',
-    description: `${config.url}/filters`,
-    ExampleOne: `${config.url}/filters?date=01-22-2020&country=canada`,
-    ExampleSecons: `${config.url}/filters?date=06-22-2020&endDate=06-25-2020&country=co`,
+    escription: `${config.url}/filters`,
+    exampleOne: `${config.url}/filters?date=01-22-2020&country=canada`,
+    exampleSecond: `${config.url}/filters?date=06-22-2020&endDate=06-25-2020&country=co`,
   },
   summaryRoute: {
     name: 'Summary of new and total cases per country',
     description: 'A summary of new and total cases per country',
-    Path: `${config.url}/summary`,
+    path: `${config.url}/summary`,
   },
   autor: {
     name: 'David Lara',
