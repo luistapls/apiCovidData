@@ -109,7 +109,7 @@ router.get('/timeline/:countries/provinces', async (req, res, next) => {
     next(err);
   }
 });
-router.get('/timeline/:countries/:statep/', async (req, res, next) => {
+router.get('/timeline/:countries/provinces/:statep/', async (req, res, next) => {
   cacheResponse(res, threeHour);
   const { countries, statep } = req.params;
   try {
