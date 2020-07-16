@@ -8,10 +8,11 @@ module.exports = {
     getData:
       'https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data',
   },
+  notice: 'From August 1, the url api-corona.azurewebsites.net will cease to exist. the new url is: https://corona.azure-api.net/',
   buyMeACoffe: 'https://bit.ly/3gORfVw',
   GraphQL: {
     Name: 'GraphQL',
-    Path: `${config.url}/graphql`,
+    Path: 'https://api-corona.azurewebsites.net/graphql',
   },
   allRoute: {
     Name: 'Get All Data',

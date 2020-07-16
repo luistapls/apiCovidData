@@ -2,7 +2,7 @@ require('dotenv');
 
 const url = {
   urlDev: 'http://localhost:8000',
-  urlProd: 'https://api-corona.azurewebsites.net',
+  urlProd: 'https://corona.azure-api.net',
 };
 
 const config = {
