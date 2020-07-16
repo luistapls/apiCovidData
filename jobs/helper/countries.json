@@ -15,11 +15,6 @@
         "ISO2": "UG"
     },
     {
-        "Country": "Virgin Islands, US",
-        "Slug": "virgin-islands",
-        "ISO2": "VI"
-    },
-    {
         "Country": "Saint Vincent and the Grenadines",
         "Slug": "saint-vincent-and-the-grenadines",
         "ISO2": "VC"
@@ -283,11 +278,6 @@
         "ISO2": "CF"
     },
     {
-        "Country": "Heard and Mcdonald Islands",
-        "Slug": "heard-and-mcdonald-islands",
-        "ISO2": "HM"
-    },
-    {
         "Country": "Malta",
         "Slug": "malta",
         "ISO2": "MT"
@@ -313,19 +303,9 @@
         "ISO2": "TR"
     },
     {
-        "Country": "ALA Aland Islands",
-        "Slug": "ala-aland-islands",
-        "ISO2": "AX"
-    },
-    {
         "Country": "Benin",
         "Slug": "benin",
         "ISO2": "BJ"
-    },
-    {
-        "Country": "Falkland Islands (Malvinas)",
-        "Slug": "falkland-islands-malvinas",
-        "ISO2": "FK"
     },
     {
         "Country": "Honduras",
@@ -351,11 +331,6 @@
         "Country": "Ecuador",
         "Slug": "ecuador",
         "ISO2": "EC"
-    },
-    {
-        "Country": "Guadeloupe",
-        "Slug": "guadeloupe",
-        "ISO2": "GP"
     },
     {
         "Country": "Syria",
@@ -413,19 +388,9 @@
         "ISO2": "CU"
     },
     {
-        "Country": "Tokelau",
-        "Slug": "tokelau",
-        "ISO2": "TK"
-    },
-    {
         "Country": "Uzbekistan",
         "Slug": "uzbekistan",
         "ISO2": "UZ"
-    },
-    {
-        "Country": "British Indian Ocean Territory",
-        "Slug": "british-indian-ocean-territory",
-        "ISO2": "IO"
     },
     {
         "Country": "Saint Pierre and Miquelon",
@@ -478,11 +443,6 @@
         "ISO2": "AF"
     },
     {
-        "Country": "Antarctica",
-        "Slug": "antarctica",
-        "ISO2": "AQ"
-    },
-    {
         "Country": "Iraq",
         "Slug": "iraq",
         "ISO2": "IQ"
@@ -512,11 +472,6 @@
         "ISO2": "TZ"
     },
     {
-        "Country": "American Samoa",
-        "Slug": "american-samoa",
-        "ISO2": "AS"
-    },
-    {
         "Country": "Angola",
         "Slug": "angola",
         "ISO2": "AO"
@@ -535,11 +490,6 @@
         "Country": "United Arab Emirates",
         "Slug": "united-arab-emirates",
         "ISO2": "AE"
-    },
-    {
-        "Country": "Christmas Island",
-        "Slug": "christmas-island",
-        "ISO2": "CX"
     },
     {
         "Country": "Czechia",
@@ -602,11 +552,6 @@
         "ISO2": "BY"
     },
     {
-        "Country": "Montserrat",
-        "Slug": "montserrat",
-        "ISO2": "MS"
-    },
-    {
         "Country": "Saint Lucia",
         "Slug": "saint-lucia",
         "ISO2": "LC"
@@ -642,11 +587,6 @@
         "ISO2": "LY"
     },
     {
-        "Country": "Turks and Caicos Islands",
-        "Slug": "turks-and-caicos-islands",
-        "ISO2": "TC"
-    },
-    {
         "Country": "Egypt",
         "Slug": "egypt",
         "ISO2": "EG"
@@ -675,11 +615,6 @@
         "Country": "Liberia",
         "Slug": "liberia",
         "ISO2": "LR"
-    },
-    {
-        "Country": "Netherlands Antilles",
-        "Slug": "netherlands-antilles",
-        "ISO2": "AN"
     },
     {
         "Country": "Oman",
@@ -837,11 +772,6 @@
         "ISO2": "SE"
     },
     {
-        "Country": "Vanuatu",
-        "Slug": "vanuatu",
-        "ISO2": "VU"
-    },
-    {
         "Country": "Azerbaijan",
         "Slug": "azerbaijan",
         "ISO2": "AZ"
@@ -917,11 +847,6 @@
         "ISO2": "US"
     },
     {
-        "Country": "New Caledonia",
-        "Slug": "new-caledonia",
-        "ISO2": "NC"
-    },
-    {
         "Country": "Poland",
         "Slug": "poland",
         "ISO2": "PL"
@@ -987,11 +912,6 @@
         "ISO2": "PA"
     },
     {
-        "Country": "Turkmenistan",
-        "Slug": "turkmenistan",
-        "ISO2": "TM"
-    },
-    {
         "Country": "Lesotho",
         "Slug": "lesotho",
         "ISO2": "LS"
@@ -1000,11 +920,6 @@
         "Country": "Niger",
         "Slug": "niger",
         "ISO2": "NE"
-    },
-    {
-        "Country": "Anguilla",
-        "Slug": "anguilla",
-        "ISO2": "AI"
     },
     {
         "Country": "Belgium",
