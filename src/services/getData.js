@@ -1,92 +1,116 @@
-/* eslint-disable*/
-const countriesJson = require('../../jobs/helper/countries.json');
-const { dataCountry, globalData } = require('../../jobs/db/dataCountry.json');
-const timeline = require('../../jobs/db/timeline.json');
-const timelineCity = require('../../jobs/db/timelineCity.json');
-const provinceInfo = require('../../jobs/db/city.json');
-
+const countriesJson = require('../utils/data/countries.json');
 const {
-  errorData,
-  filterdata,
-  getCountriesURL,
-  getProperty,
-  uppercaseFirstLetter,
-  dataFilterHelp,
-} = require('../utils/helper/servicesHelper');
+  getConnectionCountry,
+  getConnectionTimeline,
+} = require('../../lib/lowdb');
+
+const { uppercaseFirstLetter } = require('../utils/helper/servicesHelper');
 
 class DataServices {
   async getDataCountries() {
     return countriesJson || [];
   }
   async getDataAllCountryData() {
-    return { dataCountry, globalData } || [];
+    const data = [
+      getConnectionCountry().value(),
+      getConnectionTimeline().value(),
+    ];
+    return data || [];
   }
 
   async getCountries(countries) {
-    const URL = getCountriesURL(countries);
-    const getCountry = await dataCountry.filter((i) => getProperty(i, URL))[0][
-      URL
-    ];
-    return getCountry || errorData;
+    const data = await getConnectionCountry()
+      .get('countryData')
+      .find(countries)
+      .value()[countries];
+
+    return data || [];
   }
 
   async getState(countries, stateP) {
-    const stateCountry = filterdata(getCountriesURL(countries), 'State');
-    const countryState = stateCountry.filter(
+    const country = await this.getCountries(countries);
+    const data = await country['State'].filter(
       (i) => i.Province_State === uppercaseFirstLetter(stateP)
-    );
-    return countryState[0] || errorData;
+    )[0];
+    return data || [];
   }
 
   async getCity(countries, stateP, cityp) {
-    const statePp = uppercaseFirstLetter(stateP);
-    const stateCountry = await this.getState(
-      getCountriesURL(countries),
-      statePp
-    );
-    const cities = stateCountry.City.filter(
+    const state = await this.getState(countries, stateP);
+    const data = await state['City'].filter(
       (i) => i.Admin2 === uppercaseFirstLetter(cityp)
-    );
-    return cities[0] || errorData;
+    )[0];
+    return data || [];
   }
 
   async getSummaries() {
-    const countries = dataCountry.map((d) => d[Object.keys(d)[0]].Summary);
-    return { globalData, countries } || errorData;
+    const getDB = getConnectionCountry().value();
+    const data = {
+      globalData: getDB.globalData,
+      countries: getDB.countryData.map((d) => d[Object.keys(d)[0]].Summary),
+    };
+
+    return data || [];
   }
 
   async getTimelineAll() {
-    return timeline || [];
+    let data = [];
+    try {
+      const getDB = getConnectionTimeline().value();
+      data = {
+        timeline: getDB.timeline,
+        timelineProvince: getDB.timelineProvince,
+      };
+    } catch (error) {
+      data = [];
+    }
+
+    return data;
   }
 
   async getTimeLine(countries) {
-    const data = timeline.filter(
-      (i) => i[0].Country === getCountriesURL(countries)
-    )[0];
-    return data || errorData;
+    let data = [];
+    try {
+      data = await getConnectionTimeline()
+        .get('timeline')
+        .filter({ Country: countries })
+        .value();
+    } catch (error) {
+      data = [];
+    }
+
+    return data;
   }
 
   async getTimeLineInfo(countries) {
-    const data = provinceInfo.filter(
-      (value) => value[getCountriesURL(countries)]
-    )[0][getCountriesURL(countries)];
-    return data || [];
+    let data = [];
+    try {
+      data = await getConnectionTimeline()
+        .get('provinceName')
+        .find(countries)
+        .value()[countries];
+    } catch (error) {
+      data = [];
+    }
+    return data;
   }
 
   async getTimeLineCity(countries, City) {
-    const country = getCountriesURL(countries);
-    const provinceFilter = provinceInfo
-      .filter((value) => value[country])[0]
-      [getCountriesURL(countries)].find(
+    let data = [];
+    try {
+      const urlCity = await this.getTimeLineInfo(countries);
+      const nameFilter = await urlCity.find(
         (value) => value.Province === City || value.Slug === City
       )['Province'];
+      data = await getConnectionTimeline()
+        .get('timelineProvince')
+        .filter({ Country: countries, Province: nameFilter })
+        .value();
+    } catch (error) {
+      data = [];
+    }
 
-    const data = timelineCity
-      .map((d) =>
-        d.filter((a) => a.Country === country && a.Province === provinceFilter)
-      )
-      .filter((notNull) => notNull.length > 0)[0];
-    return data || [];
+    return data;
   }
   async filters(country, date, endDate) {
     const geTimeLineCountry = await this.getTimeLine(country);

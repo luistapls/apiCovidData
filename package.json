@@ -32,17 +32,19 @@
     "express-graphql": "^0.9.0",
     "graphql": "^15.1.0",
     "helmet": "3.23.2",
+    "lowdb": "^1.0.0",
     "moment": "^2.26.0",
+    "moment-timezone": "^0.5.31",
     "pm2": "^4.4.0",
     "snyk": "^1.361.3"
   },
   "devDependencies": {
     "0x": "^4.9.1",
     "autocannon": "^5.0.1",
-    "eslint": "^7.2.0",
+    "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-prettier": "^3.1.4"
   },
   "snyk": true

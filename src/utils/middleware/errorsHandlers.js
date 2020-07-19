@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 const boom = require('@hapi/boom');
 const isRequestAjaxOrApi = require('../../utils/isRequestAjaxOrApi');
-const { config } = require('../../config');
+const { config } = require('../../../config');
 
 // LOG
 const logErrors = (err, _req, _res, next) => {

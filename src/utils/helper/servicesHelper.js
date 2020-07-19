@@ -1,32 +1,33 @@
 /* eslint-disable max-len */
-const { config } = require('../../config');
+const { config } = require('../../../config');
 
-const countriesJson = require('../../../jobs/helper/countries.json');
-const { dataCountry } = require('../../../jobs/db/dataCountry.json');
+const countriesJson = require('../data/countries.json');
 
 const getProperty = (obj, key) => obj[key];
-
-const filterdata = (country, typo) => dataCountry.filter((filter) => filter[country])[0][country][typo];
 
 const uppercaseFirstLetter = (word) => word[0].toUpperCase() + word.slice(1);
 
 const getCountriesURL = (strinp) => {
   const country = countriesJson.find(
-    (c) => strinp.toLowerCase().replace(/ /g, '-') === c.Slug
-      || strinp.toUpperCase() === c.ISO2,
+    (c) =>
+      strinp.toLowerCase().replace(/ /g, '-') === c.Slug ||
+      strinp.toUpperCase() === c.ISO2
   );
   return country ? country.Country : null;
 };
 
-const errorData = {
-  error: 'Not Data',
-  message: 'No data found in the database',
-};
+
 const error400 = {
   error: '400',
   message: 'bad request,heck the parameters',
 };
 
+const error404Countries = {
+  statusCode: 404,
+  error: 'Not Found',
+  message: 'Invalid country',
+  availableCountries: `${config.url}/country`,
+};
 const dataFilterHelp = {
   fields: {
     date: 'MM-DD-YYY',
@@ -42,18 +43,16 @@ const dataFilterHelp = {
     date: '06-22-2020',
     endDate: '06-25-2020',
     country: 'co',
-    urlExample:
-      `${config.url}/filters?date=06-22-2020&endDate=06-25-2020&country=co`,
+    urlExample: `${config.url}/filters?date=06-22-2020&endDate=06-25-2020&country=co`,
   },
   listOfCountries: `${config.url}/country`,
 };
 
 module.exports = {
   getProperty,
-  filterdata,
   uppercaseFirstLetter,
   getCountriesURL,
   dataFilterHelp,
-  errorData,
   error400,
+  error404Countries
 };
