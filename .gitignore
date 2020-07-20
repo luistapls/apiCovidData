@@ -84,5 +84,7 @@ dist/
 package-lock.json
 jobs/db/
 ./jobs/db/
-./store/
-store/
+./store/country.json
+./store/timeline.json
+store/country.json
+store/timeline.json

@@ -4,9 +4,9 @@
   "description": "api coronavirus",
   "main": "src/server.js",
   "scripts": {
-    "dev:build": " node  store",
+    "dev:build": "node store",
     "dev": "nodemon src/server.js",
-    "build": "NODE_ENV=production node  store",
+    "build": "NODE_ENV=production node store",
     "start": "pm2-runtime start ecosystem.config.js ",
     "lint": "eslint",
     "snyk-protect": "snyk protect",
@@ -33,14 +33,11 @@
     "graphql": "^15.3.0",
     "helmet": "3.23.2",
     "lowdb": "^1.0.0",
-    "moment": "^2.26.0",
     "moment-timezone": "^0.5.31",
     "pm2": "^4.4.0",
     "snyk": "^1.362.1"
   },
   "devDependencies": {
-    "0x": "^4.9.1",
-    "autocannon": "^5.0.1",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",

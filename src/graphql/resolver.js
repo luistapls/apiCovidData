@@ -1,4 +1,5 @@
 const DataServices = require('../services/getData');
+const { getCountriesURL } = require('../utils/helper/servicesHelper');
 
 const dataService = new DataServices();
 
@@ -7,14 +8,19 @@ const resolvers = {
     countriesCode: async () => dataService.getDataCountries(),
     country: async (_root, args) => {
       try {
-        const data = await dataService.getCountries(args.country);
-        const dataTimeline = await dataService.getTimeLine(args.country);
-        const datos = {
-          Summary: data.Summary,
-          State: data.State,
-          Timeline: dataTimeline,
-        };
-        return datos;
+        const countryFilter = getCountriesURL(args.country);
+        if (countryFilter === null) {
+          throw new Error();
+        } else {
+          const data = await dataService.getCountries(countryFilter);
+          const dataTimeline = await dataService.getTimeLine(countryFilter);
+          const datos = {
+            Summary: data.Summary,
+            State: data.State,
+            Timeline: dataTimeline,
+          };
+          return datos;
+        }
       } catch (error) {
         throw new Error(
           `The country: " ${args.country} " not found in the database. `,
@@ -23,8 +29,13 @@ const resolvers = {
     },
     countryState: async (_root, args) => {
       try {
-        const data = await dataService.getState(args.country, args.state);
-        return data;
+        const countryFilter = getCountriesURL(args.country);
+        if (countryFilter === null) {
+          throw new Error();
+        } else {
+          const data = await dataService.getState(countryFilter, args.state);
+          return data;
+        }
       } catch (error) {
         throw new Error(
           `The following parameters " ${args.country} and ${args.state} ", not found in the database`,
@@ -33,12 +44,17 @@ const resolvers = {
     },
     countryStateCity: async (_root, args) => {
       try {
-        const data = await dataService.getCity(
-          args.country,
-          args.state,
-          args.city,
-        );
-        return data;
+        const countryFilter = getCountriesURL(args.country);
+        if (countryFilter === null) {
+          throw new Error();
+        } else {
+          const data = await dataService.getCity(
+            countryFilter,
+            args.state,
+            args.city,
+          );
+          return data;
+        }
       } catch (error) {
         throw new Error(
           `The following parameters " ${args.country}, ${args.state} and ${args.city}" not found in the database`,
@@ -47,8 +63,13 @@ const resolvers = {
     },
     timelineCountry: async (_root, args) => {
       try {
-        const data = await dataService.getTimeLine(args.country);
-        return data;
+        const countryFilter = getCountriesURL(args.country);
+        if (countryFilter === null) {
+          throw new Error();
+        } else {
+          const data = await dataService.getTimeLine(countryFilter);
+          return data;
+        }
       } catch (error) {
         throw new Error(
           `The country: " ${args.country} " not found in the database`,
@@ -57,12 +78,17 @@ const resolvers = {
     },
     filters: async (_root, args) => {
       try {
-        const data = await dataService.filters(
-          args.country,
-          args.date,
-          args.endDate,
-        );
-        return data;
+        const countryFilter = getCountriesURL(args.country);
+        if (countryFilter === null) {
+          throw new Error();
+        } else {
+          const data = await dataService.filters(
+            countryFilter,
+            args.date,
+            args.endDate,
+          );
+          return data;
+        }
       } catch (error) {
         throw new Error(
           `The country: " ${args.country} " not found in the database`,
