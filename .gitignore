@@ -85,3 +85,4 @@ package-lock.json
 jobs/db/
 ./jobs/db/
 ./store/
+store/

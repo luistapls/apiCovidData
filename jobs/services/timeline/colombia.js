@@ -7,7 +7,7 @@ const timeLineColombia = async () => {
   try {
     const dataApi = await axios.get(config.service.timeline.Colombia.urlData);
 
-    dataService = dataApi.data['features'].map((i) => ({
+    dataService = dataApi.data.features.map((i) => ({
       Country: 'Colombia',
       Province: '',
       Date: moment(i.attributes.FECHA_ACTUALIZACION).format('MM-DD-YYYY'),

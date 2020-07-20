@@ -6,32 +6,20 @@ module.exports = {
       watch: true,
       instances: 'max',
       env: {
-        "NODE_ENV": "production",
-      }
+        NODE_ENV: 'production',
+      },
     },
     {
       name: 'CRON DataIndex',
-      script: 'jobs/getData.js',
+      script: 'jobs/cron/00.js',
       instances: 1,
       exec_mode: 'fork',
       cron_restart: '*/720 * * * *',
       watch: false,
       autorestart: false,
       env: {
-        "NODE_ENV": "production",
-      }
-    },
-    {
-      name: 'CRON Timeline',
-      script: 'jobs/getTimeline.js',
-      instances: 1,
-      exec_mode: 'fork',
-      cron_restart: '*/720 * * * *',
-      watch: false,
-      autorestart: false,
-      env: {
-        "NODE_ENV": "production",
-      }
+        NODE_ENV: 'production',
+      },
     },
   ],
 };

@@ -10,7 +10,7 @@ const config = {
   url: process.env.NODE_ENV === 'production' ? url.urlProd : url.urlDev,
   core: {
     getCountryCovid:
-      'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/',
+      'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports',
     timeSeriesConfirmed:
       'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
     timeSeriesDeaths:

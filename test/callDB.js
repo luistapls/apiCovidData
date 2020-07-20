@@ -1,7 +1,5 @@
-const {
-  getConnectionCountry,
-  createConnection,
-} = require('../lib/lowdb');
+/* eslint-disable */
+const { getConnectionCountry, createConnection } = require('../lib/lowdb');
 
 // const { countryVenezuela } = require('../jobs/services');
 
@@ -11,12 +9,12 @@ const {
 // console.log(...serviceVenezuela)
 // };
 
-createConnection()
-//createConnection();
+createConnection();
+// createConnection();
 // Crear
-//getConnection().get('posts').push({ id: 'Venezuela', hola: 'david' }).write();
+// getConnection().get('posts').push({ id: 'Venezuela', hola: 'david' }).write();
 
-//Obtener uno por id
+// Obtener uno por id
 // getConnection().get('posts').find({id: "Colombia"}).value
 
 // Actualizar
@@ -34,14 +32,14 @@ createConnection()
 
 // Todos los valores
 // getConnection().get('posts').value()
-//console.log(getConnection().get('timeline').filter({ Country: 'Venezuela' }).value());
+// console.log(getConnection().get('timeline').filter({ Country: 'Venezuela' }).value());
 
 // const countBreeds = async () => {
 //   const breeds = await getTimeLine();
 // };
 
 // countBreeds();
-//console.log();
+// console.log();
 // Buscar pais
 // (getConnectionCountry().get('country[dataCountry]').find('Colombia').value()
 
@@ -67,6 +65,30 @@ createConnection()
 //     }
 //   })
 // //   .write();
+
+
+  // getConnectionCountry()
+  //   .get('countryData')
+  //   .find('Venezuela')
+  //   .assign({
+  //     Venezuela: {
+  //       Summary: {
+  //         Country_Region: 'Venezuela',
+  //         Code: 'VE',
+  //         Slug: 'venezuela',
+  //         Last_Update: '2020-07-16 11:09:50',
+  //         Confirmed: 123,
+  //         Deaths: 100,
+  //         Recovered: 3050,
+  //         NewConfirmed: 418,
+  //         NewDeaths: 4,
+  //         NewRecovered: 379,
+  //         Active: 7278,
+  //         Timeline: 'http://localhost:8000/timeline/venezuela',
+  //       },
+  //     },
+  //   })
+  //   .write()
 
 // console.log(
 //   getConnectionCountry()

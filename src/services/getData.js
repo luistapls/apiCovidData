@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 const countriesJson = require('../utils/data/countries.json');
 const {
   getConnectionCountry,
@@ -10,6 +11,7 @@ class DataServices {
   async getDataCountries() {
     return countriesJson || [];
   }
+
   async getDataAllCountryData() {
     const data = [
       getConnectionCountry().value(),
@@ -29,16 +31,16 @@ class DataServices {
 
   async getState(countries, stateP) {
     const country = await this.getCountries(countries);
-    const data = await country['State'].filter(
-      (i) => i.Province_State === uppercaseFirstLetter(stateP)
+    const data = await country.State.filter(
+      (i) => i.Province_State === uppercaseFirstLetter(stateP),
     )[0];
     return data || [];
   }
 
   async getCity(countries, stateP, cityp) {
     const state = await this.getState(countries, stateP);
-    const data = await state['City'].filter(
-      (i) => i.Admin2 === uppercaseFirstLetter(cityp)
+    const data = await state.City.filter(
+      (i) => i.Admin2 === uppercaseFirstLetter(cityp),
     )[0];
     return data || [];
   }
@@ -100,8 +102,8 @@ class DataServices {
     try {
       const urlCity = await this.getTimeLineInfo(countries);
       const nameFilter = await urlCity.find(
-        (value) => value.Province === City || value.Slug === City
-      )['Province'];
+        (value) => value.Province === City || value.Slug === City,
+      ).Province;
       data = await getConnectionTimeline()
         .get('timelineProvince')
         .filter({ Country: countries, Province: nameFilter })
@@ -112,12 +114,13 @@ class DataServices {
 
     return data;
   }
+
   async filters(country, date, endDate) {
     const geTimeLineCountry = await this.getTimeLine(country);
     return endDate
       ? geTimeLineCountry.filter(
-          (value) => value.Date >= date && value.Date <= endDate
-        )
+        (value) => value.Date >= date && value.Date <= endDate,
+      )
       : geTimeLineCountry.filter((value) => value.Date === date);
   }
 }

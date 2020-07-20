@@ -76,7 +76,3 @@ const resolvers = {
   },
 };
 module.exports = resolvers;
-
-// country: args.country, || 'country is required',
-// date:  args.date || 'date is required',
-// endData: args.endDate,

@@ -150,7 +150,7 @@ router.get(
     } catch (err) {
       next(err);
     }
-  }
+  },
 );
 router.get('/filters', async (req, res, next) => {
   const { date, endDate, country } = req.query;
@@ -160,7 +160,7 @@ router.get('/filters', async (req, res, next) => {
       message: 'There was an error, check the data',
       country: country || 'country is required',
       date: date || 'date is required',
-      endDate: endDate,
+      endDate,
     },
     dataFilterHelp,
   ];
@@ -178,7 +178,7 @@ router.get('/filters', async (req, res, next) => {
       const data = await dataService.filters(
         getCountriesURL(country),
         date,
-        endDate
+        endDate,
       );
       res.status(200).json(data);
     }

@@ -9,13 +9,11 @@ const uppercaseFirstLetter = (word) => word[0].toUpperCase() + word.slice(1);
 
 const getCountriesURL = (strinp) => {
   const country = countriesJson.find(
-    (c) =>
-      strinp.toLowerCase().replace(/ /g, '-') === c.Slug ||
-      strinp.toUpperCase() === c.ISO2
+    (c) => strinp.toLowerCase().replace(/ /g, '-') === c.Slug
+      || strinp.toUpperCase() === c.ISO2,
   );
   return country ? country.Country : null;
 };
-
 
 const error400 = {
   error: '400',
@@ -54,5 +52,5 @@ module.exports = {
   getCountriesURL,
   dataFilterHelp,
   error400,
-  error404Countries
+  error404Countries,
 };

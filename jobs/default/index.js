@@ -7,7 +7,7 @@ const {
 
 const timeLineDefault = async () => {
   // Core
-  const timelineCore = (await getTimeLine()).timelineCore;
+  const { timelineCore } = await getTimeLine();
   const timeLineProvinceCore = (await getTimeLine()).mapFilter;
   const provinceCore = (await getTimeLine()).cityJsonInfo();
 
@@ -29,8 +29,8 @@ const countryDefault = async () => {
   const serviceCountry = await countryVenezuela();
 
   return {
-    globalData: covid['globalData'],
-    countryData: [...covid.countryCovid, ...serviceCountry],
+    globalData: covid.globalData,
+    countryData: [...covid.countryCovid, serviceCountry],
   };
 };
 

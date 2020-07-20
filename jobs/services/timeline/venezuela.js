@@ -2,7 +2,7 @@ const axios = require('axios');
 const moment = require('moment-timezone');
 const { config } = require('../../../config');
 
-const timeLineVenezuela = async (event) => {
+const timeLineVenezuela = async () => {
   let dataService = {};
   try {
     const dataApi = await axios.get(config.service.timeline.Venezuela.urlData);
