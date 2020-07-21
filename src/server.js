@@ -4,8 +4,6 @@ const { ApolloServer } = require('apollo-server-express');
 const helmet = require('helmet');
 const path = require('path');
 const cors = require('cors');
-const favicon = require('serve-favicon');
-const robots = require('express-robots-txt');
 const api = require('./routes/api');
 const {
   logErrors,
@@ -19,11 +17,9 @@ const resolvers = require('./graphql/resolver');
 
 const port = process.env.PORT || 8000;
 const app = express();
-app.use(favicon(path.join(__dirname, '../favicon.ico')));
 
 // body parser
 app.use(express.json());
-app.use(robots({ UserAgent: '*', Disallow: '/' }));
 
 // Middleware
 app.use(helmet());

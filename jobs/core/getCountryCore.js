@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable eqeqeq */
+/* eslint-disable max-len */
 const axios = require('axios').default;
 const moment = require('moment-timezone');
 const { config } = require('../../config');
