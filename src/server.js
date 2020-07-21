@@ -50,40 +50,9 @@ app.use(
   monitor({
     title: 'Coronavirus Status',
     path: '/status',
-    healthChecks: [
-      {
-        protocol: 'http',
-        host: 'localhost',
-        path: '/',
-        port,
-      },
-      {
-        protocol: 'http',
-        host: 'localhost',
-        path: '/all',
-        port,
-      },
-      {
-        protocol: 'http',
-        host: 'localhost',
-        path: '/country',
-        port,
-      },
-      {
-        protocol: 'http',
-        host: 'localhost',
-        path: '/timeline',
-        port,
-      },
-      {
-        protocol: 'http',
-        host: 'localhost',
-        path: '/summary',
-        port,
-      },
-    ],
     chartVisibility: {
       responseTime: false,
+      rps: false,
       statusCodes: false,
     },
   }),
