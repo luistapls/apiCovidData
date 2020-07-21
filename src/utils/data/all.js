@@ -1,9 +1,10 @@
-const { config } = require('../../config');
+const { config } = require('../../../config');
 
 module.exports = {
   documentation: 'https://bit.ly/api-corona',
-  note: "150 calls / minute for every 30 seconds. Need more call? email: d99maxi@gmail.com",
-  bug: "If you have any error, please contact email d99maxi@gmail.com",
+  note:
+    '150 calls / minute for every 30 seconds. Need more call? email: d99maxi@gmail.com',
+  bug: 'If you have any error, please contact email d99maxi@gmail.com',
   sourceData: {
     description:
       'Access data on COVID19 through an easy API for free. Build dashboards, mobile apps or integrate in to other applications. Data is sourced from Johns Hopkins CSSE',
@@ -80,9 +81,15 @@ module.exports = {
     description: 'A summary of new and total cases per country',
     path: `${config.url}/summary`,
   },
+  status: {
+    updownio: 'https://bit.ly/32EYkUC',
+    localStatus: 'https://api-corona.azurewebsites.net/status',
+  },
   autor: {
     name: 'David Lara',
     user: '@eusoumaxi',
     gitHub: 'https://github.com/eusoumaxi',
+    message: ' The author of this API (David Lara, alias: eusoumaxi) hereby disclaims any and all representations and warranties regarding this API, including accuracy, suitability for use and merchantability. Relying on this website or API for medical guidance or use of this website or API in commerce is strictly prohibited.',
   },
+  termsOfService: 'This API has a limit of 150 calls / minute for every 30 seconds (Need more calls? Email: d99maxi@gmail.com), the API consumes data from the Johns Hopkins University database, which is published under MIT license. ',
 };

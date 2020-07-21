@@ -1,6 +1,6 @@
 const fs = require('fs');
 const csvjson = require('./csvjson');
-const countriesJson = require('./countries.json');
+const countriesJson = require('../../../src/utils/data/countries.json');
 
 const dataCSVtoJSON = (dataCountries) => csvjson.toSchemaObject(dataCountries, {
   delimiter: ',',

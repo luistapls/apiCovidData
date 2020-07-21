@@ -1,8 +1,9 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 const boom = require('@hapi/boom');
-const isRequestAjaxOrApi = require('../../utils/isRequestAjaxOrApi');
-const { config } = require('../../config');
+const isRequestAjaxOrApi = require('../isRequestAjaxOrApi');
+const { config } = require('../../../config');
 
 // LOG
 const logErrors = (err, _req, _res, next) => {
@@ -41,7 +42,6 @@ function errorHandler(err, _req, res, _next) {
   res.status(statusCode);
   res.json(withErrorStack(payload, err.stack));
 }
-
 
 // ERROR 404
 const notFoundHandler = (_req, res) => {

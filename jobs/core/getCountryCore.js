@@ -1,13 +1,16 @@
+/* eslint-disable max-len */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable eqeqeq */
-
 const axios = require('axios').default;
-const moment = require('moment');
-const { config } = require('../src/config');
-const { dataCSVtoJSON, dataWrites, countriesJson } = require('./helper');
+const moment = require('moment-timezone');
+const { config } = require('../../config');
+const codeLocation = require('./helper/location.json');
+const codeLocationUS = require('./helper/locationUS.json');
+const { dataCSVtoJSON, countriesJson } = require('./helper');
 
-const dayilyReports = (dateToday) => `https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/${dateToday}.csv`;
+const dayilyReports = (dateToday) => `${config.core.getCountryCovid}/${dateToday}.csv`;
 
-const getData = async () => {
+const dataCore = async () => {
   let dataCountries = {};
   let dataCountriesYesterday = {};
   try {
@@ -56,6 +59,14 @@ const getData = async () => {
       .filter((i) => i.Province_State === c)
       .map((i) => i[type]),
   );
+  const location = (codeCountry, type) => (codeLocation.filter((code) => code.alpha2 === codeCountry).length > 0
+    ? codeLocation.find((code) => code.alpha2 === codeCountry)[type]
+    : 0);
+
+  const locationUS = (codeCountry, type) => (codeLocationUS.filter((code) => code.state === codeCountry).length > 0
+    ? codeLocationUS.find((code) => code.state === codeCountry)[type]
+    : 0);
+
   const stateOrCity = (p) => (!uniqueValue(filterData(p).map((i) => i.Province_State === ''))[0]
     ? {
       State: uniqueValue(filterData(p).map((i) => i.Province_State)).map(
@@ -64,34 +75,47 @@ const getData = async () => {
           ? filterData(p)
             .filter((i) => i.Province_State === c)
             .map((i) => ({
-              ...i,
+              Province_State: i.Province_State,
+              Country_Region: i.Country_Region,
+              Last_Update: i.Last_Update,
+              Lat: Number(i.Lat),
+              Long_: Number(i.Long_),
               Confirmed: Number(i.Confirmed),
               Deaths: Number(i.Deaths),
               Recovered: Number(i.Recovered),
               Active: Number(i.Active),
+              Combined_Key: i.Combined_Key,
+              City: [],
             }))[0]
           : {
             Province_State: c,
+            Country_Region: 'US',
+            Last_Update: filterData(p).filter(
+              (i) => i.Province_State === c,
+            )[0].Last_Update,
+            Lat: locationUS(c, 'latitude'),
+            Long_: locationUS(c, 'longitude'),
             Confirmed: summaryState(p, c, 'Confirmed'),
             Deaths: summaryState(p, c, 'Deaths'),
             Recovered: summaryState(p, c, 'Recovered'),
             Active: summaryState(p, c, 'Active'),
-            Last_Update: filterData(p).filter(
-              (i) => i.Province_State === c,
-            )[0].Last_Update,
+            Combined_Key: `${c}, US`,
             City: filterData(p)
               .filter((i) => i.Province_State === c)
               .map((i) => ({
                 ...i,
+                City: i.Admin2,
                 Confirmed: Number(i.Confirmed),
                 Deaths: Number(i.Deaths),
                 Recovered: Number(i.Recovered),
                 Active: Number(i.Active),
+                Lat: Number(i.Lat),
+                Long_: Number(i.Long_),
               })),
           }),
       ),
     }
-    : []);
+    : { State: [] });
 
   const dataCountriesYesterdayData = (p, typo) => {
     try {
@@ -124,6 +148,8 @@ const getData = async () => {
           Code: countryFilter(c, 'ISO2'),
           Slug: countryFilter(c, 'Slug'),
           Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
+          Lat: location(countryFilter(c, 'ISO2'), 'latitude'),
+          Long_: location(countryFilter(c, 'ISO2'), 'longitude'),
           Confirmed: dataSUM(filterData(c).map((i) => i.Confirmed)),
           Deaths: dataSUM(filterData(c).map((i) => i.Deaths)),
           Recovered: dataSUM(filterData(c).map((i) => i.Recovered)),
@@ -137,10 +163,7 @@ const getData = async () => {
             dataSUM(filterData(c).map((i) => i.Recovered))
             - dataCountriesYesterdayData(c, 'Recovered'),
           Active: dataSUM(filterData(c).map((i) => i.Active)),
-          Timeline: `${config.url}/timeline/${countryFilter(
-            c,
-            'Slug',
-          )}`,
+          Timeline: `${config.url}/timeline/${countryFilter(c, 'Slug')}`,
         },
         ...stateOrCity(c),
       },
@@ -167,10 +190,9 @@ const getData = async () => {
   };
 
   // Last step, create a json with the country data
-  dataWrites(
-    `${__dirname}/db/dataCountry.json`,
-    JSON.stringify({ globalData, dataCountry }),
-  );
+  const countryCovid = dataCountry.filter((value) => !value.Venezuela);
+  const dataCountryCore = { globalData, countryCovid };
+  return dataCountryCore;
 };
 
-getData();
+module.exports = { dataCore };
