@@ -81,10 +81,5 @@ dist/
 .now
 .deployment
 .vscode
-package-lock.json
-jobs/db/
-./jobs/db/
-./store/country.json
-./store/timeline.json
-store/country.json
-store/timeline.json
+db/country.json
+db/timeline.json

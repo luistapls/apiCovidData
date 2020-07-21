@@ -2,7 +2,10 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const helmet = require('helmet');
+const path = require('path');
 const cors = require('cors');
+const monitor = require('express-status-monitor');
+const favicon = require('serve-favicon');
 const api = require('./routes/api');
 const {
   logErrors,
@@ -16,6 +19,7 @@ const resolvers = require('./graphql/resolver');
 
 const port = process.env.PORT || 8000;
 const app = express();
+app.use(favicon(path.join(__dirname, '../favicon.ico')));
 
 // body parser
 app.use(express.json());
@@ -41,12 +45,52 @@ const server = new ApolloServer({
 });
 server.applyMiddleware({ app, path: '/graphql' });
 
+// Status Monitor
+app.use(
+  monitor({
+    title: 'Coronavirus Status',
+    path: '/status',
+    healthChecks: [
+      {
+        protocol: 'http',
+        host: 'localhost',
+        path: '/',
+        port,
+      },
+      {
+        protocol: 'http',
+        host: 'localhost',
+        path: '/all',
+        port,
+      },
+      {
+        protocol: 'http',
+        host: 'localhost',
+        path: '/country',
+        port,
+      },
+      {
+        protocol: 'http',
+        host: 'localhost',
+        path: '/timeline',
+        port,
+      },
+      {
+        protocol: 'http',
+        host: 'localhost',
+        path: '/summary',
+        port,
+      },
+    ],
+    chartVisibility: {
+      responseTime: false,
+      statusCodes: false,
+    },
+  }),
+);
+
 // Catch 404
 app.use(notFoundHandler);
-app.use((error, req, res, next) => {
-  res.status(500);
-  res.json({ error: 500, message: 'Internal error, check the parameters' });
-});
 
 // Errors middleware
 app.use(logErrors);

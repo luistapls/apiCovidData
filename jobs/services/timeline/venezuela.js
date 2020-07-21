@@ -11,8 +11,6 @@ const timeLineVenezuela = async () => {
       Country: 'Venezuela',
       Province: '',
       Date: moment(i.Date, 'YYYY-MM-DD').format('MM-DD-YYYY'),
-      Long: '-66.5897',
-      Lat: '6.4238',
       Confirmed: i.Confirmed.Count,
       Deaths: i.Deaths.Count,
       Recovered: i.Recovered.Count,

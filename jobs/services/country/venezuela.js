@@ -15,6 +15,8 @@ const countryVenezuela = async () => {
           Code: 'VE',
           Slug: 'venezuela',
           Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
+          Lat: 10.500000,
+          Long_: -66.916664,
           Confirmed: data.Confirmed.Count,
           Deaths: data.Deaths.Count,
           Recovered: data.Recovered.Count,

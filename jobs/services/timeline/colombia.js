@@ -11,8 +11,6 @@ const timeLineColombia = async () => {
       Country: 'Colombia',
       Province: '',
       Date: moment(i.attributes.FECHA_ACTUALIZACION).format('MM-DD-YYYY'),
-      Long: '-74.2973',
-      Lat: '4.5709',
       Confirmed: i.attributes.TOTAL_CASOS,
       Deaths: i.attributes.TOTAL_MUERTES,
       Recovered: i.attributes.TOTAL_RECUPERADOS,

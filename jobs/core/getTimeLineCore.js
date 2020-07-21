@@ -29,8 +29,6 @@ const getTimeLine = async () => {
       Country: dataJSONConfirmed[i]['Country/Region'],
       Province: dataJSONConfirmed[i]['Province/State'],
       Date: moment(new Date(x)).format('MM-DD-YYYY'),
-      Long: dataJSONConfirmed[i].Long,
-      Lat: dataJSONConfirmed[i].Lat,
       Confirmed: Number(dataJSONConfirmed[i][x]),
       Deaths: Number(dataJSONDeaths[i][x]),
       Recovered: dataOrErrorRecovered(i, x),
