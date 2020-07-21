@@ -22,8 +22,6 @@ const typeDefs = gql`
   }
 
   type SateInfo @cacheControl(maxAge: 21600) {
-    FIPS: String
-    Admin2: String
     Province_State: String
     Country_Region: String
     Last_Update: String
@@ -34,13 +32,12 @@ const typeDefs = gql`
     Recovered: Int
     Active: Int
     Combined_Key: String
-    Incidence_Rate: String
     City: [City]
   }
 
   type City @cacheControl(maxAge: 21600) {
     FIPS: String
-    Admin2: String
+    City: String
     Province_State: String
     Country_Region: String
     Last_Update: String

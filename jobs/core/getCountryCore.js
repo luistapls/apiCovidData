@@ -75,18 +75,19 @@ const dataCore = async () => {
           ? filterData(p)
             .filter((i) => i.Province_State === c)
             .map((i) => ({
-              ...i,
+              Province_State: i.Province_State,
+              Country_Region: i.Country_Region,
+              Last_Update: i.Last_Update,
               Lat: Number(i.Lat),
               Long_: Number(i.Long_),
               Confirmed: Number(i.Confirmed),
               Deaths: Number(i.Deaths),
               Recovered: Number(i.Recovered),
               Active: Number(i.Active),
+              Combined_Key: i.Combined_Key,
               City: [],
             }))[0]
           : {
-            FIPS: '',
-            Admin2: '',
             Province_State: c,
             Country_Region: 'US',
             Last_Update: filterData(p).filter(
@@ -103,6 +104,7 @@ const dataCore = async () => {
               .filter((i) => i.Province_State === c)
               .map((i) => ({
                 ...i,
+                City: i.Admin2,
                 Confirmed: Number(i.Confirmed),
                 Deaths: Number(i.Deaths),
                 Recovered: Number(i.Recovered),
