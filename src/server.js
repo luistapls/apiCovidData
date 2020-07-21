@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const path = require('path');
 const cors = require('cors');
 const favicon = require('serve-favicon');
+const robots = require('express-robots-txt');
 const api = require('./routes/api');
 const {
   logErrors,
@@ -22,6 +23,7 @@ app.use(favicon(path.join(__dirname, '../favicon.ico')));
 
 // body parser
 app.use(express.json());
+app.use(robots({ UserAgent: '*', Disallow: '/' }));
 
 // Middleware
 app.use(helmet());
