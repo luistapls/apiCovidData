@@ -4,7 +4,6 @@ const { ApolloServer } = require('apollo-server-express');
 const helmet = require('helmet');
 const path = require('path');
 const cors = require('cors');
-const monitor = require('express-status-monitor');
 const favicon = require('serve-favicon');
 const api = require('./routes/api');
 const {
@@ -44,19 +43,6 @@ const server = new ApolloServer({
   }),
 });
 server.applyMiddleware({ app, path: '/graphql' });
-
-// Status Monitor
-app.use(
-  monitor({
-    title: 'Coronavirus Status',
-    path: '/status',
-    chartVisibility: {
-      responseTime: false,
-      rps: false,
-      statusCodes: false,
-    },
-  }),
-);
 
 // Catch 404
 app.use(notFoundHandler);

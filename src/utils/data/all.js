@@ -83,7 +83,6 @@ module.exports = {
   },
   status: {
     updownio: 'https://bit.ly/32EYkUC',
-    localStatus: 'https://api-corona.azurewebsites.net/status',
   },
   autor: {
     name: 'David Lara',
