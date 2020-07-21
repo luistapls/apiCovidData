@@ -26,6 +26,7 @@ const countryVenezuela = async () => {
           Active: data.Active.Count,
           Timeline: `${config.url}/timeline/venezuela`,
         },
+        State: [],
       },
     };
     return dataService;
