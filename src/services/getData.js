@@ -41,7 +41,7 @@ class DataServices {
     try {
       const state = await this.getState(countries, stateP);
       const dataCity = await state.City.filter(
-        (i) => i.Admin2 === uppercaseFirstLetter(cityp),
+        (i) => i.City === uppercaseFirstLetter(cityp),
       )[0];
       data = dataCity || [];
     } catch {

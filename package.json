@@ -7,6 +7,7 @@
     "dev:build": "node db",
     "dev": "nodemon src/server.js",
     "build": "NODE_ENV=production node db",
+    "cron00": "NODE_ENV=production node jobs/cron/00.js",
     "start": "pm2-runtime start ecosystem.config.js ",
     "lint": "eslint",
     "snyk-protect": "snyk protect",
@@ -35,7 +36,6 @@
     "lowdb": "^1.0.0",
     "moment-timezone": "^0.5.31",
     "pm2": "^4.4.0",
-    "serve-favicon": "^2.5.0",
     "snyk": "^1.363.0"
   },
   "devDependencies": {

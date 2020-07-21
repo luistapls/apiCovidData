@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable eqeqeq */
+/* eslint-disable max-len */
 const axios = require('axios').default;
 const moment = require('moment-timezone');
 const { config } = require('../../config');
@@ -103,14 +102,19 @@ const dataCore = async () => {
             City: filterData(p)
               .filter((i) => i.Province_State === c)
               .map((i) => ({
-                ...i,
+                FIPS: i.FIPS,
                 City: i.Admin2,
+                Province_State: i.Province_State,
+                Country_Region: i.Country_Region,
+                Last_Update: i.Last_Update,
+                Lat: Number(i.Lat),
+                Long_: Number(i.Long_),
                 Confirmed: Number(i.Confirmed),
                 Deaths: Number(i.Deaths),
                 Recovered: Number(i.Recovered),
                 Active: Number(i.Active),
-                Lat: Number(i.Lat),
-                Long_: Number(i.Long_),
+                Combined_Key: i.Combined_Key,
+                Incidence_Rate: i.Incidence_Rate,
               })),
           }),
       ),

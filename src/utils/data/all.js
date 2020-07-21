@@ -19,6 +19,7 @@ module.exports = {
   donations: {
     message:
       'Currently we have no advertising, partner and this project is hosted in azure, the way to pay for this service is by donations.',
+    btc: '35HRURspXCanGXNn6wARfJxPCuZrKipbsY',
     paypal: 'https://paypal.me/covid19server',
     buyMeACoffe: 'https://bit.ly/3gORfVw',
   },
