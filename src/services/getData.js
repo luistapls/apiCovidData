@@ -25,7 +25,6 @@ class DataServices {
       .get('countryData')
       .find(countries)
       .value()[countries];
-
     return data || [];
   }
 
@@ -38,11 +37,17 @@ class DataServices {
   }
 
   async getCity(countries, stateP, cityp) {
-    const state = await this.getState(countries, stateP);
-    const data = await state.City.filter(
-      (i) => i.Admin2 === uppercaseFirstLetter(cityp),
-    )[0];
-    return data || [];
+    let data = {};
+    try {
+      const state = await this.getState(countries, stateP);
+      const dataCity = await state.City.filter(
+        (i) => i.Admin2 === uppercaseFirstLetter(cityp),
+      )[0];
+      data = dataCity || [];
+    } catch {
+      data = [];
+    }
+    return data;
   }
 
   async getSummaries() {
