@@ -3,6 +3,7 @@ const moment = require('moment-timezone');
 const { config } = require('../../../../config');
 const codeLocation = require('../../../core/helper/location.json');
 const coordinatesState = require('../../../core/helper/state.json');
+const { uppercaseSlug } = require('../../../../src/utils/helper/servicesHelper');
 const { countriesJson } = require('../../../core/helper');
 
 const today = Number(moment().tz('America/Bogota').format('HH')) >= 13
@@ -78,6 +79,11 @@ const dataNarrativa = async () => {
               state.name,
               'Province_State',
             ),
+            Slug_State: uppercaseSlug(cordinnatesFilter(
+              value.name,
+              state.name,
+              'Province_State',
+            )),
             Country_Region: value.name,
             Last_Update: value.date,
             Lat: cordinnatesFilter(value.name, state.name, 'Lat'),
