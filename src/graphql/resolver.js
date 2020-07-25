@@ -1,5 +1,4 @@
 const DataServices = require('../services/getData');
-const { getCountriesURL } = require('../utils/helper/servicesHelper');
 
 const dataService = new DataServices();
 
@@ -8,7 +7,7 @@ const resolvers = {
     countriesCode: async () => dataService.getDataCountries(),
     country: async (_root, args) => {
       try {
-        const countryFilter = getCountriesURL(args.country);
+        const countryFilter = args.country;
         if (countryFilter === null) {
           throw new Error();
         } else {
@@ -29,7 +28,7 @@ const resolvers = {
     },
     countryState: async (_root, args) => {
       try {
-        const countryFilter = getCountriesURL(args.country);
+        const countryFilter = args.country;
         if (countryFilter === null) {
           throw new Error();
         } else {
@@ -44,7 +43,7 @@ const resolvers = {
     },
     countryStateCity: async (_root, args) => {
       try {
-        const countryFilter = getCountriesURL(args.country);
+        const countryFilter = args.country;
         if (countryFilter === null) {
           throw new Error();
         } else {
@@ -63,7 +62,7 @@ const resolvers = {
     },
     timelineCountry: async (_root, args) => {
       try {
-        const countryFilter = getCountriesURL(args.country);
+        const countryFilter = args.country;
         if (countryFilter === null) {
           throw new Error();
         } else {
@@ -78,7 +77,7 @@ const resolvers = {
     },
     filters: async (_root, args) => {
       try {
-        const countryFilter = getCountriesURL(args.country);
+        const countryFilter = args.country;
         if (countryFilter === null) {
           throw new Error();
         } else {
