@@ -89,7 +89,23 @@ module.exports = {
     name: 'David Lara',
     user: '@eusoumaxi',
     gitHub: 'https://github.com/eusoumaxi',
-    message: ' The author of this API (David Lara, alias: eusoumaxi) hereby disclaims any and all representations and warranties regarding this API, including accuracy, suitability for use and merchantability. Relying on this website or API for medical guidance or use of this website or API in commerce is strictly prohibited.',
+    message:
+      ' The author of this API (David Lara, alias: eusoumaxi) hereby disclaims any and all representations and warranties regarding this API, including accuracy, suitability for use and merchantability. Relying on this website or API for medical guidance or use of this website or API in commerce is strictly prohibited.',
   },
-  termsOfService: 'This API has a limit of 150 calls / minute for every 30 seconds (Need more calls? Email: d99maxi@gmail.com), the API consumes data from the Johns Hopkins University database, which is published under MIT license. ',
+  sources: {
+    Argentina: 'Ministerio de Salud Argentina,',
+    Brazil: 'Ministério da Saúde Brasil',
+    Chile: 'Ministerio de Salud Chile',
+    Colombia: 'Ministerio de Salud y Protección Social Colombia',
+    France: 'Santé publique France',
+    Germany: 'Robert Koch Institute Germany',
+    India: 'covid19India',
+    Italy: 'Dipartimento della Protezione Civile',
+    Mexico: 'Secretaría de Salud México',
+    'United Kingdom': 'GOV.UK',
+    Venezuela: 'Ministerio del Poder Popular para la Salud Venezuela',
+    OtherCountries: 'John Hopkins University',
+  },
+  termsOfService:
+    'This API has a limit of 150 calls / minute for every 30 seconds (Need more calls? Email: d99maxi@gmail.com), the API consumes data from the Johns Hopkins University database, which is published under MIT license. ',
 };
