@@ -6,7 +6,7 @@ const countriesJson = require('../data/countries.json');
 
 const getProperty = (obj, key) => obj[key];
 
-const uppercaseFirstLetter = (word) => word.toLowerCase().replace(/ /g, '-');
+const uppercaseSlug = (word) => word.toLowerCase().replace(/ /g, '-');
 
 const getCountriesURL = (strinp) => {
   const country = countriesJson.find(
@@ -66,7 +66,7 @@ const dataFilterHelp = {
 
 module.exports = {
   getProperty,
-  uppercaseFirstLetter,
+  uppercaseSlug,
   getCountriesURL,
   dataFilterHelp,
   verifyState,

@@ -24,6 +24,7 @@ const countryVenezuela = async () => {
           NewDeaths: data.Deaths.New,
           NewRecovered: data.Recovered.New,
           Active: data.Active.Count,
+          Sources: 'Ministerio del Poder Popular para la Salud Venezuela',
           Timeline: `${config.url}/timeline/venezuela`,
         },
         State: [],

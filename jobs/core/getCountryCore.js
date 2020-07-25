@@ -5,6 +5,7 @@ const moment = require('moment-timezone');
 const { config } = require('../../config');
 const codeLocation = require('./helper/location.json');
 const codeLocationUS = require('./helper/locationUS.json');
+const { uppercaseSlug } = require('../../src/utils/helper/servicesHelper');
 const { dataCSVtoJSON, countriesJson } = require('./helper');
 
 const dayilyReports = (dateToday) => `${config.core.getCountryCovid}/${dateToday}.csv`;
@@ -75,6 +76,7 @@ const dataCore = async () => {
             .filter((i) => i.Province_State === c)
             .map((i) => ({
               Province_State: i.Province_State,
+              Slug_State: uppercaseSlug(i.Province_State),
               Country_Region: i.Country_Region,
               Last_Update: i.Last_Update,
               Lat: Number(i.Lat),
@@ -89,6 +91,7 @@ const dataCore = async () => {
             }))[0]
           : {
             Province_State: c,
+            Slug_State: uppercaseSlug(c),
             Country_Region: 'US',
             Last_Update: filterData(p).filter(
               (i) => i.Province_State === c,
@@ -105,6 +108,7 @@ const dataCore = async () => {
               .map((i) => ({
                 FIPS: i.FIPS,
                 City: i.Admin2,
+                Slug_City: uppercaseSlug(i.Admin2),
                 Province_State: i.Province_State,
                 Country_Region: i.Country_Region,
                 Last_Update: i.Last_Update,
@@ -195,7 +199,7 @@ const dataCore = async () => {
     Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
   };
 
-  //  Argentina
+  // Argentina
   // Brazil
   // Chile
   // Colombia

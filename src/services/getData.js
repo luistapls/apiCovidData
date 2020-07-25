@@ -5,7 +5,7 @@ const {
   getConnectionTimeline,
 } = require('../../lib/lowdb');
 
-const { uppercaseFirstLetter, getCountriesURL } = require('../utils/helper/servicesHelper');
+const { uppercaseSlug, getCountriesURL } = require('../utils/helper/servicesHelper');
 
 class DataServices {
   async getDataCountries() {
@@ -31,7 +31,7 @@ class DataServices {
   async getState(countries, stateP) {
     const country = await this.getCountries(countries);
     const data = await country.State.find(
-      (i) => uppercaseFirstLetter(i.Province_State) === uppercaseFirstLetter(stateP),
+      (i) => uppercaseSlug(i.Province_State) === uppercaseSlug(stateP),
     );
     return data || [];
   }
@@ -41,7 +41,7 @@ class DataServices {
     try {
       const state = await this.getState(countries, stateP);
       const dataCity = await state.City.find(
-        (i) => uppercaseFirstLetter(i.City) === uppercaseFirstLetter(cityp),
+        (i) => uppercaseSlug(i.City) === uppercaseSlug(cityp),
       );
       data = dataCity || [];
     } catch {

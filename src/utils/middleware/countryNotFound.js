@@ -22,7 +22,7 @@ const stateNotFound = () => (req, res, next) => (getStateURL(getCountriesURL(req
   ? res.status(404).json({
     statusCode: 404,
     error: 'Not Found',
-    message: 'Invalid country',
+    message: 'Invalid State',
     country: req.params.countries,
     state: req.params.statep,
     availableCountries: `${config.url}/${req.params.countries}`,
