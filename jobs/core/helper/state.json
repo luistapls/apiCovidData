@@ -1,0 +1,1755 @@
+[
+  {
+    "Province_State": "Corrientes",
+    "Country_Region": "Argentina",
+    "Lat": -28.12000324,
+    "Long_": -58.76998926
+  },
+  {
+    "Province_State": "Cordoba",
+    "Country_Region": "Argentina",
+    "Lat": -31.4135,
+    "Long_": -64.18105
+  },
+  {
+    "Province_State": "Catamarca",
+    "Country_Region": "Argentina",
+    "Lat": -28.86662433,
+    "Long_": -66.23330632
+  },
+  {
+    "Province_State": "Salta",
+    "Country_Region": "Argentina",
+    "Lat": -1.4429,
+    "Long_": -71.5724
+  },
+  {
+    "Province_State": "La Pampa",
+    "Country_Region": "Argentina",
+    "Lat": -36.21625324,
+    "Long_": -65.45002079
+  },
+  {
+    "Province_State": "Misiones",
+    "Country_Region": "Argentina",
+    "Lat": -26.20001707,
+    "Long_": -54.59998539
+  },
+  {
+    "Province_State": "Tucuman",
+    "Country_Region": "Argentina",
+    "Lat": -26.21665688,
+    "Long_": -65.28331262
+  },
+  {
+    "Province_State": "Córdoba",
+    "Country_Region": "Argentina",
+    "Lat": -31.43003375,
+    "Long_": -62.08996749
+  },
+  {
+    "Province_State": "Chaco",
+    "Country_Region": "Argentina",
+    "Lat": -26.7900069,
+    "Long_": -60.45001591
+  },
+  {
+    "Province_State": "Buenos Aires",
+    "Country_Region": "Argentina",
+    "Lat": -34.603722,
+    "Long_": -58.381592
+  },
+  {
+    "Province_State": "Chubut",
+    "Country_Region": "Argentina",
+    "Lat": -45.68337563,
+    "Long_": -70.26657434
+  },
+  {
+    "Province_State": "Tierra del Fuego",
+    "Country_Region": "Argentina",
+    "Lat": -53.79144552,
+    "Long_": 67.6989952
+  },
+  {
+    "Province_State": "Santa Fe",
+    "Country_Region": "Argentina",
+    "Lat": -33.23002724,
+    "Long_": -60.35002202
+  },
+  {
+    "Province_State": "Neuquen",
+    "Country_Region": "Argentina",
+    "Lat": -38.94001463,
+    "Long_": -69.24002202
+  },
+  {
+    "Province_State": "San Luis",
+    "Country_Region": "Argentina",
+    "Lat": -33.68958576,
+    "Long_": -65.4699679
+  },
+  {
+    "Province_State": "Santiago del Estero",
+    "Country_Region": "Argentina",
+    "Lat": -28.46613198,
+    "Long_": -62.83330713
+  },
+  {
+    "Province_State": "Jujuy",
+    "Country_Region": "Argentina",
+    "Lat": -22.7166638,
+    "Long_": -65.6999797
+  },
+  {
+    "Province_State": "San Juan",
+    "Country_Region": "Argentina",
+    "Lat": -30.21558592,
+    "Long_": -69.1399506
+  },
+  {
+    "Province_State": "Formosa",
+    "Country_Region": "Argentina",
+    "Lat": -23.90000242,
+    "Long_": -61.84998214
+  },
+  {
+    "Province_State": "Entre Rios",
+    "Country_Region": "Argentina",
+    "Lat": -32.47999551,
+    "Long_": -58.23999577
+  },
+  {
+    "Province_State": "Rio Negro",
+    "Country_Region": "Argentina",
+    "Lat": -37.80003253,
+    "Long_": -67.68329533
+  },
+  {
+    "Province_State": "Ciudad Autonoma de Buenos Aires",
+    "Country_Region": "Argentina",
+    "Lat": -38.87996662,
+    "Long_": -62.0799681
+  },
+  {
+    "Province_State": "La Rioja",
+    "Country_Region": "Argentina",
+    "Lat": -31.34998696,
+    "Long_": -66.5999506
+  },
+  {
+    "Province_State": "Mendoza",
+    "Country_Region": "Argentina",
+    "Lat": -32.82503904,
+    "Long_": -68.80167668
+  },
+  {
+    "Province_State": "Santa Cruz",
+    "Country_Region": "Argentina",
+    "Lat": -51.65003986,
+    "Long_": -72.30001612
+  },
+  {
+    "Province_State": "Acre",
+    "Country_Region": "Brazil",
+    "Lat": -9.0238,
+    "Long_": -70.812
+  },
+  {
+    "Province_State": "Alagoas",
+    "Country_Region": "Brazil",
+    "Lat": -9.5713,
+    "Long_": -36.782
+  },
+  {
+    "Province_State": "Amapa",
+    "Country_Region": "Brazil",
+    "Lat": 0.902,
+    "Long_": -52.003
+  },
+  {
+    "Province_State": "Amazonas",
+    "Country_Region": "Brazil",
+    "Lat": -3.4168,
+    "Long_": -65.8561
+  },
+  {
+    "Province_State": "Bahia",
+    "Country_Region": "Brazil",
+    "Lat": -12.5797,
+    "Long_": -41.7007
+  },
+  {
+    "Province_State": "Ceara",
+    "Country_Region": "Brazil",
+    "Lat": -5.4984,
+    "Long_": -39.3206
+  },
+  {
+    "Province_State": "Distrito Federal",
+    "Country_Region": "Brazil",
+    "Lat": -15.7998,
+    "Long_": -47.8645
+  },
+  {
+    "Province_State": "Espirito Santo",
+    "Country_Region": "Brazil",
+    "Lat": -19.1834,
+    "Long_": -40.3089
+  },
+  {
+    "Province_State": "Goias",
+    "Country_Region": "Brazil",
+    "Lat": -15.827,
+    "Long_": -49.8362
+  },
+  {
+    "Province_State": "Maranhao",
+    "Country_Region": "Brazil",
+    "Lat": -4.9609,
+    "Long_": -45.2744
+  },
+  {
+    "Province_State": "Mato Grosso",
+    "Country_Region": "Brazil",
+    "Lat": -12.6819,
+    "Long_": -56.9211
+  },
+  {
+    "es": "Mato Grosso del Sur",
+    "Province_State": "Mato Grosso do Sul",
+    "Country_Region": "Brazil",
+    "Lat": -20.7722,
+    "Long_": -54.7852
+  },
+  {
+    "Province_State": "Minas Gerais",
+    "Country_Region": "Brazil",
+    "Lat": -18.5122,
+    "Long_": -44.555
+  },
+  {
+    "Province_State": "Para",
+    "Country_Region": "Brazil",
+    "Lat": -1.9981,
+    "Long_": -54.9306
+  },
+  {
+    "Province_State": "Paraiba",
+    "Country_Region": "Brazil",
+    "Lat": -7.24,
+    "Long_": -36.782
+  },
+  {
+    "Province_State": "Parana",
+    "Country_Region": "Brazil",
+    "Lat": -25.2521,
+    "Long_": -52.0215
+  },
+  {
+    "Province_State": "Pernambuco",
+    "Country_Region": "Brazil",
+    "Lat": -8.8137,
+    "Long_": -36.9541
+  },
+  {
+    "Province_State": "Piaui",
+    "Country_Region": "Brazil",
+    "Lat": -7.7183,
+    "Long_": -42.7289
+  },
+  {
+    "es": "Rio Grande del Norte",
+    "Province_State": "Rio Grande do Norte",
+    "Country_Region": "Brazil",
+    "Lat": -5.4026,
+    "Long_": -36.9541
+  },
+  {
+    "es": "Rio Grande del Sur",
+    "Province_State": "Rio Grande do Sul",
+    "Country_Region": "Brazil",
+    "Lat": -30.0346,
+    "Long_": -51.2177
+  },
+  {
+    "Province_State": "Rio de Janeiro",
+    "Country_Region": "Brazil",
+    "Lat": -22.9068,
+    "Long_": -43.1729
+  },
+  {
+    "Province_State": "Rondonia",
+    "Country_Region": "Brazil",
+    "Lat": -11.5057,
+    "Long_": -63.5806
+  },
+  {
+    "Province_State": "Roraima",
+    "Country_Region": "Brazil",
+    "Lat": -2.7376,
+    "Long_": -62.0751
+  },
+  {
+    "Province_State": "Santa Catarina",
+    "Country_Region": "Brazil",
+    "Lat": -27.2423,
+    "Long_": -50.2189
+  },
+  {
+    "Province_State": "Sao Paulo",
+    "Country_Region": "Brazil",
+    "Lat": -23.5505,
+    "Long_": -46.6333
+  },
+  {
+    "Province_State": "Sergipe",
+    "Country_Region": "Brazil",
+    "Lat": -10.5741,
+    "Long_": -37.3857
+  },
+  {
+    "Province_State": "Tocantins",
+    "Country_Region": "Brazil",
+    "Lat": -10.1753,
+    "Long_": -48.2982
+  },
+  {
+    "Province_State": "Antofagasta",
+    "Country_Region": "Chile",
+    "Lat": -23.6509,
+    "Long_": -70.3975
+  },
+  {
+    "Province_State": "Araucania",
+    "Country_Region": "Chile",
+    "Lat": -38.9489,
+    "Long_": -72.3311
+  },
+  {
+    "Province_State": "Arica y Parinacota",
+    "Country_Region": "Chile",
+    "Lat": -18.594,
+    "Long_": -69.4785
+  },
+  {
+    "Province_State": "Atacama",
+    "Country_Region": "Chile",
+    "Lat": -27.5661,
+    "Long_": -70.0503
+  },
+  {
+    "Province_State": "Aysen",
+    "Country_Region": "Chile",
+    "Lat": -45.9864,
+    "Long_": -73.7669
+  },
+  {
+    "Province_State": "Biobio",
+    "Country_Region": "Chile",
+    "Lat": -37.4464,
+    "Long_": -72.1416
+  },
+  {
+    "Province_State": "Coquimbo",
+    "Country_Region": "Chile",
+    "Lat": -29.959,
+    "Long_": -71.3389
+  },
+  {
+    "Province_State": "Los Lagos",
+    "Country_Region": "Chile",
+    "Lat": -41.9198,
+    "Long_": -72.1416
+  },
+  {
+    "Province_State": "Los Rios",
+    "Country_Region": "Chile",
+    "Lat": -40.231,
+    "Long_": -72.3311
+  },
+  {
+    "Province_State": "Magallanes",
+    "Country_Region": "Chile",
+    "Lat": -52.368,
+    "Long_": -70.9863
+  },
+  {
+    "Province_State": "Maule",
+    "Country_Region": "Chile",
+    "Lat": -35.5183,
+    "Long_": -71.6885
+  },
+  {
+    "Province_State": "Metropolitana",
+    "Country_Region": "Chile",
+    "Lat": -33.4376,
+    "Long_": -70.6505
+  },
+  {
+    "Province_State": "Nuble",
+    "Country_Region": "Chile",
+    "Lat": -36.7226,
+    "Long_": -71.7622
+  },
+  {
+    "Province_State": "O’Higgins",
+    "Country_Region": "Chile",
+    "Lat": -34.5755,
+    "Long_": -71.0022
+  },
+  {
+    "Province_State": "Tarapaca",
+    "Country_Region": "Chile",
+    "Lat": -19.9232,
+    "Long_": -69.5132
+  },
+  {
+    "Province_State": "Unknown",
+    "Country_Region": "Chile",
+    "Lat": 0,
+    "Long_": 0
+  },
+  {
+    "Province_State": "Valparaiso",
+    "Country_Region": "Chile",
+    "Lat": -33.0472,
+    "Long_": -71.6127
+  },
+  {
+    "Province_State": "Amazonas",
+    "Country_Region": "Colombia",
+    "Lat": -1.4429,
+    "Long_": -71.5724
+  },
+  {
+    "Province_State": "Antioquia",
+    "Country_Region": "Colombia",
+    "Lat": 7.1986,
+    "Long_": -75.3412
+  },
+  {
+    "Province_State": "Arauca",
+    "Country_Region": "Colombia",
+    "Lat": 7.0762,
+    "Long_": -70.7105
+  },
+  {
+    "Province_State": "Atlantico",
+    "Country_Region": "Colombia",
+    "Lat": 10.6966,
+    "Long_": -74.8741
+  },
+  {
+    "Province_State": "Bolivar",
+    "Country_Region": "Colombia",
+    "Lat": 8.6704,
+    "Long_": -74.03
+  },
+  {
+    "Province_State": "Boyaca",
+    "Country_Region": "Colombia",
+    "Lat": 5.4545,
+    "Long_": -73.362
+  },
+  {
+    "Province_State": "Caldas",
+    "Country_Region": "Colombia",
+    "Lat": 5.2983,
+    "Long_": -75.2479
+  },
+  {
+    "Province_State": "Bogota",
+    "Country_Region": "Colombia",
+    "Lat": 4.711,
+    "Long_": -74.0721
+  },
+  {
+    "Province_State": "San Andres y Provincia",
+    "Country_Region": "Colombia",
+    "Lat": 12.58317,
+    "Long_": -81.70636
+  },
+  {
+    "Province_State": "Caqueta",
+    "Country_Region": "Colombia",
+    "Lat": 0.8699,
+    "Long_": -73.8419
+  },
+  {
+    "Province_State": "Casanare",
+    "Country_Region": "Colombia",
+    "Lat": 5.7589,
+    "Long_": -71.5724
+  },
+  {
+    "Province_State": "Cauca",
+    "Country_Region": "Colombia",
+    "Lat": 2.705,
+    "Long_": -76.826000000002
+  },
+  {
+    "Province_State": "Cesar",
+    "Country_Region": "Colombia",
+    "Lat": 9.3373,
+    "Long_": -73.6536
+  },
+  {
+    "Province_State": "Choco",
+    "Country_Region": "Colombia",
+    "Lat": 5.2528,
+    "Long_": -76.826000000002
+  },
+  {
+    "Province_State": "Cordoba",
+    "Country_Region": "Colombia",
+    "Lat": 8.0493,
+    "Long_": -75.574
+  },
+  {
+    "Province_State": "Cundinamarca",
+    "Country_Region": "Colombia",
+    "Lat": 5.026,
+    "Long_": -74.03
+  },
+  {
+    "Province_State": "Guainia",
+    "Country_Region": "Colombia",
+    "Lat": 2.5854,
+    "Long_": -68.5247
+  },
+  {
+    "Province_State": "Guaviare",
+    "Country_Region": "Colombia",
+    "Lat": 1.0654,
+    "Long_": -73.2603
+  },
+  {
+    "Province_State": "Huila",
+    "Country_Region": "Colombia",
+    "Lat": 2.5359,
+    "Long_": -75.5277
+  },
+  {
+    "Province_State": "La Guajira",
+    "Country_Region": "Colombia",
+    "Lat": 11.3548,
+    "Long_": -72.5205
+  },
+  {
+    "Province_State": "Magdalena",
+    "Country_Region": "Colombia",
+    "Lat": 10.4113,
+    "Long_": -74.4057
+  },
+  {
+    "Province_State": "Meta",
+    "Country_Region": "Colombia",
+    "Lat": 3.272,
+    "Long_": -73.0877
+  },
+  {
+    "Province_State": "Narino",
+    "Country_Region": "Colombia",
+    "Lat": 1.2892,
+    "Long_": -77.3579
+  },
+  {
+    "Province_State": "Norte de Santander",
+    "Country_Region": "Colombia",
+    "Lat": 7.9463,
+    "Long_": -72.8988
+  },
+  {
+    "Province_State": "Putumayo",
+    "Country_Region": "Colombia",
+    "Lat": 0.436,
+    "Long_": -75.5277
+  },
+  {
+    "Province_State": "Quindio",
+    "Country_Region": "Colombia",
+    "Lat": 4.461,
+    "Long_": -75.6674
+  },
+  {
+    "Province_State": "Risaralda",
+    "Country_Region": "Colombia",
+    "Lat": 5.3158,
+    "Long_": -75.9928
+  },
+  {
+    "Province_State": "San Andres y Providencia",
+    "Country_Region": "Colombia",
+    "Lat": 12.5567,
+    "Long_": -81.7185
+  },
+  {
+    "Province_State": "Santander",
+    "Country_Region": "Colombia",
+    "Lat": 6.6437,
+    "Long_": -73.6536
+  },
+  {
+    "Province_State": "Sucre",
+    "Country_Region": "Colombia",
+    "Lat": 8.814,
+    "Long_": -74.7233
+  },
+  {
+    "Province_State": "Tolima",
+    "Country_Region": "Colombia",
+    "Lat": 4.0925,
+    "Long_": -75.1545
+  },
+  {
+    "Province_State": "Valle del Cauca",
+    "Country_Region": "Colombia",
+    "Lat": 3.8009,
+    "Long_": -76.6413
+  },
+  {
+    "Province_State": "Vaupes",
+    "Country_Region": "Colombia",
+    "Lat": 0.8554,
+    "Long_": -70.812
+  },
+  {
+    "Province_State": "Vichada",
+    "Country_Region": "Colombia",
+    "Lat": 4.4234,
+    "Long_": -69.2878
+  },
+  {
+    "Province_State": "Unknown",
+    "Country_Region": "Colombia",
+    "Lat": 0,
+    "Long_": 0
+  },
+  {
+    "Province_State": "Abruzzo",
+    "Country_Region": "Italy",
+    "Lat": 42.35122196,
+    "Long_": 13.398433
+  },
+  {
+    "Province_State": "Basilicata",
+    "Country_Region": "Italy",
+    "Lat": 40.63947052,
+    "Long_": 15.805144
+  },
+  {
+    "Province_State": "Calabria",
+    "Country_Region": "Italy",
+    "Lat": 38.90597598,
+    "Long_": 16.594404
+  },
+  {
+    "Province_State": "Campania",
+    "Country_Region": "Italy",
+    "Lat": 40.83956555,
+    "Long_": 14.250844
+  },
+  {
+    "Province_State": "Emilia-Romagna",
+    "Country_Region": "Italy",
+    "Lat": 44.49436681,
+    "Long_": 11.3417200000001
+  },
+  {
+    "Province_State": "Friuli Venezia Giulia",
+    "Country_Region": "Italy",
+    "Lat": 45.6494354,
+    "Long_": 13.768139
+  },
+  {
+    "Province_State": "Lazio",
+    "Country_Region": "Italy",
+    "Lat": 41.89277044,
+    "Long_": 12.483662
+  },
+  {
+    "Province_State": "Liguria",
+    "Country_Region": "Italy",
+    "Lat": 44.41149315,
+    "Long_": 8.932699
+  },
+  {
+    "Province_State": "Lombardia",
+    "Country_Region": "Italy",
+    "Lat": 45.46679409,
+    "Long_": 9.1903474
+  },
+  {
+    "Province_State": "Marche",
+    "Country_Region": "Italy",
+    "Lat": 43.61675973,
+    "Long_": 13.51887
+  },
+  {
+    "Province_State": "Molise",
+    "Country_Region": "Italy",
+    "Lat": 41.55774754,
+    "Long_": 14.659161
+  },
+  {
+    "Province_State": "P.A. Bolzano",
+    "Country_Region": "Italy",
+    "Lat": 46.49933453,
+    "Long_": 11.356622
+  },
+  {
+    "Province_State": "P.A. Trento",
+    "Country_Region": "Italy",
+    "Lat": 46.06893511,
+    "Long_": 11.121237
+  },
+  {
+    "Province_State": "Piemonte",
+    "Country_Region": "Italy",
+    "Lat": 45.0732745,
+    "Long_": 7.6806873
+  },
+  {
+    "Province_State": "Puglia",
+    "Country_Region": "Italy",
+    "Lat": 41.12559576,
+    "Long_": 16.867369
+  },
+  {
+    "Province_State": "Sardegna",
+    "Country_Region": "Italy",
+    "Lat": 39.21531192,
+    "Long_": 9.1106166
+  },
+  {
+    "Province_State": "Sicilia",
+    "Country_Region": "Italy",
+    "Lat": 38.11569725,
+    "Long_": 13.3623599999998
+  },
+  {
+    "Province_State": "Toscana",
+    "Country_Region": "Italy",
+    "Lat": 43.76923077,
+    "Long_": 11.255885
+  },
+  {
+    "Province_State": "Umbria",
+    "Country_Region": "Italy",
+    "Lat": 43.10675841,
+    "Long_": 12.388248
+  },
+  {
+    "Province_State": "Valle d'Aosta",
+    "Country_Region": "Italy",
+    "Lat": 45.73750286,
+    "Long_": 7.3201496
+  },
+  {
+    "Province_State": "Veneto",
+    "Country_Region": "Italy",
+    "Lat": 45.43490485,
+    "Long_": 12.338453
+  },
+  {
+    "Province_State": "Aguascalientes",
+    "Country_Region": "Mexico",
+    "Lat": 21.8853,
+    "Long_": -102.291
+  },
+  {
+    "Province_State": "Baja California",
+    "Country_Region": "Mexico",
+    "Lat": 30.8406,
+    "Long_": -115.283
+  },
+  {
+    "Province_State": "Baja California Sur",
+    "Country_Region": "Mexico",
+    "Lat": 26.0444,
+    "Long_": -111.666
+  },
+  {
+    "Province_State": "Campeche",
+    "Country_Region": "Mexico",
+    "Lat": 19.8301,
+    "Long_": -90.5349
+  },
+  {
+    "Province_State": "Chiapas",
+    "Country_Region": "Mexico",
+    "Lat": 16.7569,
+    "Long_": -93.1292
+  },
+  {
+    "Province_State": "Chihuahua",
+    "Country_Region": "Mexico",
+    "Lat": 28.63300000000001,
+    "Long_": -106.069
+  },
+  {
+    "Province_State": "Ciudad de Mexico",
+    "Country_Region": "Mexico",
+    "Lat": 19.4326,
+    "Long_": -99.1332
+  },
+  {
+    "Province_State": "Coahuila",
+    "Country_Region": "Mexico",
+    "Lat": 27.0587,
+    "Long_": -101.706
+  },
+  {
+    "Province_State": "Colima",
+    "Country_Region": "Mexico",
+    "Lat": 19.1223,
+    "Long_": -104.007
+  },
+  {
+    "Province_State": "Durango",
+    "Country_Region": "Mexico",
+    "Lat": 24.5593,
+    "Long_": -104.658
+  },
+  {
+    "Province_State": "Guanajuato",
+    "Country_Region": "Mexico",
+    "Lat": 21.019,
+    "Long_": -101.257
+  },
+  {
+    "Province_State": "Guerrero",
+    "Country_Region": "Mexico",
+    "Lat": 17.4392,
+    "Long_": -99.5451
+  },
+  {
+    "Province_State": "Hidalgo",
+    "Country_Region": "Mexico",
+    "Lat": 20.0911,
+    "Long_": -98.7624
+  },
+  {
+    "Province_State": "Jalisco",
+    "Country_Region": "Mexico",
+    "Lat": 20.6595,
+    "Long_": -103.349
+  },
+  {
+    "Province_State": "Mexico",
+    "Country_Region": "Mexico",
+    "Lat": 19.4969,
+    "Long_": -99.7233
+  },
+  {
+    "Province_State": "Michoacan",
+    "Country_Region": "Mexico",
+    "Lat": 19.5665,
+    "Long_": -101.706
+  },
+  {
+    "Province_State": "Morelos",
+    "Country_Region": "Mexico",
+    "Lat": 18.6813,
+    "Long_": -99.1013
+  },
+  {
+    "Province_State": "Nayarit",
+    "Country_Region": "Mexico",
+    "Lat": 21.7514,
+    "Long_": -104.845
+  },
+  {
+    "Province_State": "Nuevo Leon",
+    "Country_Region": "Mexico",
+    "Lat": 25.5922,
+    "Long_": -99.9962
+  },
+  {
+    "Province_State": "Oaxaca",
+    "Country_Region": "Mexico",
+    "Lat": 17.0732,
+    "Long_": -96.7266
+  },
+  {
+    "Province_State": "Puebla",
+    "Country_Region": "Mexico",
+    "Lat": 19.0414,
+    "Long_": -98.2063
+  },
+  {
+    "Province_State": "Queretaro",
+    "Country_Region": "Mexico",
+    "Lat": 20.5888,
+    "Long_": -100.389
+  },
+  {
+    "Province_State": "Quintana Roo",
+    "Country_Region": "Mexico",
+    "Lat": 19.1817,
+    "Long_": -88.4791
+  },
+  {
+    "Province_State": "San Luis Potosi",
+    "Country_Region": "Mexico",
+    "Lat": 22.1565,
+    "Long_": -100.985
+  },
+  {
+    "Province_State": "Sinaloa",
+    "Country_Region": "Mexico",
+    "Lat": 25.1721,
+    "Long_": -107.479
+  },
+  {
+    "Province_State": "Sonora",
+    "Country_Region": "Mexico",
+    "Lat": 29.2972,
+    "Long_": -110.330
+  },
+  {
+    "Province_State": "Tabasco",
+    "Country_Region": "Mexico",
+    "Lat": 17.8409,
+    "Long_": -92.6189
+  },
+  {
+    "Province_State": "Tamaulipas",
+    "Country_Region": "Mexico",
+    "Lat": 24.2669,
+    "Long_": -98.8363
+  },
+  {
+    "Province_State": "Tlaxcala",
+    "Country_Region": "Mexico",
+    "Lat": 19.3139,
+    "Long_": -98.2404
+  },
+  {
+    "Province_State": "Veracruz",
+    "Country_Region": "Mexico",
+    "Lat": 19.1738,
+    "Long_": -96.1342
+  },
+  {
+    "Province_State": "Yucatan",
+    "Country_Region": "Mexico",
+    "Lat": 20.7099,
+    "Long_": -89.0943
+  },
+  {
+    "Province_State": "Zacatecas",
+    "Country_Region": "Mexico",
+    "Lat": 22.7709,
+    "Long_": -102.583
+  },
+  {
+    "Province_State": "Baden-Wurttemberg",
+    "Country_Region": "Germany",
+    "Lat": 48.6616,
+    "Long_": 9.3501
+  },
+  {
+    "Province_State": "Bayern",
+    "Country_Region": "Germany",
+    "Lat": 48.7904,
+    "Long_": 11.4979
+  },
+  {
+    "Province_State": "Berlin",
+    "Country_Region": "Germany",
+    "Lat": 52.52,
+    "Long_": 13.405
+  },
+  {
+    "Province_State": "Brandenburg",
+    "Country_Region": "Germany",
+    "Lat": 52.4125,
+    "Long_": 12.5316
+  },
+  {
+    "Province_State": "Bremen",
+    "Country_Region": "Germany",
+    "Lat": 53.0793,
+    "Long_": 8.8017
+  },
+  {
+    "Province_State": "Hamburg",
+    "Country_Region": "Germany",
+    "Lat": 53.5511,
+    "Long_": 9.9937
+  },
+  {
+    "Province_State": "Hessen",
+    "Country_Region": "Germany",
+    "Lat": 50.6521,
+    "Long_": 9.1624
+  },
+  {
+    "Province_State": "Mecklenburg-Vorpommern",
+    "Country_Region": "Germany",
+    "Lat": 53.6127,
+    "Long_": 12.4296
+  },
+  {
+    "Province_State": "Niedersachsen",
+    "Country_Region": "Germany",
+    "Lat": 52.6367,
+    "Long_": 9.8451
+  },
+  {
+    "Province_State": "Nordrhein-Westfalen",
+    "Country_Region": "Germany",
+    "Lat": 51.4332,
+    "Long_": 7.6616
+  },
+  {
+    "Province_State": "Rheinland-Pfalz",
+    "Country_Region": "Germany",
+    "Lat": 50.1183,
+    "Long_": 7.309
+  },
+  {
+    "Province_State": "Saarland",
+    "Country_Region": "Germany",
+    "Lat": 49.3964,
+    "Long_": 7.023
+  },
+  {
+    "Province_State": "Sachsen",
+    "Country_Region": "Germany",
+    "Lat": 51.1045,
+    "Long_": 13.2017
+  },
+  {
+    "Province_State": "Sachsen-Anhalt",
+    "Country_Region": "Germany",
+    "Lat": 51.9503,
+    "Long_": 11.6923
+  },
+  {
+    "Province_State": "Schleswig-Holstein",
+    "Country_Region": "Germany",
+    "Lat": 54.2194,
+    "Long_": 9.6961
+  },
+  {
+    "Province_State": "Thuringen",
+    "Country_Region": "Germany",
+    "Lat": 51.011,
+    "Long_": 10.8453
+  },
+  {
+    "Province_State": "Andaman and Nicobar Islands",
+    "Country_Region": "India",
+    "Lat": 11.225999,
+    "Long_": 92.968178
+  },
+  {
+    "Province_State": "Andhra Pradesh",
+    "Country_Region": "India",
+    "Lat": 15.9129,
+    "Long_": 79.74
+  },
+  {
+    "Province_State": "Arunachal Pradesh",
+    "Country_Region": "India",
+    "Lat": 27.768456,
+    "Long_": 96.384277
+  },
+  {
+    "Province_State": "Assam",
+    "Country_Region": "India",
+    "Lat": 26.357149,
+    "Long_": 92.830441
+  },
+  {
+    "Province_State": "Bihar",
+    "Country_Region": "India",
+    "Lat": 25.679658,
+    "Long_": 85.60484
+  },
+  {
+    "Province_State": "Chandigarh",
+    "Country_Region": "India",
+    "Lat": 30.733839,
+    "Long_": 76.76827800000002
+  },
+  {
+    "Province_State": "Chhattisgarh",
+    "Country_Region": "India",
+    "Lat": 21.264705,
+    "Long_": 82.035366
+  },
+  {
+    "Province_State": "Dadra and Nagar Haveli and Daman and Diu",
+    "Country_Region": "India",
+    "Lat": 20.194742,
+    "Long_": 73.080901
+  },
+  {
+    "Province_State": "Delhi",
+    "Country_Region": "India",
+    "Lat": 28.646519,
+    "Long_": 77.10898
+  },
+  {
+    "Province_State": "Goa",
+    "Country_Region": "India",
+    "Lat": 15.359682,
+    "Long_": 74.057396
+  },
+  {
+    "Province_State": "Gujarat",
+    "Country_Region": "India",
+    "Lat": 22.694884,
+    "Long_": 71.590923
+  },
+  {
+    "Province_State": "Haryana",
+    "Country_Region": "India",
+    "Lat": 29.20004,
+    "Long_": 76.332824
+  },
+  {
+    "Province_State": "Himachal Pradesh",
+    "Country_Region": "India",
+    "Lat": 31.927213,
+    "Long_": 77.233081
+  },
+  {
+    "Province_State": "Jammu and Kashmir",
+    "Country_Region": "India",
+    "Lat": 33.75943,
+    "Long_": 76.612638
+  },
+  {
+    "Province_State": "Jharkhand",
+    "Country_Region": "India",
+    "Lat": 23.654536,
+    "Long_": 85.557631
+  },
+  {
+    "Province_State": "Karnataka",
+    "Country_Region": "India",
+    "Lat": 14.70518,
+    "Long_": 76.166436
+  },
+  {
+    "Province_State": "Kerala",
+    "Country_Region": "India",
+    "Lat": 10.450898,
+    "Long_": 76.405749
+  },
+  {
+    "Province_State": "Ladakh",
+    "Country_Region": "India",
+    "Lat": 34.1526,
+    "Long_": 77.5771
+  },
+  {
+    "Province_State": "Madhya Pradesh",
+    "Country_Region": "India",
+    "Lat": 23.541513,
+    "Long_": 78.289633
+  },
+  {
+    "Province_State": "Maharashtra",
+    "Country_Region": "India",
+    "Lat": 19.449759,
+    "Long_": 76.108221
+  },
+  {
+    "Province_State": "Manipur",
+    "Country_Region": "India",
+    "Lat": 24.738975,
+    "Long_": 93.882541
+  },
+  {
+    "Province_State": "Meghalaya",
+    "Country_Region": "India",
+    "Lat": 25.536934,
+    "Long_": 91.278882
+  },
+  {
+    "Province_State": "Mizoram",
+    "Country_Region": "India",
+    "Lat": 23.309381,
+    "Long_": 92.83822
+  },
+  {
+    "Province_State": "Nagaland",
+    "Country_Region": "India",
+    "Lat": 26.06702,
+    "Long_": 94.470302
+  },
+  {
+    "Province_State": "Odisha",
+    "Country_Region": "India",
+    "Lat": 20.505428,
+    "Long_": 84.418059
+  },
+  {
+    "Province_State": "Puducherry",
+    "Country_Region": "India",
+    "Lat": 11.882658,
+    "Long_": 78.86498
+  },
+  {
+    "Province_State": "Punjab",
+    "Country_Region": "India",
+    "Lat": 30.841465000000003,
+    "Long_": 75.40879
+  },
+  {
+    "Province_State": "Rajasthan",
+    "Country_Region": "India",
+    "Lat": 26.583423,
+    "Long_": 73.847973
+  },
+  {
+    "Province_State": "Sikkim",
+    "Country_Region": "India",
+    "Lat": 27.571671,
+    "Long_": 88.472712
+  },
+  {
+    "Province_State": "Tamil Nadu",
+    "Country_Region": "India",
+    "Lat": 11.006091,
+    "Long_": 78.400624
+  },
+  {
+    "Province_State": "Telangana",
+    "Country_Region": "India",
+    "Lat": 18.1124,
+    "Long_": 79.0193
+  },
+  {
+    "Province_State": "Tripura",
+    "Country_Region": "India",
+    "Lat": 23.746783,
+    "Long_": 91.743565
+  },
+  {
+    "Province_State": "Uttar Pradesh",
+    "Country_Region": "India",
+    "Lat": 26.925425,
+    "Long_": 80.560982
+  },
+  {
+    "Province_State": "Uttarakhand",
+    "Country_Region": "India",
+    "Lat": 30.156447,
+    "Long_": 79.197608
+  },
+  {
+    "Province_State": "West Bengal",
+    "Country_Region": "India",
+    "Lat": 23.814082,
+    "Long_": 87.979803
+  },
+  {
+    "Province_State": "Unknown",
+    "Country_Region": "India",
+    "Lat": 0,
+    "Long_": 0
+  },
+  {
+    "Province_State": "Abruzzo",
+    "Country_Region": "Italy",
+    "Lat": 42.35122196,
+    "Long_": 13.39843823
+  },
+  {
+    "Province_State": "Basilicata",
+    "Country_Region": "Italy",
+    "Lat": 40.63947052,
+    "Long_": 15.80514834
+  },
+  {
+    "Province_State": "Calabria",
+    "Country_Region": "Italy",
+    "Lat": 38.90597598,
+    "Long_": 16.59440194
+  },
+  {
+    "Province_State": "Campania",
+    "Country_Region": "Italy",
+    "Lat": 40.83956555,
+    "Long_": 14.25084984
+  },
+  {
+    "Province_State": "Emilia-Romagna",
+    "Country_Region": "Italy",
+    "Lat": 44.49436681,
+    "Long_": 11.341720800000001
+  },
+  {
+    "Province_State": "Friuli Venezia Giulia",
+    "Country_Region": "Italy",
+    "Lat": 45.6494354,
+    "Long_": 13.76813649
+  },
+  {
+    "Province_State": "Lazio",
+    "Country_Region": "Italy",
+    "Lat": 41.89277044,
+    "Long_": 12.48366722
+  },
+  {
+    "Province_State": "Liguria",
+    "Country_Region": "Italy",
+    "Lat": 44.41149315,
+    "Long_": 8.9326992
+  },
+  {
+    "Province_State": "Lombardia",
+    "Country_Region": "Italy",
+    "Lat": 45.46679409,
+    "Long_": 9.190347404
+  },
+  {
+    "Province_State": "Marche",
+    "Country_Region": "Italy",
+    "Lat": 43.61675973,
+    "Long_": 13.5188753
+  },
+  {
+    "Province_State": "Molise",
+    "Country_Region": "Italy",
+    "Lat": 41.55774754,
+    "Long_": 14.65916051
+  },
+  {
+    "Province_State": "P.A. Bolzano",
+    "Country_Region": "Italy",
+    "Lat": 46.49933453,
+    "Long_": 11.35662422
+  },
+  {
+    "Province_State": "P.A. Trento",
+    "Country_Region": "Italy",
+    "Lat": 46.06893511,
+    "Long_": 11.12123097
+  },
+  {
+    "Province_State": "Piemonte",
+    "Country_Region": "Italy",
+    "Lat": 45.0732745,
+    "Long_": 7.680687483
+  },
+  {
+    "Province_State": "Puglia",
+    "Country_Region": "Italy",
+    "Lat": 41.12559576,
+    "Long_": 16.86736689
+  },
+  {
+    "Province_State": "Sardegna",
+    "Country_Region": "Italy",
+    "Lat": 39.21531192,
+    "Long_": 9.110616306
+  },
+  {
+    "Province_State": "Sicilia",
+    "Country_Region": "Italy",
+    "Lat": 38.11569725,
+    "Long_": 13.362356699999998
+  },
+  {
+    "Province_State": "Toscana",
+    "Country_Region": "Italy",
+    "Lat": 43.76923077,
+    "Long_": 11.25588885
+  },
+  {
+    "Province_State": "Umbria",
+    "Country_Region": "Italy",
+    "Lat": 43.10675841,
+    "Long_": 12.38824698
+  },
+  {
+    "Province_State": "Valle d'Aosta",
+    "Country_Region": "Italy",
+    "Lat": 45.73750286,
+    "Long_": 7.320149366
+  },
+  {
+    "Province_State": "Veneto",
+    "Country_Region": "Italy",
+    "Lat": 45.43490485,
+    "Long_": 12.33845213
+  },
+  {
+    "Province_State": "Anguilla",
+    "Country_Region": "United Kingdom",
+    "Lat": 18.2206,
+    "Long_": -63.0686
+  },
+  {
+    "Province_State": "Bermuda",
+    "Country_Region": "United Kingdom",
+    "Lat": 32.3078,
+    "Long_": -64.7505
+  },
+  {
+    "Province_State": "British Virgin Islands",
+    "Country_Region": "United Kingdom",
+    "Lat": 18.4207,
+    "Long_": -64.64
+  },
+  {
+    "Province_State": "Cayman Islands",
+    "Country_Region": "United Kingdom",
+    "Lat": 19.3133,
+    "Long_": -81.2546
+  },
+  {
+    "Province_State": "Channel Islands",
+    "Country_Region": "United Kingdom",
+    "Lat": 49.3723,
+    "Long_": -2.3644
+  },
+  {
+    "Province_State": "England",
+    "Country_Region": "United Kingdom",
+    "Lat": 52.3555,
+    "Long_": -1.1743
+  },
+  {
+    "Province_State": "Falkland Islands (Malvinas)",
+    "Country_Region": "United Kingdom",
+    "Lat": -51.7963,
+    "Long_": -59.5236
+  },
+  {
+    "Province_State": "Gibraltar",
+    "Country_Region": "United Kingdom",
+    "Lat": 36.1408,
+    "Long_": -5.3536
+  },
+  {
+    "Province_State": "Isle of Man",
+    "Country_Region": "United Kingdom",
+    "Lat": 54.2361,
+    "Long_": -4.5481
+  },
+  {
+    "Province_State": "Montserrat",
+    "Country_Region": "United Kingdom",
+    "Lat": 16.742498,
+    "Long_": -62.187366000000004
+  },
+  {
+    "Province_State": "Northern Ireland",
+    "Country_Region": "United Kingdom",
+    "Lat": 54.7877,
+    "Long_": -6.4923
+  },
+  {
+    "Province_State": "Scotland",
+    "Country_Region": "United Kingdom",
+    "Lat": 56.4907,
+    "Long_": -4.2026
+  },
+  {
+    "Province_State": "Turks and Caicos Islands",
+    "Country_Region": "United Kingdom",
+    "Lat": 21.69400000000001,
+    "Long_": -71.7979
+  },
+  {
+    "Province_State": "Unknown",
+    "Country_Region": "United Kingdom",
+    "Lat": 0,
+    "Long_": 0
+  },
+  {
+    "Province_State": "Wales",
+    "Country_Region": "United Kingdom",
+    "Lat": 52.1307,
+    "Long_": -3.7837
+  },
+  {
+    "Province_State": "Guyane",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 4,
+    "Long_": -53
+  },
+  {
+    "Province_State": "French Polynesia",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": -17.6797,
+    "Long_": -149.4068
+  },
+  {
+    "Province_State": "Guadeloupe",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 16.265,
+    "Long_": -61.551
+  },
+  {
+    "Province_State": "Martinique",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 14.6415,
+    "Long_": -61.0242
+  },
+  {
+    "Province_State": "Mayotte",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": -12.8275,
+    "Long_": 45.166244
+  },
+  {
+    "Province_State": "New Caledonia",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": -20.904304999999997,
+    "Long_": 165.618042
+  },
+  {
+    "Province_State": "Reunion",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": -21.1151,
+    "Long_": 55.5364
+  },
+  {
+    "Province_State": "Saint Barthelemy",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 17.9,
+    "Long_": -62.8333
+  },
+  {
+    "Province_State": "Saint Pierre and Miquelon",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 46.8852,
+    "Long_": -56.3159
+  },
+  {
+    "Province_State": "St Martin",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 18.0708,
+    "Long_": -63.0501
+  },
+  {
+    "Province_State": "Normandie",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 49.490002,
+    "Long_": 0.100000
+  },
+  {
+    "Province_State": "Bretagne",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 47,
+    "Long_": 1.7
+  },
+  {
+    "Province_State": "Ile-de-France",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 48.864716,
+    "Long_": 2.349014
+  },
+  {
+    "Province_State": "Corse",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 42.697285,
+    "Long_": 9.450881
+  },
+  {
+    "Province_State": "Pays de la Loire",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": -0.3299687,
+    "Long_": 47.7632836
+  },
+  {
+    "Province_State": "Provence-Alpes-Cote d’Azur",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 43.676701,
+    "Long_": 4.627800
+  },
+  {
+    "Province_State": "Auvergne-Rhone-Alpes",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 45.763420,
+    "Long_": 4.834277
+  },
+  {
+    "Province_State": "Grand Est",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 48.580002,
+    "Long_": 7.750000
+  },
+  {
+    "Province_State": "Centre-Val de Loire",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 47.243599,
+    "Long_": 0.689200
+  },
+  {
+    "Province_State": "Hauts-de-France",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 50.629250,
+    "Long_": 3.057256
+  },
+  {
+    "Province_State": "Bourgogne-Franche-Comte",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 46.428967,
+    "Long_": 4.664555
+  },
+  {
+    "Province_State": "Nouvelle-Aquitaine",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 43.299999,
+    "Long_": -0.370000
+  },
+  {
+    "Province_State": "Occitanie",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 43.604500,
+    "Long_": 1.444000
+  },
+  {
+    "Province_State": "French Guiana",
+    "Country_Region": "France",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 3.9332383,
+    "Long_": -53.0875742
+  },
+  {
+    "Province_State": "Lower Saxony",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 52.373920,
+    "Long_": 9.735603
+  },
+  {
+    "Province_State": "Saxony",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 51.343479,
+    "Long_": 12.387772
+  },
+  {
+    "Province_State": "Bavaria",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 48.137154,
+    "Long_": 11.576124
+  },
+  {
+    "Province_State": "Rhineland-Palatinate",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 3.9332383,
+    "Long_": -53.0875742
+  },
+  {
+    "Province_State": "Saxony-Anhalt",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 51.483334,
+    "Long_": 11.966667
+  },
+  {
+    "Province_State": "Baden-Wuerttemberg",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 48.758339,
+    "Long_": 8.243008
+  },
+  {
+    "Province_State": "North Rhine-Westphalia",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 51.233334,
+    "Long_": 6.783333
+  },
+  {
+    "Province_State": "Hesse",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 51.312801,
+    "Long_": 9.481544
+  },
+  {
+    "Province_State": "Mecklenburg-Western Pomerania",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 53.6072342377,
+    "Long_": 12.7001138662
+  },
+  {
+    "Province_State": "Thuringia",
+    "Country_Region": "Germany",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 50.983334,
+    "Long_": 11.033333
+  },
+  {
+    "Province_State": "Daman and Diu",
+    "Country_Region": "India",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 20.397373,
+    "Long_": 72.832802
+  },
+  {
+    "Province_State": "Dadra and Nagar Haveli",
+    "Country_Region": "India",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 20.276266,
+    "Long_": 73.008308
+  },
+  {
+    "Province_State": "Lakshadweep",
+    "Country_Region": "India",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 13.7000,
+    "Long_": 72.1833
+  },
+  {
+    "Province_State": "Valle dAosta",
+    "Country_Region": "Italy",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 45.734955,
+    "Long_": 7.313076
+  },
+  {
+    "Province_State": "Estado de Mexico",
+    "Country_Region": "Mexico",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 23.634501,
+    "Long_": -102.552784
+  },
+  {
+    "Province_State": "North Ireland",
+    "Country_Region": "United Kingdom",
+    "Last_Update": "2020-07-24 05:30:40",
+    "Lat": 54.607868,
+    "Long_": -5.926437
+  }
+]

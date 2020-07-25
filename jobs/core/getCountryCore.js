@@ -83,6 +83,7 @@ const dataCore = async () => {
               Deaths: Number(i.Deaths),
               Recovered: Number(i.Recovered),
               Active: Number(i.Active),
+              Source: 'John Hopkins University',
               Combined_Key: i.Combined_Key,
               City: [],
             }))[0]
@@ -113,8 +114,8 @@ const dataCore = async () => {
                 Deaths: Number(i.Deaths),
                 Recovered: Number(i.Recovered),
                 Active: Number(i.Active),
+                Source: 'John Hopkins University',
                 Combined_Key: i.Combined_Key,
-                Incidence_Rate: i.Incidence_Rate,
               })),
           }),
       ),
@@ -167,6 +168,7 @@ const dataCore = async () => {
             dataSUM(filterData(c).map((i) => i.Recovered))
             - dataCountriesYesterdayData(c, 'Recovered'),
           Active: dataSUM(filterData(c).map((i) => i.Active)),
+          Source: 'John Hopkins University',
           Timeline: `${config.url}/timeline/${countryFilter(c, 'Slug')}`,
         },
         ...stateOrCity(c),
@@ -193,8 +195,31 @@ const dataCore = async () => {
     Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
   };
 
+  //  Argentina
+  // Brazil
+  // Chile
+  // Colombia
+  // France
+  // Germany
+  // India
+  // Italy
+  // Mexico
+  // United Kingdom
+
   // Last step, create a json with the country data
-  const countryCovid = dataCountry.filter((value) => !value.Venezuela);
+  const countryCovid = dataCountry.filter(
+    (value) => !value.Venezuela
+      && !value.Argentina
+      && !value.Brazil
+      && !value.Chile
+      && !value.Colombia
+      && !value.France
+      && !value.Germany
+      && !value.India
+      && !value.Italy
+      && !value.Mexico
+      && !value['United Kingdom'],
+  );
   const dataCountryCore = { globalData, countryCovid };
   return dataCountryCore;
 };

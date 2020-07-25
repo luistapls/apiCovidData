@@ -5,7 +5,7 @@ const {
   getConnectionTimeline,
 } = require('../../lib/lowdb');
 
-const { uppercaseFirstLetter } = require('../utils/helper/servicesHelper');
+const { uppercaseFirstLetter, getCountriesURL } = require('../utils/helper/servicesHelper');
 
 class DataServices {
   async getDataCountries() {
@@ -23,16 +23,16 @@ class DataServices {
   async getCountries(countries) {
     const data = await getConnectionCountry()
       .get('countryData')
-      .find(countries)
-      .value()[countries];
+      .find(getCountriesURL(countries))
+      .value()[getCountriesURL(countries)];
     return data || [];
   }
 
   async getState(countries, stateP) {
     const country = await this.getCountries(countries);
-    const data = await country.State.filter(
-      (i) => i.Province_State === uppercaseFirstLetter(stateP),
-    )[0];
+    const data = await country.State.find(
+      (i) => uppercaseFirstLetter(i.Province_State) === uppercaseFirstLetter(stateP),
+    );
     return data || [];
   }
 
@@ -40,9 +40,9 @@ class DataServices {
     let data = {};
     try {
       const state = await this.getState(countries, stateP);
-      const dataCity = await state.City.filter(
-        (i) => i.City === uppercaseFirstLetter(cityp),
-      )[0];
+      const dataCity = await state.City.find(
+        (i) => uppercaseFirstLetter(i.City) === uppercaseFirstLetter(cityp),
+      );
       data = dataCity || [];
     } catch {
       data = [];
@@ -80,7 +80,7 @@ class DataServices {
     try {
       data = await getConnectionTimeline()
         .get('timeline')
-        .filter({ Country: countries })
+        .filter({ Country: getCountriesURL(countries) })
         .value();
     } catch (error) {
       data = [];
@@ -94,8 +94,8 @@ class DataServices {
     try {
       data = await getConnectionTimeline()
         .get('provinceName')
-        .find(countries)
-        .value()[countries];
+        .find(getCountriesURL(countries))
+        .value()[getCountriesURL(countries)];
     } catch (error) {
       data = [];
     }
@@ -111,7 +111,7 @@ class DataServices {
       ).Province;
       data = await getConnectionTimeline()
         .get('timelineProvince')
-        .filter({ Country: countries, Province: nameFilter })
+        .filter({ Country: getCountriesURL(countries), Province: nameFilter })
         .value();
     } catch (error) {
       data = [];

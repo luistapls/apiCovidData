@@ -1,6 +1,7 @@
 const { getTimeLine, dataCore } = require('../core');
 const {
   countryVenezuela,
+  dataNarrativa,
   timeLineColombia,
   timeLineVenezuela,
 } = require('../services');
@@ -26,11 +27,11 @@ const countryDefault = async () => {
   const covid = await dataCore();
 
   // Service
-  const serviceCountry = await countryVenezuela();
+  const serviceCountry = [await countryVenezuela(), await dataNarrativa()];
 
   return {
     globalData: covid.globalData,
-    countryData: [...covid.countryCovid, serviceCountry],
+    countryData: [...covid.countryCovid, ...serviceCountry.flat()],
   };
 };
 

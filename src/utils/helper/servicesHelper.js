@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 const { config } = require('../../../config');
+const { getConnectionCountry } = require('../../../lib/lowdb');
 
 const countriesJson = require('../data/countries.json');
 
 const getProperty = (obj, key) => obj[key];
 
-const uppercaseFirstLetter = (word) => word[0].toUpperCase() + word.slice(1);
+const uppercaseFirstLetter = (word) => word.toLowerCase().replace(/ /g, '-');
 
 const getCountriesURL = (strinp) => {
   const country = countriesJson.find(
@@ -15,6 +16,23 @@ const getCountriesURL = (strinp) => {
   return country ? country.Country : null;
 };
 
+const verifyState = (country) => getConnectionCountry().get('countryData').find(country).value()[country].State
+  .length === 0;
+const getStateURL = (country, state) => {
+  const pronvice = getConnectionCountry()
+    .get('countryData')
+    .find(country)
+    .value()[country].State;
+  return (
+    pronvice.find(
+      (province) => province.Province_State.toLowerCase().replace(/ /g, '-')
+        === state.toLowerCase().replace(/ /g, '-'),
+    ) === undefined
+  );
+};
+
+// i.Province_State.toLowerCase().replace(/ /g, '-') ===
+//         'puerto-rico'.toLowerCase().replace(/ /g, '-')
 const error400 = {
   error: '400',
   message: 'bad request,heck the parameters',
@@ -51,6 +69,8 @@ module.exports = {
   uppercaseFirstLetter,
   getCountriesURL,
   dataFilterHelp,
+  verifyState,
+  getStateURL,
   error400,
   error404Countries,
 };
