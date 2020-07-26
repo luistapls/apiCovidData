@@ -53,6 +53,7 @@ const dataNarrativa = async () => {
           Summary: {
             Country_Region: removeAccents(value.name),
             ISO2: codeFilter(value.name, 'ISO2'),
+            Code: codeFilter(value.name, 'ISO2'),
             Slug: codeFilter(value.name, 'Slug'),
             Last_Update: moment().format('YYYY-MM-DD hh:mm:ss Z'),
             Lat: codeLocation.find((d) => d.country === value.name).latitude,

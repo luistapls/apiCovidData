@@ -155,6 +155,7 @@ const dataCore = async () => {
         Summary: {
           Country_Region: countryFilter(c, 'Country'),
           ISO2: countryFilter(c, 'ISO2'),
+          Code: countryFilter(c, 'ISO2'),
           Slug: countryFilter(c, 'Slug'),
           Last_Update: moment().format('YYYY-MM-DD hh:mm:ss Z'),
           Lat: location(countryFilter(c, 'ISO2'), 'latitude'),
