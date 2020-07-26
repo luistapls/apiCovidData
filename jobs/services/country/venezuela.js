@@ -12,9 +12,9 @@ const countryVenezuela = async () => {
       Venezuela: {
         Summary: {
           Country_Region: 'Venezuela',
-          Code: 'VE',
+          ISO2: 'VE',
           Slug: 'venezuela',
-          Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
+          Last_Update: moment().format('YYYY-MM-DD hh:mm:ss Z'),
           Lat: 10.500000,
           Long_: -66.916664,
           Confirmed: data.Confirmed.Count,
@@ -24,7 +24,7 @@ const countryVenezuela = async () => {
           NewDeaths: data.Deaths.New,
           NewRecovered: data.Recovered.New,
           Active: data.Active.Count,
-          Sources: 'Ministerio del Poder Popular para la Salud Venezuela',
+          Source: 'Ministerio del Poder Popular para la Salud Venezuela',
           Timeline: `${config.url}/timeline/venezuela`,
         },
         State: [],
