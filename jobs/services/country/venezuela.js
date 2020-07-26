@@ -13,6 +13,7 @@ const countryVenezuela = async () => {
         Summary: {
           Country_Region: 'Venezuela',
           ISO2: 'VE',
+          Code: 'VE',
           Slug: 'venezuela',
           Last_Update: moment().format('YYYY-MM-DD hh:mm:ss Z'),
           Lat: 10.500000,
