@@ -154,9 +154,9 @@ const dataCore = async () => {
       [c]: {
         Summary: {
           Country_Region: countryFilter(c, 'Country'),
-          Code: countryFilter(c, 'ISO2'),
+          ISO2: countryFilter(c, 'ISO2'),
           Slug: countryFilter(c, 'Slug'),
-          Last_Update: moment().format('YYYY-MM-DD hh:mm:ss'),
+          Last_Update: moment().format('YYYY-MM-DD hh:mm:ss Z'),
           Lat: location(countryFilter(c, 'ISO2'), 'latitude'),
           Long_: location(countryFilter(c, 'ISO2'), 'longitude'),
           Confirmed: dataSUM(filterData(c).map((i) => i.Confirmed)),

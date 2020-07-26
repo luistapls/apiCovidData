@@ -31,7 +31,8 @@
     },
     {
         "Country": "Holy See",
-        "Slug": "holy-see"
+        "Slug": "holy-see",
+        "ISO2":"holy-see"
     },
     {
         "Country": "Congo (Kinshasa)",
@@ -125,7 +126,8 @@
     },
     {
         "Country": "West Bank and Gaza",
-        "Slug": "west-bank-and-gaza"
+        "Slug": "west-bank-and-gaza",
+        "ISO2":"west-bank-and-gaza"
     },
     {
         "Country": "Hungary",
@@ -444,7 +446,8 @@
     },
     {
         "Country": "MS Zaandam",
-        "Slug": "ms-zaandam"
+        "Slug": "ms-zaandam",
+        "ISO2": "ms-zaandam"
     },
     {
         "Country": "Algeria",
