@@ -265,8 +265,8 @@ const core = async () => {
               country,
               'Slug',
             )}`,
-            ...stateAndCity(country),
           },
+          ...stateAndCity(country),
         },
       }));
     // Global data for summaries
