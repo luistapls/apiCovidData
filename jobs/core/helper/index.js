@@ -1,5 +1,9 @@
 const fs = require('fs');
 const csvjson = require('./csvjson');
+const codeLocation = require('./location.json');
+const codeLocationUS = require('./locationUS.json');
+const { uppercaseSlug } = require('../../../src/utils/helper/servicesHelper');
+
 const countriesJson = require('../../../src/utils/data/countries.json');
 
 const dataCSVtoJSON = (dataCountries) => csvjson.toSchemaObject(dataCountries, {
@@ -23,4 +27,7 @@ module.exports = {
   countriesJson,
   uniqueValue,
   removeAccents,
+  codeLocation,
+  codeLocationUS,
+  uppercaseSlug,
 };

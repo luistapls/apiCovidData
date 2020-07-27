@@ -52,7 +52,6 @@ const dataNarrativa = async () => {
         [value.name]: {
           Summary: {
             Country_Region: removeAccents(value.name),
-            ISO2: codeFilter(value.name, 'ISO2'),
             Code: codeFilter(value.name, 'ISO2'),
             Slug: codeFilter(value.name, 'Slug'),
             Last_Update: moment().format('YYYY-MM-DD hh:mm:ss Z'),
@@ -92,6 +91,9 @@ const dataNarrativa = async () => {
             Confirmed: state.today_confirmed,
             Deaths: state.today_deaths,
             Recovered: state.today_recovered,
+            NewConfirmed: state.today_new_confirmed,
+            NewDeaths: state.today_new_confirmed,
+            NewRecovered: state.today_new_recovered,
             Active: state.today_open_cases,
             Source: state.source,
             Combined_Key: `${cordinnatesFilter(

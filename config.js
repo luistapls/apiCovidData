@@ -24,6 +24,46 @@ const config = {
         country: 'venezuela',
         urlData: 'https://covid19.patria.org.ve/api/v1/timeline',
       },
+      Argentina: {
+        country: 'Argentina',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      Brazil: {
+        country: 'Brazil',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      Chile: {
+        country: 'Chile',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      Colombia: {
+        country: 'Colombia',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      France: {
+        country: 'France',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      Germany: {
+        country: 'Germany',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      India: {
+        country: 'India',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      Italy: {
+        country: 'Italy',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      Mexico: {
+        country: 'Mexico',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
+      'United Kingdom': {
+        country: 'United Kingdom',
+        urlData: 'https://api.covid19tracking.narrativa.com/api/',
+      },
     },
     timeline: {
       Colombia: {
