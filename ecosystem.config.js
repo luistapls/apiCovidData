@@ -14,7 +14,7 @@ module.exports = {
       script: 'jobs/cron/00.js',
       instances: 1,
       exec_mode: 'fork',
-      cron_restart: '*/720 * * * *',
+      cron_restart: '*/120 * * * *',
       watch: false,
       autorestart: false,
       env: {
