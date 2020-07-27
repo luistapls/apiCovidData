@@ -250,7 +250,6 @@ const core = async () => {
             Confirmed: summaryCountry(dataJSON, country, 'Confirmed'),
             Deaths: summaryCountry(dataJSON, country, 'Deaths'),
             Recovered: summaryCountry(dataJSON, country, 'Recovered'),
-            Active: summaryCountry(dataJSON, country, 'Active'),
             NewConfirmed:
               summaryCountry(dataJSON, country, 'Confirmed')
               - summaryCountry(dataJSONYesterday, country, 'Confirmed'),
@@ -260,6 +259,7 @@ const core = async () => {
             NewRecovered:
               summaryCountry(dataJSON, country, 'Recovered')
               - summaryCountry(dataJSONYesterday, country, 'Recovered'),
+            Active: summaryCountry(dataJSON, country, 'Active'),
             Source: 'John Hopkins University',
             Timeline: `${config.url}/timeline/${countrySlugAndCode(
               country,
