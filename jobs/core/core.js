@@ -26,13 +26,9 @@ const core = async () => {
         .format('MM-DD-YYYY')}.csv`,
     );
     const serviceCountryCore = Object.keys(config.service.country);
-    const dataJSON = dataCSVtoJSON(responseCountries.data).filter(
-      (filterCountryService) => !serviceCountryCore.includes(filterCountryService.Country_Region),
-    );
+    const dataJSON = dataCSVtoJSON(responseCountries.data);
     const dataJSONYesterday = dataCSVtoJSON(
       responseCountriesYesterday.data,
-    ).filter(
-      (filterCountryService) => !serviceCountryCore.includes(filterCountryService.Country_Region),
     );
     const locationCoordinated = (codeCountry, type) => (codeLocation.filter((code) => code.alpha2 === codeCountry).length > 0
       ? codeLocation.find((code) => code.alpha2 === codeCountry)[type]
@@ -60,11 +56,17 @@ const core = async () => {
             && valueProvinceYestarday.Province_State === province,
       )[type],
     );
-    const summaryCityCount = (country, province, city, type) => dataJSONYesterday.find(
-      (valueCityYestarday) => valueCityYestarday.Country_Region === country
-          && valueCityYestarday.Province_State === province
-          && valueCityYestarday.Admin2 === city,
-    )[type];
+    const summaryCityCount = (country, province, city, type) => {
+      try {
+        return dataJSONYesterday.find(
+          (valueCityYestarday) => valueCityYestarday.Country_Region === country
+            && valueCityYestarday.Province_State === province
+            && valueCityYestarday.Admin2 === city,
+        )[type];
+      } catch (error) {
+        return 0;
+      }
+    };
 
     const stateAndCity = (country) => (dataJSON.filter(
       (countries) => countries.Country_Region === country && countries.Admin2.length > 0,
@@ -229,7 +231,9 @@ const core = async () => {
         .map((valueCountry) => valueCountry[type]),
     );
     countryCovid = dataJSON
-      .map((value) => value)
+      .map((value) => value).filter(
+        (filterCountryService) => !serviceCountryCore.includes(filterCountryService.Country_Region),
+      )
       .map((i) => i.Country_Region)
       .filter((value, index, self) => self.indexOf(value) === index)
       .map((country) => ({

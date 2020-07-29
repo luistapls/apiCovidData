@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const axios = require('axios').default;
 const moment = require('moment-timezone');
 const { config } = require('../../../../config');
@@ -61,7 +62,7 @@ const dataNarrativa = async () => {
             Deaths: value.today_deaths,
             Recovered: value.today_recovered,
             NewConfirmed: value.today_new_confirmed,
-            NewDeaths: value.today_new_confirmed,
+            NewDeaths: value.today_new_deaths,
             NewRecovered: value.today_new_recovered,
             Active: value.today_open_cases,
             Source:
@@ -92,7 +93,7 @@ const dataNarrativa = async () => {
             Deaths: state.today_deaths,
             Recovered: state.today_recovered,
             NewConfirmed: state.today_new_confirmed,
-            NewDeaths: state.today_new_confirmed,
+            NewDeaths: state.today_new_deaths,
             NewRecovered: state.today_new_recovered,
             Active: state.today_open_cases,
             Source: state.source,
@@ -106,7 +107,7 @@ const dataNarrativa = async () => {
         },
       }));
   } catch (error) {
-    data = {};
+    console.log(error);
   }
   return data;
 };
