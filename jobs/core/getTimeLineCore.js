@@ -88,6 +88,7 @@ const getTimeLine = async () => {
         Confirmed: suma(data, Number(d), 'Confirmed'),
         Deaths: suma(data, Number(d), 'Deaths'),
         Recovered: suma(data, Number(d), 'Recovered'),
+        Source: 'John Hopkins University',
         TimeLineCity: `${config.url}/timeline/${removeAccents(
           data[keyF][Number(d)].Country,
         )}/provinces`,

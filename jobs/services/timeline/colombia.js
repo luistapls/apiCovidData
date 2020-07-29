@@ -14,6 +14,7 @@ const timeLineColombia = async () => {
       Confirmed: i.attributes.TOTAL_CASOS,
       Deaths: i.attributes.TOTAL_MUERTES,
       Recovered: i.attributes.TOTAL_RECUPERADOS,
+      Source: 'Ministerio de Salud y Protección Social Colombia',
     }));
   } catch (error) {
     dataService = {};

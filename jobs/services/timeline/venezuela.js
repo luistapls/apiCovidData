@@ -14,6 +14,7 @@ const timeLineVenezuela = async () => {
       Confirmed: i.Confirmed.Count,
       Deaths: i.Deaths.Count,
       Recovered: i.Recovered.Count,
+      Source: 'Ministerio del Poder Popular para la Salud Venezuela',
     }));
   } catch (error) {
     dataService = error;
