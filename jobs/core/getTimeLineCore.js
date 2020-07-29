@@ -32,6 +32,7 @@ const getTimeLine = async () => {
       Confirmed: Number(dataJSONConfirmed[i][x]),
       Deaths: Number(dataJSONDeaths[i][x]),
       Recovered: dataOrErrorRecovered(dataJSONConfirmed[i]['Country/Region'], x),
+      Source: 'John Hopkins University',
     }))
     .filter((data) => data.Confirmed != i.Lat)
     .filter((data) => data.Confirmed != i.Long)
@@ -73,6 +74,7 @@ const getTimeLine = async () => {
         Confirmed: h.Confirmed,
         Deaths: h.Deaths,
         Recovered: h.Recovered,
+        Source: 'John Hopkins University',
       })));
 
     const keys = data.map((i) => Object.keys(i))[0];
