@@ -17,9 +17,9 @@ const getTimeLine = async () => {
     (await axios.get(config.core.timeSeriesRecovered)).data,
   );
 
-  const dataOrErrorRecovered = (i, x) => {
+  const dataOrErrorRecovered = (country, x) => {
     try {
-      return Number(dataJSONRecovered[i][x]);
+      return Number(dataJSONRecovered.find((value) => value['Country/Region'] === country)[x]);
     } catch (error) {
       return 0;
     }
@@ -31,7 +31,7 @@ const getTimeLine = async () => {
       Date: moment(new Date(x)).format('MM-DD-YYYY'),
       Confirmed: Number(dataJSONConfirmed[i][x]),
       Deaths: Number(dataJSONDeaths[i][x]),
-      Recovered: dataOrErrorRecovered(i, x),
+      Recovered: dataOrErrorRecovered(dataJSONConfirmed[i]['Country/Region'], x),
     }))
     .filter((data) => data.Confirmed != i.Lat)
     .filter((data) => data.Confirmed != i.Long)
