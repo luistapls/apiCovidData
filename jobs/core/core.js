@@ -33,7 +33,14 @@ const core = async () => {
     const locationCoordinated = (codeCountry, type) => (codeLocation.filter((code) => code.alpha2 === codeCountry).length > 0
       ? codeLocation.find((code) => code.alpha2 === codeCountry)[type]
       : 0);
-    const countrySlugAndCode = (country, type) => countriesJson.find((i) => i.Country === country)[type];
+    const countrySlugAndCode = (country, type) => {
+      let countrySlug = 'error';
+      if (country) {
+        const findCountry = countriesJson.find((i) => i.Country === country);
+        countrySlug = findCountry && findCountry[type];
+      }
+      return countrySlug;
+    };
 
     const dataSUM = (f) => f.map((i) => Number(i)).reduce((acc, val) => acc + val, 0);
 
@@ -292,8 +299,8 @@ const core = async () => {
       NewRecovered: globalNewRecovered,
       Last_Update: moment().format('YYYY-MM-DD hh:mm:ss Z'),
     };
-  } catch {
-    console.log('err');
+  } catch (e) {
+    console.log(e);
   }
   return { globalData, countryCovid };
 };
