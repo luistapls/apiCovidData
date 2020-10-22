@@ -35,7 +35,7 @@
     "helmet": "3.23.2",
     "lowdb": "^1.0.0",
     "moment-timezone": "^0.5.31",
-    "pm2": "^4.4.0",
+    "pm2": "^4.5.0",
     "snyk": "^1.402.0"
   },
   "devDependencies": {
