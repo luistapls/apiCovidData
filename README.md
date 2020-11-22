@@ -1,6 +1,6 @@
   
 
-# [Coronavirus COVID19 API](https://api-corona.azurewebsites.net/)
+# [Coronavirus COVID19 API](https://api.datoscovid.org)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/42b58438d31b46b98a767626d0a5f52d)](https://app.codacy.com/manual/eusoumaxi/apiCovidData?utm_source=github.com&utm_medium=referral&utm_content=eusoumaxi/apiCovidData&utm_campaign=Badge_Grade_Dashboard)
 
@@ -24,7 +24,7 @@
 
   
 
-<b>URL API:</b><br>[https://api-corona.azurewebsites.net/](https://api-corona.azurewebsites.net/)
+<b>URL API:</b><br>[https://api.datoscovid.org](https://api.datoscovid.org)
 
 ## Installation
 

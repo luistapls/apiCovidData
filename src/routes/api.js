@@ -7,17 +7,16 @@ const {
 } = require('../utils/middleware/countryNotFound');
 const allJson = require('../utils/data/all');
 const DataServices = require('../services/getData');
-const cacheResponse = require('../utils/cache');
-const { threeHour } = require('../utils/time');
 const {
   getCountriesURL,
 } = require('../utils/helper/servicesHelper');
+const cacheMiddleware = require('../utils/middleware/cache');
 
 const dataService = new DataServices();
 const router = Router();
 
+router.use(cacheMiddleware());
 router.get('/', async (_req, res, next) => {
-  cacheResponse(res, threeHour);
   try {
     res.status(200).json(allJson);
   } catch (err) {
@@ -26,7 +25,6 @@ router.get('/', async (_req, res, next) => {
 });
 
 router.get('/summary', async (_req, res, next) => {
-  cacheResponse(res, threeHour);
   try {
     const dataSevices = await dataService.getSummaries();
     res.status(200).json(dataSevices);
@@ -35,8 +33,6 @@ router.get('/summary', async (_req, res, next) => {
   }
 });
 router.get('/country', async (_req, res, next) => {
-  cacheResponse(res, threeHour);
-
   try {
     const dataSevices = await dataService.getDataCountries();
     res.status(200).json(dataSevices);
@@ -45,7 +41,6 @@ router.get('/country', async (_req, res, next) => {
   }
 });
 router.get('/all', async (_req, res, next) => {
-  cacheResponse(res, threeHour);
   try {
     const dataSevicesCountry = await dataService.getDataAllCountryData();
     res.status(200).json(dataSevicesCountry);
@@ -54,7 +49,6 @@ router.get('/all', async (_req, res, next) => {
   }
 });
 router.get('/timeline', async (_req, res, next) => {
-  cacheResponse(res, threeHour);
   try {
     const dataSevices = await dataService.getTimelineAll();
     res.status(200).json(dataSevices);
@@ -64,7 +58,6 @@ router.get('/timeline', async (_req, res, next) => {
 });
 // Data countries
 router.get('/country/:countries', countryNotFound(), async (req, res, next) => {
-  cacheResponse(res, threeHour);
   const { countries } = req.params;
   try {
     const data = await dataService.getCountries(countries);
@@ -79,7 +72,6 @@ router.get(
   verifyStates(),
   stateNotFound(),
   async (req, res, next) => {
-    cacheResponse(res, threeHour);
     const { countries, statep } = req.params;
     try {
       const data = await dataService.getState(countries, statep);
@@ -95,7 +87,6 @@ router.get(
   verifyStates(),
   stateNotFound(),
   async (req, res, next) => {
-    cacheResponse(res, threeHour);
     const { countries, statep, cityp } = req.params;
     try {
       const data = await dataService.getCity(countries, statep, cityp);
@@ -109,7 +100,6 @@ router.get(
   '/timeline/:countries',
   countryNotFound(),
   async (req, res, next) => {
-    cacheResponse(res, threeHour);
     const { countries } = req.params;
     try {
       const data = await dataService.getTimeLine(countries);
@@ -123,7 +113,6 @@ router.get(
   '/timeline/:countries/provinces',
   countryNotFound(),
   async (req, res, next) => {
-    cacheResponse(res, threeHour);
     const { countries, statep } = req.params;
     try {
       const data = await dataService.getTimeLineInfo(countries, statep);
@@ -137,7 +126,6 @@ router.get(
   '/timeline/:countries/provinces/:statep/',
   countryNotFound(),
   async (req, res, next) => {
-    cacheResponse(res, threeHour);
     const { countries, statep } = req.params;
     try {
       const data = await dataService.getTimeLineCity(countries, statep);

@@ -11,21 +11,16 @@ module.exports = {
     getData:
       'https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data',
   },
-  notice: {
-    message:
-      'From August 1, the url api-corona.azurewebsites.net will cease to exist. the new url is: https://corona.azure-api.net/',
-    urlNew: 'https://corona.azure-api.net/',
-  },
   donations: {
     message:
-      'Currently we have no advertising, partner and this project is hosted in azure, the way to pay for this service is by donations.',
+      'Currently we have no advertising, partner and this project is hosted in digitalOcean, the way to pay for this service is by donations.',
     btc: '35HRURspXCanGXNn6wARfJxPCuZrKipbsY',
     paypal: 'https://paypal.me/covid19server',
     buyMeACoffe: 'https://bit.ly/3gORfVw',
   },
   graphQL: {
     name: 'GraphQL',
-    client: 'https://api-corona.azurewebsites.net/graphql',
+    client: `${config.url}/graphql`,
     POST: `${config.url}/graphql`,
   },
   allRoute: {
