@@ -35,11 +35,11 @@ jobs:
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
         
-    - name: Install PM2
+    - name: install PM2
       run: npm i pm2
       
-    - name: Deploy DB
+    - name: run script DB
       run: npm run build
       
-    - name: Deploy APP
+    - name: deploy api
       run: npm run start
