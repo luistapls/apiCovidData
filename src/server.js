@@ -2,7 +2,7 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const helmet = require('helmet');
-const path = require('path');
+const compression = require('compression');
 const cors = require('cors');
 const api = require('./routes/api');
 const {
@@ -22,13 +22,11 @@ const app = express();
 app.use(express.json());
 
 // Middleware
-app.use(helmet());
+app.set('etag', false);
+app.use(compression());
 app.use(cors());
 
-// Future routes
-app.use('/', api);
 // GraphQL
-
 const server = new ApolloServer({
   introspection: true,
   playground: true,
@@ -41,6 +39,9 @@ const server = new ApolloServer({
   }),
 });
 server.applyMiddleware({ app, path: '/graphql' });
+app.use(helmet());
+// Future routes
+app.use('/', api);
 
 // Catch 404
 app.use(notFoundHandler);
