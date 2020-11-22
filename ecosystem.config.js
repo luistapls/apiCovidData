@@ -22,4 +22,19 @@ module.exports = {
       },
     },
   ],
+  deploy: {
+    production: {
+      user: 'eusoumaxi',
+      host: '68.183.17.125',
+      key: 'deploy.key',
+      ref: 'origin/main',
+      repo: 'https://github.com/eusoumaxi/apiCovidData',
+      path: '/home/apiCovidData',
+      'post-deploy':
+        'npm build && npm start --env production && pm2 save',
+      env: {
+        NODE_ENV: 'production',
+      },
+    },
+  },
 };
