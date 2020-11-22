@@ -1,5 +1,5 @@
 name: CI - Master
-  on: # no indentation needed in this section 
+  on:
     push:
       branches: [ main ]
 
