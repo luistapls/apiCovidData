@@ -1,0 +1,7 @@
+{
+  "name": "covid-back",
+  "alias": ["covid-back"],
+  "version": 2,
+  "builds": [{ "src": "src/server.js", "use": "@now/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/src/server.js" }]
+}

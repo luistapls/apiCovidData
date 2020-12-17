@@ -15,7 +15,7 @@ const {
 const typeDefs = require('./graphql/schema');
 const resolvers = require('./graphql/resolver');
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 // body parser
@@ -33,7 +33,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   formatError: (error) => ({
-    code: '404',
+    code: '500',
     name: error.name,
     message: error.message,
   }),
