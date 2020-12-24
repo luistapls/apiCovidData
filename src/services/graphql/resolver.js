@@ -1,4 +1,4 @@
-const DataServices = require('../services/getData');
+const DataServices = require('../http/getData');
 
 const dataService = new DataServices();
 

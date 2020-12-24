@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require('apollo-server-fastify');
 
 const typeDefs = gql`
   type Country @cacheControl(maxAge: 21600) {

@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'api-covid19',
-      script: 'src/server.js',
+      script: 'api.js',
       watch: true,
       instances: 'max',
       env: {

@@ -1,11 +1,11 @@
 /* eslint-disable class-methods-use-this */
-const countriesJson = require('../utils/data/countries.json');
+const countriesJson = require('../../utils/data/countries.json');
 const {
   getConnectionCountry,
   getConnectionTimeline,
-} = require('../../lib/lowdb');
+} = require('../../../lib/lowdb');
 
-const { uppercaseSlug, getCountriesURL } = require('../utils/helper/servicesHelper');
+const { uppercaseSlug, getCountriesURL } = require('../../utils/helper/servicesHelper');
 
 class DataServices {
   async getDataCountries() {
