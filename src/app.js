@@ -18,7 +18,13 @@ const server = new ApolloServer({
 });
 
 const build = async () => {
-  const fastify = Fastify();
+  const fastify = Fastify({
+    ignoreTrailingSlash: true
+    // http2: true,
+    // https: {
+    //   allowHTTP1: true,
+    // },
+  });
   await fastify.register(require('fastify-helmet'));
   await fastify.register(server.createHandler({ path: '/graphql' }));
   await fastify.register(require('fastify-compress'), {

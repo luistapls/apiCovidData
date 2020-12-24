@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { build } = require('./src/app');
 
 const port = process.env.PORT || 8000;
@@ -17,7 +18,6 @@ build()
       process.on('SIGTERM', () => app.close());
     });
   })
-  .catch((err) => {
-    console.log(err)
+  .catch(() => {
     process.exit(1);
   });
