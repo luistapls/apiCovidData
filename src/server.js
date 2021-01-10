@@ -15,7 +15,7 @@ const {
 const typeDefs = require('./graphql/schema');
 const resolvers = require('./graphql/resolver');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const app = express();
 
 // body parser

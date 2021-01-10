@@ -1,7 +1,7 @@
 require('dotenv');
 
 const url = {
-  urlDev: 'http://localhost:8000',
+  urlDev: 'http://localhost:3001',
   urlProd: 'https://api.datoscovid.org',
 };
 

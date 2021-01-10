@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const { json2csv } = require('json-2-csv');
 const {
   countryNotFound,
   stateNotFound,
@@ -7,9 +8,7 @@ const {
 } = require('../utils/middleware/countryNotFound');
 const allJson = require('../utils/data/all');
 const DataServices = require('../services/getData');
-const {
-  getCountriesURL,
-} = require('../utils/helper/servicesHelper');
+const { getCountriesURL } = require('../utils/helper/servicesHelper');
 const cacheMiddleware = require('../utils/middleware/cache');
 
 const dataService = new DataServices();
@@ -48,12 +47,35 @@ router.get('/all', async (_req, res, next) => {
     next(err);
   }
 });
-router.get('/timeline', async (_req, res, next) => {
+router.get('/timeline', async (req, res, next) => {
+  const { isCsv, downloadCsv } = req.query;
   try {
     const dataSevices = await dataService.getTimelineAll();
-    res.status(200).json(dataSevices);
+    if (isCsv === 'true') {
+      return json2csv(
+        dataSevices.timeline.map(
+          ({
+            Country, Date, Confirmed, Deaths, Recovered, Source,
+          }) => ({
+            Country,
+            Date,
+            Confirmed,
+            Deaths,
+            Recovered,
+            Source,
+          }),
+        ),
+        (_err, csv) => {
+          if (downloadCsv === 'true') {
+            res.attachment('timeline.csv');
+          }
+          return res.send(csv);
+        },
+      );
+    }
+    return res.status(200).json(dataSevices);
   } catch (err) {
-    next(err);
+    return next(err);
   }
 });
 // Data countries
@@ -101,14 +123,38 @@ router.get(
   countryNotFound(),
   async (req, res, next) => {
     const { countries } = req.params;
+    const { isCsv, downloadCsv } = req.query;
     try {
       const data = await dataService.getTimeLine(countries);
-      res.status(200).json(data);
+      if (isCsv === 'true') {
+        return json2csv(
+          data.map(
+            ({
+              Country, Date, Confirmed, Deaths, Recovered, Source,
+            }) => ({
+              Country,
+              Date,
+              Confirmed,
+              Deaths,
+              Recovered,
+              Source,
+            }),
+          ),
+          (_err, csv) => {
+            if (downloadCsv === 'true') {
+              res.attachment(`${countries}-timeline.csv`);
+            }
+            return res.send(csv);
+          },
+        );
+      }
+      return res.json(data);
     } catch (err) {
-      next(err);
+      return next(err);
     }
   },
 );
+
 router.get(
   '/timeline/:countries/provinces',
   countryNotFound(),
@@ -127,11 +173,20 @@ router.get(
   countryNotFound(),
   async (req, res, next) => {
     const { countries, statep } = req.params;
+    const { isCsv, downloadCsv } = req.query;
     try {
       const data = await dataService.getTimeLineCity(countries, statep);
-      res.status(200).json(data);
+      if (isCsv === 'true') {
+        return json2csv(data, (_err, csv) => {
+          if (downloadCsv === 'true') {
+            res.attachment(`${countries}-${statep}-timeline.csv`);
+          }
+          return res.send(csv);
+        });
+      }
+      return res.status(200).json(data);
     } catch (err) {
-      next(err);
+      return next(err);
     }
   },
 );
