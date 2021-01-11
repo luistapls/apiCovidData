@@ -5,7 +5,10 @@ const {
   getConnectionTimeline,
 } = require('../../lib/lowdb');
 
-const { uppercaseSlug, getCountriesURL } = require('../utils/helper/servicesHelper');
+const {
+  uppercaseSlug,
+  getCountriesURL,
+} = require('../utils/helper/servicesHelper');
 
 class DataServices {
   async getDataCountries() {
@@ -124,9 +127,12 @@ class DataServices {
     const geTimeLineCountry = await this.getTimeLine(country);
     return endDate
       ? geTimeLineCountry.filter(
-        (value) => value.Date >= date && value.Date <= endDate,
+        (value) => new Date(value.Date) >= new Date(date)
+            && new Date(value.Date) <= new Date(endDate),
       )
-      : geTimeLineCountry.filter((value) => value.Date === date);
+      : geTimeLineCountry.filter(
+        (value) => new Date(value.Date) === new Date(date),
+      );
   }
 }
 module.exports = DataServices;

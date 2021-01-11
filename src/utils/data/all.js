@@ -2,14 +2,24 @@ const { config } = require('../../../config');
 
 module.exports = {
   documentation: 'https://bit.ly/api-corona',
-  note:
-    '150 calls / minute for every 30 seconds. Need more call? email: d99maxi@gmail.com',
   bug: 'If you have any error, please contact email d99maxi@gmail.com',
+  issues: 'https://github.com/eusoumaxi/apiCovidData/issues',
+  description:
+  'Access data on COVID19 through an easy API for free. Build dashboards, mobile apps or integrate in to other applications. Data is sourced from Johns Hopkins CSSE',
+  examplePage: 'https://datoscovid.org/',
   sourceData: {
-    description:
-      'Access data on COVID19 through an easy API for free. Build dashboards, mobile apps or integrate in to other applications. Data is sourced from Johns Hopkins CSSE',
-    getData:
-      'https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data',
+    Argentina: 'Ministerio de Salud Argentina,',
+    Brazil: 'Ministério da Saúde Brasil',
+    Chile: 'Ministerio de Salud Chile',
+    Colombia: 'Ministerio de Salud y Protección Social Colombia',
+    France: 'Santé publique France',
+    Germany: 'Robert Koch Institute Germany',
+    India: 'Ministry of Health and Family Welfare Government of India.',
+    Italy: 'Dipartimento della Protezione Civile.',
+    Mexico: 'Secretaría de Salud México',
+    'United Kingdom': 'GOV.UK',
+    Venezuela: 'Ministerio del Poder Popular para la Salud Venezuela',
+    OtherCountries: 'John Hopkins University',
   },
   donations: {
     message:
@@ -17,6 +27,7 @@ module.exports = {
     btc: '35HRURspXCanGXNn6wARfJxPCuZrKipbsY',
     paypal: 'https://paypal.me/covid19server',
     buyMeACoffe: 'https://bit.ly/3gORfVw',
+    monthlyPaymentInServer: '25$ USD',
   },
   graphQL: {
     name: 'GraphQL',
@@ -57,13 +68,25 @@ module.exports = {
     name: 'Get the timeline of all countries.',
     description:
       'Returns all data recorded in the country, state, and city timeline system.',
+    csv: {
+      msg: 'To get the timeline in csv add the following query isCsv for get data in csv and downloadCsv (Option) for downloads timeline in CSV format.',
+      isCsv: true,
+      downloadCsv: true,
+      example: `${config.url}/timeline?isCsv=true&downloadCsv=true`,
+    },
     path: `${config.url}/timeline`,
   },
   timelinePerCountry: {
     name: 'Get the timeline per country.',
     description: 'Returns the timeline by case type for a country.',
     path: '/timeline/:country',
-    dexample: `${config.url}/timeline/united-states`,
+    csv: {
+      msg: 'To get the timeline in csv add the following query isCsv for get data in csv and downloadCsv (Option) for downloads timeline in CSV format.',
+      isCsv: true,
+      downloadCsv: true,
+      example: `${config.url}/timeline/venezuela?isCsv=true&downloadCsv=true`,
+    },
+    example: `${config.url}/timeline/united-states`,
   },
   filters: {
     name:
@@ -71,6 +94,12 @@ module.exports = {
     escription: `${config.url}/filters`,
     exampleOne: `${config.url}/filters?date=01-22-2020&country=canada`,
     exampleSecond: `${config.url}/filters?date=06-22-2020&endDate=06-25-2020&country=co`,
+    csv: {
+      msg: 'To get the timeline in csv add the following query isCsv for get data in csv and downloadCsv (Option) for downloads timeline in CSV format.',
+      isCsv: true,
+      downloadCsv: true,
+      example: `${config.url}/filters?date=06-22-2020&endDate=06-25-2020&country=co&isCsv=true`,
+    },
   },
   summaryRoute: {
     name: 'Summary of new and total cases per country',
@@ -84,23 +113,11 @@ module.exports = {
     name: 'David Lara',
     user: '@eusoumaxi',
     gitHub: 'https://github.com/eusoumaxi',
+    linkedin: 'https://www.linkedin.com/in/eusoumaxi/',
     message:
-      ' The author of this API (David Lara, alias: eusoumaxi) hereby disclaims any and all representations and warranties regarding this API, including accuracy, suitability for use and merchantability. Relying on this website or API for medical guidance or use of this website or API in commerce is strictly prohibited.',
+      ' The author of this API (David Lara) hereby disclaims any and all representations and warranties regarding this API, including accuracy, suitability for use and merchantability. Relying on this website or API for medical guidance or use of this website or API in commerce is strictly prohibited.',
   },
-  sources: {
-    Argentina: 'Ministerio de Salud Argentina,',
-    Brazil: 'Ministério da Saúde Brasil',
-    Chile: 'Ministerio de Salud Chile',
-    Colombia: 'Ministerio de Salud y Protección Social Colombia',
-    France: 'Santé publique France',
-    Germany: 'Robert Koch Institute Germany',
-    India: 'covid19India',
-    Italy: 'Dipartimento della Protezione Civile',
-    Mexico: 'Secretaría de Salud México',
-    'United Kingdom': 'GOV.UK',
-    Venezuela: 'Ministerio del Poder Popular para la Salud Venezuela',
-    OtherCountries: 'John Hopkins University',
-  },
+  credits: 'Narrativa.com and Johns Hopkins University',
   termsOfService:
-    'This API has a limit of 150 calls / minute for every 30 seconds (Need more calls? Email: d99maxi@gmail.com), the API consumes data from the Johns Hopkins University database, which is published under MIT license. ',
+    'The API consumes data from the Johns Hopkins University database, which is published under MIT license. ',
 };

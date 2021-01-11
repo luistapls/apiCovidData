@@ -191,16 +191,28 @@ router.get(
   },
 );
 router.get('/filters', filterVerify(), async (req, res, next) => {
-  const { date, endDate, country } = req.query;
+  const {
+    date, endDate, country, isCsv, downloadCsv,
+  } = req.query;
   try {
     const data = await dataService.filters(
       getCountriesURL(country),
       date,
       endDate,
     );
-    res.status(200).json(data);
+    if (isCsv === 'true') {
+      return json2csv(data, (_err, csv) => {
+        if (downloadCsv === 'true') {
+          res.attachment(
+            `${country}-${date}-to-${endDate || date}=timeline.csv`,
+          );
+        }
+        return res.send(csv);
+      });
+    }
+    return res.status(200).json(data);
   } catch (err) {
-    next(err);
+    return next(err);
   }
 });
 

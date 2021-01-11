@@ -67,7 +67,7 @@ const dataNarrativa = async () => {
             Active: value.today_open_cases,
             Source:
               value.source === 'https://www.covid19india.org/'
-                ? 'covid19India'
+                ? 'Ministry of Health and Family Welfare Government of India.'
                 : value.source,
             Timeline: `${config.url}/timeline/${codeFilter(
               value.name,
