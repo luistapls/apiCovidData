@@ -10,10 +10,8 @@ const logErrors = (err, _req, _res, next) => {
   // eslint-disable-next-line no-console
   config.dev && console.log(next(err));
 };
-function withErrorStack(err, stack) {
-  if (config.dev) {
-    return { ...err, stack }; // Object.assign({}, err, stack)
-  }
+function withErrorStack(err, stackError) {
+  return err;
 }
 function wrapErrors(err, _req, _res, next) {
   if (!err.isBoom) {
