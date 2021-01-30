@@ -9,12 +9,15 @@ const {
 const cron00 = async () => {
   try {
     const timelineCore = await timeLineDefault();
-    const countryCore = await countryDefault();
-
     getConnectionTimeline().assign(timelineCore).write();
+  } catch (error) {
+    console.error(error);
+  }
+  try {
+    const countryCore = await countryDefault();
     getConnectionCountry().assign(countryCore).write();
   } catch (error) {
-    console.log(`error: ${error}`);
+    console.error(error);
   }
 };
 

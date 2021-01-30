@@ -81,8 +81,6 @@ dist/
 .now
 .deployment
 .vscode
-db/country.json
-db/timeline.json
 .now
 node_modules
 

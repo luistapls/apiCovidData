@@ -2,13 +2,12 @@
   "name": "coronavirus-api",
   "version": "1.0.0",
   "description": "api coronavirus",
-  "main": "src/server.js",
+  "main": "index.js",
   "scripts": {
-    "dev:build": "node db",
+    "cron:dev": "node db",
     "dev": "nodemon src/server.js",
-    "build": "NODE_ENV=production node db",
-    "cron00": "NODE_ENV=production node jobs/cron/00.js",
-    "start": "pm2 start ecosystem.config.js ",
+    "cron": "NODE_ENV=production node jobs/cron/00.js",
+    "start": "node index.js",
     "lint": "eslint",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
