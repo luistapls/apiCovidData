@@ -3,7 +3,7 @@ name: update data
 on:
   workflow_dispatch:
   schedule:
-   - cron: 60 * * * *
+   - cron: 58 * * * *
 
 jobs:
   downloadStatus:
