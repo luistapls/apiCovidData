@@ -1,0 +1,25 @@
+name: update data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: */120 * * * *
+
+jobs:
+  downloadStatus:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js version 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: npm install
+    - run: npm run cron
+    - run: |
+        git config user.name David Lara
+        git config user.email d99maxi@gmail.com
+        git add .
+        git commit -m "Add report for today"
+        git push
