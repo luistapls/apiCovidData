@@ -88,3 +88,6 @@ node_modules
 .env
 .env.build
 .vercel
+spmdb/*
+spmdb/
+spmlogs/

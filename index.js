@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
+const { stMonitor, stHttpLoggerMiddleware } = require('sematext-agent-express');
 const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
@@ -17,6 +18,7 @@ const resolvers = require('./src/graphql/resolver');
 
 const port = process.env.PORT || 3001;
 const app = express();
+stMonitor.start();
 
 // body parser
 app.use(express.json());
@@ -41,6 +43,7 @@ const server = new ApolloServer({
 server.applyMiddleware({ app, path: '/graphql' });
 app.use(helmet());
 // Future routes
+app.use(stHttpLoggerMiddleware);
 app.use('/', api);
 
 // Catch 404
