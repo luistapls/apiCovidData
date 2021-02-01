@@ -3,8 +3,7 @@ name: update data
 on:
   workflow_dispatch:
   schedule:
-   - cron: 58 * * * *
-
+   - cron: 0 */3 * * *
 jobs:
   downloadStatus:
     runs-on: ubuntu-latest
