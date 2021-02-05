@@ -38,7 +38,7 @@
     "lowdb": "^1.0.0",
     "memory-cache": "^0.2.0",
     "moment-timezone": "^0.5.32",
-    "pm2": "^4.5.0",
+    "pm2": "^4.5.3",
     "snyk": "^1.437.3"
   },
   "devDependencies": {
