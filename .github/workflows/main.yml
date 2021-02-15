@@ -17,8 +17,8 @@ jobs:
     - run: npm install
     - run: npm run cron
     - run: |
-        git config user.name David Lara
-        git config user.email d99maxi@gmail.com
+        git config user.name github
+        git config user.email actions@github.com
         git add .
         git commit -m "Add report for today"
         git push
