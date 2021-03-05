@@ -1,132 +1,151 @@
-/* eslint-disable class-methods-use-this */
-const countriesJson = require('../../utils/data/countries.json');
-const {
-  getConnectionCountry,
-  getConnectionTimeline,
-} = require('../../../lib/lowdb');
+const CountriesService = require('../../infrastructure/CountriesService');
 
-const { uppercaseSlug, getCountriesURL } = require('../../utils/helper/servicesHelper');
+const { uppercaseSlug } = require('../../utils/helper/servicesHelper');
+
+const countriesService = new CountriesService();
 
 class DataServices {
-  async getDataCountries() {
-    return countriesJson || [];
-  }
-
-  async getDataAllCountryData() {
-    const data = [
-      getConnectionCountry().value(),
-      getConnectionTimeline().value(),
-    ];
-    return data || [];
-  }
-
-  async getCountries(countries) {
-    const data = await getConnectionCountry()
-      .get('countryData')
-      .find(getCountriesURL(countries))
-      .value()[getCountriesURL(countries)];
-    return data || [];
-  }
-
-  async getState(countries, stateP) {
-    const country = await this.getCountries(countries);
-    const data = await country.State.find(
-      (i) => uppercaseSlug(i.Province_State) === uppercaseSlug(stateP),
-    );
-    return data || [];
-  }
-
-  async getCity(countries, stateP, cityp) {
-    let data = {};
-    try {
-      const state = await this.getState(countries, stateP);
-      const dataCity = await state.City.find(
-        (i) => uppercaseSlug(i.City) === uppercaseSlug(cityp),
-      );
-      data = dataCity || [];
-    } catch {
-      data = [];
-    }
-    return data;
-  }
-
   async getSummaries() {
-    const getDB = getConnectionCountry().value();
+    const countriesDocuments = await countriesService.getAllCountriesDocuments();
+
+    let Confirmed = 0;
+    let Deaths = 0;
+    let Recovered = 0;
+    let Active = 0;
+    let NewConfirmed = 0;
+    let NewDeaths = 0;
+    let NewRecovered = 0;
+    let NewActive = 0;
+    let YesterdayConfirmed = 0;
+    let YesterdayDeaths = 0;
+    let YesterdayRecovered = 0;
+    let YesterdayActive = 0;
+
+    const arraySummaryCountries = countriesDocuments.map((countryDocument) => {
+      const country = countryDocument;
+
+      Confirmed += country.Confirmed;
+      Deaths += country.Deaths;
+      Recovered += country.Recovered;
+      Active += country.Active;
+      NewConfirmed += country.NewConfirmed;
+      NewDeaths += country.NewDeaths;
+      NewRecovered += country.NewRecovered;
+      NewActive += country.NewActive;
+      YesterdayConfirmed += country.YesterdayConfirmed;
+      YesterdayDeaths += country.YesterdayDeaths;
+      YesterdayRecovered += country.YesterdayRecovered;
+      YesterdayActive += country.YesterdayActive;
+
+      delete country.State;
+      return country;
+    });
+
     const data = {
-      globalData: getDB.globalData,
-      countries: getDB.countryData.map((d) => d[Object.keys(d)[0]].Summary),
+      globalData: {
+        Confirmed,
+        Deaths,
+        Recovered,
+        Active,
+        NewConfirmed,
+        NewDeaths,
+        NewRecovered,
+        NewActive,
+        YesterdayConfirmed,
+        YesterdayDeaths,
+        YesterdayRecovered,
+        YesterdayActive,
+        // Revisar LastUpdate
+        LastUpdate: arraySummaryCountries[0].LastUpdate,
+      },
+      countries: arraySummaryCountries,
     };
 
-    return data || [];
+    return data || {};
   }
 
-  async getTimelineAll() {
-    let data = [];
-    try {
-      const getDB = getConnectionTimeline().value();
-      data = {
-        timeline: getDB.timeline,
-        timelineProvince: getDB.timelineProvince,
-      };
-    } catch (error) {
-      data = [];
-    }
+  async getAllCountryData() {
+    const countriesDocuments = await countriesService.getAllCountriesDocuments();
 
-    return data;
+    let Confirmed = 0;
+    let Deaths = 0;
+    let Recovered = 0;
+    let Active = 0;
+    let NewConfirmed = 0;
+    let NewDeaths = 0;
+    let NewRecovered = 0;
+    let NewActive = 0;
+    let YesterdayConfirmed = 0;
+    let YesterdayDeaths = 0;
+    let YesterdayRecovered = 0;
+    let YesterdayActive = 0;
+
+    const arrayCountries = countriesDocuments.map((countryDocument) => {
+      const country = countryDocument;
+
+      Confirmed += country.Confirmed;
+      Deaths += country.Deaths;
+      Recovered += country.Recovered;
+      Active += country.Active;
+      NewConfirmed += country.NewConfirmed;
+      NewDeaths += country.NewDeaths;
+      NewRecovered += country.NewRecovered;
+      NewActive += country.NewActive;
+      YesterdayConfirmed += country.YesterdayConfirmed;
+      YesterdayDeaths += country.YesterdayDeaths;
+      YesterdayRecovered += country.YesterdayRecovered;
+      YesterdayActive += country.YesterdayActive;
+
+      return country;
+    });
+
+    const data = {
+      globalData: {
+        Confirmed,
+        Deaths,
+        Recovered,
+        Active,
+        NewConfirmed,
+        NewDeaths,
+        NewRecovered,
+        NewActive,
+        YesterdayConfirmed,
+        YesterdayDeaths,
+        YesterdayRecovered,
+        YesterdayActive,
+        // Revisar LastUpdate
+        LastUpdate: arrayCountries[0].LastUpdate,
+      },
+      countries: arrayCountries,
+    };
+
+    return data || {};
   }
 
-  async getTimeLine(countries) {
-    let data = [];
-    try {
-      data = await getConnectionTimeline()
-        .get('timeline')
-        .filter({ Country: getCountriesURL(countries) })
-        .value();
-    } catch (error) {
-      data = [];
-    }
+  async getCountryDocument(countryName) {
+    const data = await countriesService.getCountryDocument(countryName);
 
-    return data;
+    return data || {};
   }
 
-  async getTimeLineInfo(countries) {
-    let data = [];
-    try {
-      data = await getConnectionTimeline()
-        .get('provinceName')
-        .find(getCountriesURL(countries))
-        .value()[getCountriesURL(countries)];
-    } catch (error) {
-      data = [];
-    }
-    return data;
+  async getProvinceDocument(countryName, stateName) {
+    const countryObj = await this.getCountryDocument(countryName);
+
+    const data = countryObj.State.find(
+      (stateObj) =>
+        uppercaseSlug(stateObj.Province) === uppercaseSlug(stateName),
+    );
+    return data || {};
   }
 
-  async getTimeLineCity(countries, City) {
-    let data = [];
-    try {
-      const urlCity = await this.getTimeLineInfo(countries);
-      const nameFilter = await urlCity.find(
-        (value) => value.Province === City || value.Slug === City,
-      ).Province;
-      data = await getConnectionTimeline()
-        .get('timelineProvince')
-        .filter({ Country: getCountriesURL(countries), Province: nameFilter })
-        .value();
-    } catch (error) {
-      data = [];
-    }
+  async getCityDocument(countryName, stateName, cityName) {
+    const stateObj = await this.getProvinceDocument(countryName, stateName);
 
-    return data;
-  }
+    const data = stateObj.City.find(
+      (cityObj) => uppercaseSlug(cityObj.City) === uppercaseSlug(cityName),
+    );
 
-  async filters(country, date, endDate) {
-    const geTimeLineCountry = await this.getTimeLine(country);
-    return endDate
-      ? geTimeLineCountry.filter(
-        (value) => value.Date >= date && value.Date <= endDate,
-      )
-      : geTimeLineCountry.filter((value) => value.Date === date);
+    return data || {};
   }
 }
 module.exports = DataServices;

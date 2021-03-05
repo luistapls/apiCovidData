@@ -1,85 +1,116 @@
-const allJson = require('../utils/data/all');
+const HistoricService = require('../infrastructure/HistoricService');
 const DataServices = require('../services/http/getData');
-const { getCountriesURL } = require('../utils/helper/servicesHelper');
 
-const dataService = new DataServices();
+const countriesJson = require('../utils/data/countries.json');
+const allJson = require('../utils/data/all');
+
+const historicService = new HistoricService();
+const dataServices = new DataServices();
 
 const apiRoutes = async (app) => {
   app.get('/', async () => allJson);
-  app.get('/country', async () => {
-    const dataSevices = await dataService.getDataCountries();
-    return dataSevices;
-  });
+
+  app.get('/country', async () => countriesJson || []);
+
   app.get('/summary', async () => {
-    const dataSevices = await dataService.getSummaries();
-    return dataSevices;
+    const data = await dataServices.getSummaries();
+
+    return data;
   });
+
   app.get('/all', async () => {
-    const dataSevicesCountry = await dataService.getDataAllCountryData();
-    return dataSevicesCountry;
-  });
-  app.get('/timeline', async () => {
-    const dataSevices = await dataService.getTimelineAll();
-    return dataSevices;
-  });
-  app.get('/country/:countries', async (request) => {
-    const {
-      params: { countries },
-    } = request;
+    const data = await dataServices.getDataAllCountryData();
 
-    const data = await dataService.getCountries(countries);
-    return { ...data };
-  });
-  app.get('/country/:countries/:statep', async (request) => {
-    const {
-      params: { countries, statep },
-    } = request;
-
-    const data = await dataService.getState(countries, statep);
     return data;
   });
-  app.get('/country/:countries/:statep/:cityp', async (request) => {
+
+  app.get('/country/:countryName', async (request) => {
     const {
-      params: { countries, statep, cityp },
+      params: { countryName },
     } = request;
 
-    const data = await dataService.getCity(countries, statep, cityp);
+    const data = await dataServices.getCountryDocument(countryName);
+
     return data;
   });
-  app.get('/timeline/:countries', async (request) => {
+
+  app.get('/country/:countryName/:provinceName', async (request) => {
     const {
-      params: { countries },
+      params: { countryName, provinceName },
     } = request;
 
-    const data = await dataService.getTimeLine(countries);
+    const data = await dataServices.getProvinceDocument(
+      countryName,
+      provinceName,
+    );
+
     return data;
   });
-  app.get('/timeline/:countries/provinces', async (request) => {
+
+  app.get('/country/:countryName/:provinceName/:cityName', async (request) => {
     const {
-      params: { countries, statep },
+      params: { countryName, provinceName, cityName },
     } = request;
 
-    const data = await dataService.getTimeLineInfo(countries, statep);
+    const data = await dataServices.getCityDocument(
+      countryName,
+      provinceName,
+      cityName,
+    );
+
     return data;
   });
-  app.get('/timeline/:countries/provinces/:statep/', async (request) => {
+
+  app.get('/timeline/:countryName', async (request) => {
     const {
-      params: { countries, statep },
+      params: { countryName },
+      query: { startDate, endDate },
     } = request;
-    const data = await dataService.getTimeLineCity(countries, statep);
-    return data;
-  });
-  app.get('/filters', async (request) => {
-    const {
-      query: { date, endDate, country },
-    } = request;
-    const data = await dataService.filters(
-      getCountriesURL(country),
-      date,
+
+    const data = await historicService.getCountryDocuments(
+      countryName,
+      startDate,
       endDate,
     );
+
     return data;
   });
+
+  app.get('/timeline/:countryName/:provinceName', async (request) => {
+    const {
+      params: { countryName, provinceName },
+      query: { startDate, endDate },
+    } = request;
+
+    const data = await historicService.getProvinceDocuments(
+      countryName,
+      provinceName,
+      startDate,
+      endDate,
+    );
+
+    return data;
+  });
+
+  app.get(
+    '/timeline/:countryName/:provinceName/:cityName/',
+    async (request) => {
+      const {
+        params: { countryName, provinceName, cityName },
+        query: { startDate, endDate },
+      } = request;
+
+      const data = await historicService.getCityDocuments(
+        countryName,
+        provinceName,
+        cityName,
+        startDate,
+        endDate,
+      );
+
+      return data;
+    },
+  );
 };
 
 module.exports = apiRoutes;

@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 const { build } = require('./src/app');
-
 const port = process.env.PORT || 8000;
 
 build()
