@@ -5,14 +5,14 @@ const match = new Match();
 
 class HistoricService {
   constructor() {
-    this.collection = 'historic';
+    this.collection = process.env.HISTORIC_NAME_COLLECTION;
     this.mongoDB = new MongoLib();
   }
 
   async getCountryDocuments(countryName, startDate, endDate) {
     const document = await this.mongoDB.matchCountryDocuments(
       this.collection,
-      match.matchCountry(countryName, startDate, endDate),
+      match.matchCountry(countryName, startDate, endDate)
     );
 
     return document || {};
@@ -21,7 +21,7 @@ class HistoricService {
   async getProvinceDocuments(countryName, provinceName, startDate, endDate) {
     const document = await this.mongoDB.matchProvinceDocuments(
       this.collection,
-      match.matchProvince(countryName, provinceName, startDate, endDate),
+      match.matchProvince(countryName, provinceName, startDate, endDate)
     );
     return document || [];
   }
@@ -31,11 +31,11 @@ class HistoricService {
     provinceName,
     cityName,
     startDate,
-    endDate,
+    endDate
   ) {
     const document = await this.mongoDB.matchCityDocuments(
       this.collection,
-      match.matchCity(countryName, provinceName, cityName, startDate, endDate),
+      match.matchCity(countryName, provinceName, cityName, startDate, endDate)
     );
 
     return document || [];

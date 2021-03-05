@@ -2,7 +2,7 @@ const MongoLib = require('./MongoLib');
 
 class CountriesService {
   constructor() {
-    this.collection = 'country';
+    this.collection = process.env.COUNTRIES_NAME_COLLECTION;
     this.mongoDB = new MongoLib();
   }
 
@@ -14,7 +14,7 @@ class CountriesService {
   async getCountryDocument(countryName) {
     const document = await this.mongoDB.countryDocument(
       this.collection,
-      countryName,
+      countryName
     );
     return document || {};
   }

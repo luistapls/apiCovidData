@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
-const url = 'mongodb://localhost:27017';
-const dbName = 'countriesDB';
+const url = process.env.URL;
+const dbName = process.env.DB_NAME;
 
 class MongoLib {
   constructor() {
@@ -25,13 +25,13 @@ class MongoLib {
 
   allCountriesDocuments(collection) {
     return this.connect().then((db) =>
-      db.collection(collection).find().toArray(),
+      db.collection(collection).find().toArray()
     );
   }
 
   countryDocument(collection, countryName) {
     return this.connect().then((db) =>
-      db.collection(collection).findOne({ _id: countryName }),
+      db.collection(collection).findOne({ _id: countryName })
     );
   }
 
@@ -53,7 +53,7 @@ class MongoLib {
           },
           { $sort: { _id: -1 } },
         ])
-        .toArray(),
+        .toArray()
     );
   }
 
@@ -76,7 +76,7 @@ class MongoLib {
           },
           { $sort: { _id: -1 } },
         ])
-        .toArray(),
+        .toArray()
     );
   }
 
@@ -102,7 +102,7 @@ class MongoLib {
           },
           { $sort: { _id: -1 } },
         ])
-        .toArray(),
+        .toArray()
     );
   }
 }
